@@ -1,6 +1,6 @@
 ---
 name: Task Card
-about: Task Card
+about: 'Task 카드 생성시 사용되는 template입니다. '
 title: "[Task] 작업내용"
 labels: ''
 assignees: ''
