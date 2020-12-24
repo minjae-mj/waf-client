@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./Login.css";
+import { BrowserRouter as Router, Link, Switch } from "react-router-dom";
 import axios from "axios";
 
-class Login extends Component {
+class Login extends React.Component {
   constructor(props) {
     super();
 
@@ -27,6 +28,8 @@ class Login extends Component {
       this.setState({ isEmailChecked: false });
     }
   };
+
+  
 
   PasswordValidator = (e) => {
     console.log(e.target.value);
@@ -70,12 +73,14 @@ class Login extends Component {
           >
             로그인
           </button>
-          <button
-            className="singUpButton"
-            onClick={this.convertToSignup.bind(this)}
-          >
-            회원가입
-          </button>
+          <Link to="/signup">
+            <button
+              className="singUpButton"
+              onClick={this.convertToSignup.bind(this)}
+            >
+              회원가입
+            </button>
+          </Link>
           <div className="naverOauth"></div>
           <div className="googleOauth"></div>
         </div>

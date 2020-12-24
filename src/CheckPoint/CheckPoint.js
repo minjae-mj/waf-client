@@ -5,13 +5,11 @@ import Myfridge from ".././Myfridge/Myfridge";
 class CheckPoint extends Component {
   constructor(props) {
     super();
-
     this.state = {
       isLogin: false,
       accessToken: "",
     };
   }
-
   render() {
     const { isLogin, accessToken } = this.state;
 
@@ -26,5 +24,4 @@ class CheckPoint extends Component {
     );
   }
 }
-
 export default CheckPoint;
