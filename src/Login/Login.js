@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./Login.css";
+import { BrowserRouter as Router, Link, Switch } from "react-router-dom";
 import axios from "axios";
 import { Link, Switch, Route, Redirect, withRouter } from "react-router-dom";
 
-class Login extends Component {
+class Login extends React.Component {
   constructor(props) {
     super();
 
@@ -57,6 +58,8 @@ class Login extends Component {
       this.setState({ isEmailChecked: false });
     }
   };
+
+  
 
   PasswordValidator = (e) => {
     console.log(e.target.value);
@@ -131,6 +134,7 @@ class Login extends Component {
           <Link to="/users/signup">
             <button
               className="singUp__Button"
+
               onClick={this.convertToSignup.bind(this)}
             >
               회원가입

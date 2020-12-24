@@ -6,7 +6,6 @@ import axios from "axios";
 class CheckPoint extends Component {
   constructor(props) {
     super();
-
     this.state = {
       isLogin: false,
       accessToken: "",
@@ -65,7 +64,6 @@ class CheckPoint extends Component {
       this.getAccessToken(authorizationCode);
     }
   }
-
   render() {
     const { isLogin, accessToken } = this.state;
 
@@ -84,5 +82,4 @@ class CheckPoint extends Component {
     );
   }
 }
-
 export default CheckPoint;
