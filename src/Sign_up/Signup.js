@@ -12,6 +12,7 @@ export default class Signup extends Component {
       mobile: "",
     };
   }
+
   handleInputValue = (key) => (e) => {
     this.setState({ [key]: e.target.value });
   };
