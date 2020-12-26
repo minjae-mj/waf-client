@@ -6,7 +6,7 @@ main {
   margin: 10rem;
 }
 
-.naverOauth {
+.naver__Oauth {
   margin: 0;
   height: 2rem;
   width: 9rem;
@@ -17,7 +17,7 @@ main {
   display: block;
 }
 
-.googleOauth {
+.google__Oauth {
   margin: 0;
   height: 2.1rem;
   width: 9rem;
