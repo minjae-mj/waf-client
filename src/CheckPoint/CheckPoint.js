@@ -17,9 +17,10 @@ class CheckPoint extends Component {
     this.LoginHandler = this.LoginHandler.bind(this);
     this.setUserInfo = this.setUserInfo.bind(this);
     this.setUserName = this.setUserName.bind(this);
+    // this.googleAccessToken = this.googleAccessToken.bind(this);
+    // this.naverAccessToken = this.naverAccessToken.bind(this);
     this.getAccessToken = this.getAccessToken.bind(this);
   }
-
   async getAccessToken(authorizationCode) {
     let resp = await axios.post("https://localhost:4000/callback", {
       authorizationCode: authorizationCode,
@@ -32,16 +33,28 @@ class CheckPoint extends Component {
     });
   }
 
-  async naverAccessToken(authorizationCode) {
-    let resp = await axios.post("https://localhost:4000/naver", {
-      authorizationCode: authorizationCode,
-    });
+  // async googleAccessToken(authorizationCode) {
+  //   let resp = await axios.post("https://localhost:4000/callback", {
+  //     authorizationCode: authorizationCode,
+  //     path: this.state.path,
+  //   });
 
-    this.setState({
-      isLogin: true,
-      accessToken: resp.data.accessToken,
-    });
-  }
+  //   this.setState({
+  //     isLogin: true,
+  //     accessToken: resp.data.accessToken,
+  //   });
+  // }
+
+  // async naverAccessToken(authorizationCode) {
+  //   let resp = await axios.post("https://localhost:4000/callback", {
+  //     authorizationCode: authorizationCode,
+  //   });
+
+  //   this.setState({
+  //     isLogin: true,
+  //     accessToken: resp.data.accessToken,
+  //   });
+  // }
 
   LoginHandler = () => {
     this.setState({ isLogin: true });
@@ -64,6 +77,7 @@ class CheckPoint extends Component {
       this.getAccessToken(authorizationCode);
     }
   }
+
   render() {
     const { isLogin, accessToken } = this.state;
 
