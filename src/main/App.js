@@ -5,8 +5,7 @@ import Main from "./Main";
 
 import CheckPoint from "../CheckPoint/CheckPoint";
 import Myfridge from "../Myfridge/Myfridge";
-import Signup from "../Signup/Signup";
-
+import Signup from "../Sign_up/Sign_up";
 
 class App extends React.Component {
   constructor(props) {
