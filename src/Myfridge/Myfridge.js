@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 
 class Myfridge extends Component {
+
   render() {
-    return <div></div>;
+    const {userName, userData} = this.props;
+    return <div>
+      <div className="username">{userName}</div>
+      {
+        userData.
+      }
+    </div>;
   }
 }
 
