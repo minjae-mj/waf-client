@@ -1,0 +1,109 @@
+#demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e4dac6;
+  padding: 80px 120px;
+  max-width: 100%;
+  height: 100%;
+}
+.left {
+  flex-basis: 60%;
+  display: flex;
+}
+.fridge {
+  position: relative;
+}
+.fridge_leftside {
+  /* background: url("./img_fridge/left_fridge.png") center/cover no-repeat; */
+  height: 500px;
+  width: 250px;
+
+  /* position: relative; */
+  /* display: grid;
+  grid-column: 300px;
+  grid-row: 1fr 100px 1fr;
+  grid-row-gap: 10px; */
+}
+#mandu {
+  position: absolute;
+  width: 132px;
+  height: 120px;
+  top: 48px;
+  left: 56px;
+  display: none;
+}
+
+#dairy {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 376px;
+  left: 80px;
+  display: none;
+}
+#eggs {
+  position: absolute;
+  width: 176px;
+  height: 40px;
+  top: 248px;
+  left: 36px;
+  display: none;
+}
+
+.fridge_rightside {
+  height: 500px;
+  width: 300px;
+  /* background: url("./img_fridge/right_fridge.png") center/cover no-repeat;*/
+}
+#seafood {
+  position: absolute;
+  width: 160px;
+  height: 56px;
+  top: 114px;
+  left: 88px;
+  display: none;
+}
+#meat {
+  position: absolute;
+  width: 148px;
+  height: 64px;
+  top: 248px;
+  left: 96px;
+  display: none;
+}
+#veges {
+  position: absolute;
+
+  width: 80;
+  height: 72px;
+  top: 400px;
+  left: 80px;
+  display: none;
+}
+#fruits {
+  position: absolute;
+  width: 80;
+  height: 72px;
+  top: 400px;
+  left: 172px;
+  display: none;
+}
+
+.right {
+  flex-basis: 40%;
+  /* width: 100px;
+  height: 100px;
+  background-color: greenyellow; */
+}
+.fridge__inputBox {
+  width: 100%;
+  height: 400px;
+  background-color: rgb(218, 206, 106);
+  text-align: center;
+}
+.fridge__inputBox__title {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 8px 0px;
+}
