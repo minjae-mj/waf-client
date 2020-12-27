@@ -21,9 +21,9 @@ class Login extends React.Component {
     // 참고: https://docs.github.com/en/free-pro-team@latest/developers/apps/identifying-and-authorizing-users-for-github-apps
 
     this.NAVER_LOGIN_URL =
-      "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=Yn5blabiliLbi8Ed8Je4&state=waftest&redirect_uri=http://localhost:3000/";
+      "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=Yn5blabiliLbi8Ed8Je4&state=waftest&redirect_uri=http://localhost:3000/users";
 
-    this.GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=218828135580-63brp05lohg6jb7f58rgjhueorgtv9d6.apps.googleusercontent.com&redirect_uri=http://localhost:3000&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile`;
+    this.GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=218828135580-63brp05lohg6jb7f58rgjhueorgtv9d6.apps.googleusercontent.com&redirect_uri=http://localhost:3000/users&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile`;
   }
 
   // let GOOGLE_LOGIN_URL = new URL('https://accounts.google.com/o/oauth2/v2/auth');
@@ -83,21 +83,6 @@ class Login extends React.Component {
           let { username } = res.data;
           this.props.LoginHandler(true);
           this.props.setUserName({ username });
-        })
-        .then((res) => {
-          return axios.get("https://localhost:4000/myfridge/:userid", {
-            withCredentials: true,
-          });
-        })
-        .then((resp) => {
-          let { item, category, part, created_at, modified_at } = resp.data;
-          this.props.setUserInfo({
-            item,
-            category,
-            part,
-            created_at,
-            modified_at,
-          });
         })
         .catch((err) => alert(err));
     }
