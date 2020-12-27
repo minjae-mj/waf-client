@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Main extends React.Component {
   constructor(props) {
-    super(props);
+    super();
   }
   render() {
     return (
@@ -15,7 +15,7 @@ class Main extends React.Component {
 
         {/* 로그인과 시작하기 버튼  */}
         <div className="main__buttonBox">
-          <Link to="/myfridge">
+          <Link to="/Demo">
             <button className="main__btn">waf 시작해보기</button>
           </Link>
 
