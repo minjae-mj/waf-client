@@ -2,69 +2,50 @@ import React, { Component } from "react";
 import Login from ".././Login/Login";
 import Myfridge from "../Myfridge/Myfridge";
 import axios from "axios";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 
 class CheckPoint extends Component {
   constructor(props) {
-    super();
+    super(props);
+
     this.state = {
       isLogin: false,
       accessToken: "",
       userName: "",
-      userData: null,
-      path: null,
     };
 
     this.LoginHandler = this.LoginHandler.bind(this);
-    this.setUserInfo = this.setUserInfo.bind(this);
-    this.setUserName = this.setUserName.bind(this);
-    // this.googleAccessToken = this.googleAccessToken.bind(this);
-    // this.naverAccessToken = this.naverAccessToken.bind(this);
     this.getAccessToken = this.getAccessToken.bind(this);
+    this.signoutHandler = this.signoutHandler.bind(this);
+    this.setUserName = this.setUserName.bind(this);
   }
+
   async getAccessToken(authorizationCode) {
-    let resp = await axios.post("https://localhost:4000/callback", {
+    let resp = await axios.post("http://localhost:4000/callback", {
       authorizationCode: authorizationCode,
-      path: this.state.path,
     });
 
     this.setState({
       isLogin: true,
       accessToken: resp.data.accessToken,
     });
+
+    this.props.history.push({
+      pathname: "/myfridge",
+      state: { accessToken: this.state.accessToken },
+    });
   }
-
-  // async googleAccessToken(authorizationCode) {
-  //   let resp = await axios.post("https://localhost:4000/callback", {
-  //     authorizationCode: authorizationCode,
-  //     path: this.state.path,
-  //   });
-
-  //   this.setState({
-  //     isLogin: true,
-  //     accessToken: resp.data.accessToken,
-  //   });
-  // }
-
-  // async naverAccessToken(authorizationCode) {
-  //   let resp = await axios.post("https://localhost:4000/callback", {
-  //     authorizationCode: authorizationCode,
-  //   });
-
-  //   this.setState({
-  //     isLogin: true,
-  //     accessToken: resp.data.accessToken,
-  //   });
-  // }
 
   LoginHandler = () => {
     this.setState({ isLogin: true });
   };
 
-  setUserInfo(object) {
-    this.setState({ userData: object });
-  }
   setUserName(name) {
     this.setState({ userName: name });
+  }
+
+  signoutHandler() {
+    this.setState({ isLogin: false });
   }
 
   componentDidMount() {
@@ -79,21 +60,44 @@ class CheckPoint extends Component {
   }
 
   render() {
-    const { isLogin, accessToken } = this.state;
+    const { isLogin, accessToken, userName } = this.state;
 
     return (
       <div className="CheckPoint">
-        {!isLogin ? (
-          <Login
-            LoginHandle={this.LoginHandler}
-            setUserInfo={this.setUserInfo}
-            setUserName={this.setUserName}
-          ></Login>
-        ) : (
-          <Myfridge accessToken={accessToken}></Myfridge>
-        )}
+        <Switch>
+          <Route
+            path="/users"
+            render={() => (
+              <Login
+                LoginHandle={this.LoginHandler}
+                setUserInfo={this.setUserInfo}
+                setUserName={this.setUserName}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/myfridge"
+            render={() => (
+              <Myfridge
+                accessToken={accessToken}
+                signoutHandler={this.signoutHandler}
+                userName={userName}
+              />
+            )}
+          />
+          <Route
+            path="/"
+            render={() => {
+              if (isLogin) {
+                return <Redirect to="/myfridge" />;
+              }
+              return <Redirect to="/users" />;
+            }}
+          />
+        </Switch>
       </div>
     );
   }
 }
-export default CheckPoint;
+export default withRouter(CheckPoint);
