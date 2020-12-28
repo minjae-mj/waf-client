@@ -39,6 +39,7 @@ class Myfridge extends Component {
     this.setState({ username: response.data });
   }
 
+  
   render() {
     const { accessToken, userName } = this.props;
     const { userData, username } = this.state;
