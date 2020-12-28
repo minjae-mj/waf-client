@@ -2,70 +2,52 @@ import React, { Component } from "react";
 import Login from ".././Login/Login";
 import Myfridge from "../Myfridge/Myfridge";
 import axios from "axios";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class CheckPoint extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       isLogin: false,
       accessToken: "",
       userName: "",
-      userData: null,
-      path: null,
     };
 
     this.LoginHandler = this.LoginHandler.bind(this);
-    this.setUserInfo = this.setUserInfo.bind(this);
     this.setUserName = this.setUserName.bind(this);
-    // this.googleAccessToken = this.googleAccessToken.bind(this);
-    // this.naverAccessToken = this.naverAccessToken.bind(this);
     this.getAccessToken = this.getAccessToken.bind(this);
   }
   async getAccessToken(authorizationCode) {
-    let resp = await axios.post("https://localhost:4000/callback", {
+    let resp = await axios.post("http://localhost:4000/callback", {
       authorizationCode: authorizationCode,
-      path: this.state.path,
     });
 
     this.setState({
       isLogin: true,
       accessToken: resp.data.accessToken,
     });
+    console.log(resp.data);
+    console.log(authorizationCode);
+    this.props.history.push("/myfridge");
   }
 
-  // async googleAccessToken(authorizationCode) {
-  //   let resp = await axios.post("https://localhost:4000/callback", {
-  //     authorizationCode: authorizationCode,
-  //     path: this.state.path,
-  //   });
-
-  //   this.setState({
-  //     isLogin: true,
-  //     accessToken: resp.data.accessToken,
-  //   });
-  // }
-
-  // async naverAccessToken(authorizationCode) {
-  //   let resp = await axios.post("https://localhost:4000/callback", {
-  //     authorizationCode: authorizationCode,
-  //   });
-
-  //   this.setState({
-  //     isLogin: true,
-  //     accessToken: resp.data.accessToken,
-  //   });
-  // }
-
-  LoginHandler = () => {
-    this.setState({ isLogin: true });
+  LoginHandler = (v) => {
+    this.setState({ isLogin: v });
+    this.props.history.push("/myfridge");
   };
 
-  setUserInfo(object) {
-    this.setState({ userData: object });
-  }
   setUserName(name) {
     this.setState({ userName: name });
   }
+
+  logoutHandler = () => {
+    axios.post("http://localhost:4000/users/signout").then((res) => {
+      console.log("logedout");
+      this.setState({ isLogin: false });
+      this.props.history.push("/users");
+    });
+  };
 
   componentDidMount() {
     // authorization server로부터 클라이언트로 리디렉션된 경우, authorization code가 함께 전달됩니다.
@@ -79,21 +61,43 @@ class CheckPoint extends Component {
   }
 
   render() {
-    const { isLogin, accessToken } = this.state;
+    const { isLogin, accessToken, userName } = this.state;
 
     return (
       <div className="CheckPoint">
-        {!isLogin ? (
-          <Login
-            LoginHandle={this.LoginHandler}
-            setUserInfo={this.setUserInfo}
-            setUserName={this.setUserName}
-          ></Login>
-        ) : (
-          <Myfridge accessToken={accessToken}></Myfridge>
-        )}
+        <Switch>
+          <Route
+            path="/users"
+            render={() => (
+              <Login
+                LoginHandler={this.LoginHandler}
+                setUserName={this.setUserName}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/myfridge"
+            render={() => (
+              <Myfridge
+                accessToken={accessToken}
+                userName={userName}
+                logoutHandler={this.logoutHandler.bind(this)}
+              />
+            )}
+          />
+          <Route
+            path="/"
+            render={() => {
+              if (isLogin) {
+                return <Redirect to="/myfridge" />;
+              }
+              return <Redirect to="/users" />;
+            }}
+          />
+        </Switch>
       </div>
     );
   }
 }
-export default CheckPoint;
+export default withRouter(CheckPoint);

@@ -25,6 +25,8 @@ class AddItem extends Component {
           created_at: "2020-12-25",
           modified_at: "",
         },
+        {},
+        {},
       ],
 
       item: "",
@@ -43,7 +45,6 @@ class AddItem extends Component {
   inputValueHandler = (key) => (e) => {
     this.setState((prevState) => ({
       // purchase: {
-      // ...prevState[key],
       [key]: e.target.value,
       // },
     }));
@@ -95,12 +96,19 @@ class AddItem extends Component {
       !part ||
       !created_at ||
       !modified_at ||
-      !modified_at ||
       !boughtToday
     ) {
       console.log("더넣어");
     } else {
-      console.log(this.state);
+      const container = [];
+      container.push({
+        item,
+        category,
+        part,
+        boughtToday,
+        modified_at,
+        created_at,
+      });
     }
     console.log(e);
   };
@@ -114,9 +122,7 @@ class AddItem extends Component {
     return (
       <div>
         {userName ? (
-          <div className="username">
-            {this.props.location.state.userName}의 냉장고입니다.
-          </div>
+          <div className="username">{userName}의 냉장고입니다.</div>
         ) : (
           <div className="username">{usernameOauth}의 냉장고입니다.</div>
         )}
