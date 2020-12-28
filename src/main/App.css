@@ -7,6 +7,7 @@
   flex-direction: column;
   height: 100vh;
 }
+
 .main__img {
   display: flex;
   align-items: center;

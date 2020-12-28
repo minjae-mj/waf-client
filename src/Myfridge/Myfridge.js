@@ -8,6 +8,7 @@ class Myfridge extends Component {
     });
   };
 
+  
   render() {
     const { accessToken, userName, userData } = this.props;
 

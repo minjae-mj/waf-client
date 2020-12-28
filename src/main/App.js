@@ -3,9 +3,11 @@ import React from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Main from "./Main";
 
+
 import CheckPoint from "../CheckPoint/CheckPoint";
 import Myfridge from "../Myfridge/Myfridge";
 import Signup from "../Signup/Signup";
+
 
 
 class App extends React.Component {
