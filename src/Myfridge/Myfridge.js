@@ -147,7 +147,9 @@ class Myfridge extends Component {
         {/* -----------------------------냉장고 리스트업------------------------------- */}
 
         <Link to="/cart">
-          <button> 냉장고에 넣기 </button>
+          <button userName={userName} usernameOauth={usernameOauth}>
+            냉장고에 넣기
+          </button>
         </Link>
       </div>
     );
