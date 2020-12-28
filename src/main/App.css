@@ -12,8 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background: url(../img/main_img.jpg) center/cover no-repeat;
+  background: url("img/mainImage.jpg") center/cover no-repeat;
   height: 80%;
   text-align: center;
 }
