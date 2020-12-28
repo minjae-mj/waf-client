@@ -7,6 +7,7 @@ class AddItem extends Component {
 
     this.state = {
       categories: [
+        "선택 필수",
         "dairy",
         "fruit",
         "vegetables",
@@ -26,14 +27,12 @@ class AddItem extends Component {
         },
       ],
 
-      purchase: {
-        item: "",
-        category: "",
-        part: "",
-        created_at: new Date(),
-        modified_at: "",
-        boughtToday: true,
-      },
+      item: "",
+      category: "",
+      part: "",
+      created_at: new Date(),
+      modified_at: "",
+      boughtToday: true,
     };
   }
 
@@ -42,25 +41,26 @@ class AddItem extends Component {
   // };
 
   inputValueHandler = (key) => (e) => {
-    this.setState({
-      purchase: {
-        [key]: e.target.value,
-      },
-    });
+    this.setState((prevState) => ({
+      // purchase: {
+      // ...prevState[key],
+      [key]: e.target.value,
+      // },
+    }));
   };
 
   boughtToday = (e) => {
     if (e.target.checked) {
       this.setState({
-        purchase: {
-          boughtToday: true,
-        },
+        // purchase: {
+        boughtToday: true,
+        // },
       });
     } else {
       this.setState({
-        purchase: {
-          boughtToday: false,
-        },
+        // purchase: {
+        boughtToday: false,
+        // },
       });
     }
   };
@@ -80,7 +80,28 @@ class AddItem extends Component {
   };
 
   putCollection = (e) => {
-    console.log(this.state);
+    const {
+      item,
+      category,
+      part,
+      created_at,
+      modified_at,
+      boughtToday,
+    } = this.state;
+
+    if (
+      !item ||
+      !category ||
+      !part ||
+      !created_at ||
+      !modified_at ||
+      !modified_at ||
+      !boughtToday
+    ) {
+      console.log("더넣어");
+    } else {
+      console.log(this.state);
+    }
     console.log(e);
   };
 
@@ -88,11 +109,17 @@ class AddItem extends Component {
 
   render() {
     const { categories, collection } = this.state;
-    const { userName } = this.props;
+    const { userName, usernameOauth } = this.props;
 
     return (
       <div>
-        <div>{userName}님의 카트입니다.</div>
+        {userName ? (
+          <div className="username">
+            {this.props.location.state.userName}의 냉장고입니다.
+          </div>
+        ) : (
+          <div className="username">{usernameOauth}의 냉장고입니다.</div>
+        )}
         {/* 리스트업을 위한 자리 */}
         <ul>
           {/* eslint-disable-next-line array-callback-return */}
@@ -132,6 +159,8 @@ class AddItem extends Component {
           onChange={this.inputValueHandler("item")}
         ></input>
         <select type="part" onChange={this.inputValueHandler("part")}>
+          <option value="fridge">선택필수</option>
+          <option value="fridge">상온</option>
           <option value="fridge">냉장</option>
           <option value="frozen">냉동</option>
         </select>
