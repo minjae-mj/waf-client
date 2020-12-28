@@ -25,11 +25,8 @@ class AddItem extends Component {
           created_at: "2020-12-25",
           modified_at: "",
         },
-<<<<<<< HEAD
         {},
         {},
-=======
->>>>>>> cf8d675fc1e3a2b4a13e89b10331f490c558f959
       ],
 
       item: "",
@@ -48,10 +45,6 @@ class AddItem extends Component {
   inputValueHandler = (key) => (e) => {
     this.setState((prevState) => ({
       // purchase: {
-<<<<<<< HEAD
-=======
-      // ...prevState[key],
->>>>>>> cf8d675fc1e3a2b4a13e89b10331f490c558f959
       [key]: e.target.value,
       // },
     }));
@@ -103,15 +96,10 @@ class AddItem extends Component {
       !part ||
       !created_at ||
       !modified_at ||
-<<<<<<< HEAD
-=======
-      !modified_at ||
->>>>>>> cf8d675fc1e3a2b4a13e89b10331f490c558f959
       !boughtToday
     ) {
       console.log("더넣어");
     } else {
-<<<<<<< HEAD
       const container = [];
       container.push({
         item,
@@ -121,9 +109,6 @@ class AddItem extends Component {
         modified_at,
         created_at,
       });
-=======
-      console.log(this.state);
->>>>>>> cf8d675fc1e3a2b4a13e89b10331f490c558f959
     }
     console.log(e);
   };
@@ -137,13 +122,7 @@ class AddItem extends Component {
     return (
       <div>
         {userName ? (
-<<<<<<< HEAD
           <div className="username">{userName}의 냉장고입니다.</div>
-=======
-          <div className="username">
-            {this.props.location.state.userName}의 냉장고입니다.
-          </div>
->>>>>>> cf8d675fc1e3a2b4a13e89b10331f490c558f959
         ) : (
           <div className="username">{usernameOauth}의 냉장고입니다.</div>
         )}
