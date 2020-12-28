@@ -71,7 +71,7 @@ export default class Demo extends React.Component {
 
         {/* 오른쪽 화면*/}
         <div className="right">
-          <AddItems value={this.state.items} changeItems={this.changeItems} />
+          <AddItems items={this.state.items} changeItems={this.changeItems} />
         </div>
       </div>
     );
