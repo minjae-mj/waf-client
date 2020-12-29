@@ -22,10 +22,9 @@ export default class Signup extends Component {
     console.log(this.state.password);
     console.log(this.state.username);
     console.log(this.state.mobile);
-    axios.post("http://localhost:4000/signup", this.state);
+    axios.post("http://localhost:4000/users/signup", this.state);
   };
 
-  
   render() {
     return (
       <div id="signup">

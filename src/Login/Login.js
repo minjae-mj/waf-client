@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 
 class Login extends React.Component {
@@ -78,13 +78,15 @@ class Login extends React.Component {
           email: this.state.email,
           password: this.state.password,
         },
-        header: { "Content-Type": "application/json", withCredentials: true },
+        headers: { "Content-Type": "application/json", withCredentials: true },
       })
         .then((res) => {
           console.log(res);
           this.props.LoginHandler(true);
-          // this.props.setUserName({ username });
-          // console.log({ username });
+          this.props.setUserName(res.data.username);
+        })
+        .then((res) => {
+          console.log("done");
         })
         // .then((res) => {
         //   return axios.get("https://localhost:4000/myfridge/:userid", {
@@ -106,7 +108,7 @@ class Login extends React.Component {
   };
 
   convertToSignup = () => {
-    console.log("회원가입하고시포요");
+    this.props.history.push("/signup");
   };
 
   render() {
@@ -130,14 +132,14 @@ class Login extends React.Component {
           >
             로그인
           </button>
-          <Link to="/users/signup">
-            <button
-              className="singUp__Button"
-              onClick={this.convertToSignup.bind(this)}
-            >
-              회원가입
-            </button>
-          </Link>
+          {/* <Link to="/users/signup"> */}
+          <button
+            className="singUp__Button"
+            onClick={this.convertToSignup.bind(this)}
+          >
+            회원가입
+          </button>
+          {/* </Link> */}
           <div className="naver__Oauth" onClick={this.naverLoginHandler}></div>
           <div
             name="google"
@@ -150,4 +152,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
