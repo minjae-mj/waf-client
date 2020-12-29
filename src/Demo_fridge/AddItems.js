@@ -1,5 +1,6 @@
 import React from "react";
 import "./Demo.css";
+import Itemlist from "./ItemList";
 
 export default class Demo extends React.Component {
   constructor(props) {
@@ -18,9 +19,18 @@ export default class Demo extends React.Component {
       name: nameVal,
       date: dateVal,
     };
-
     this.props.changeItems(info);
   };
+
+  // componentDidUpdate() {
+  //   let selectVal = document.querySelector(`#fridge__select`).value;
+  //   let nameVal = document.querySelector(`.itemName`).value;
+  //   let dateVal = document.querySelector(`.dateYouBuy`).value;
+
+  //   selectVal = "type";
+  //   nameVal = "";
+  //   dateVal = "";
+  // }
 
   render() {
     return (
@@ -45,6 +55,7 @@ export default class Demo extends React.Component {
         ></input>
         <input className="dateYouBuy" type="date"></input>
         <button onClick={() => this.clickBtn()}>냉장고에 재료 넣기</button>
+        <Itemlist items={this.props.items} />
       </div>
     );
   }

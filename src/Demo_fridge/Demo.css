@@ -107,3 +107,23 @@
   font-weight: bold;
   padding: 8px 0px;
 }
+.demo__itemListBox {
+  margin-top: 40px;
+}
+.demo__itemList__title {
+  font-size: 20px;
+  font-weight: bold;
+}
+.demo__itemList__category {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+.fridge_Section {
+  display: block;
+  flex-basis: 50%;
+}
+.frozen_Section {
+  display: block;
+  flex-basis: 50%;
+}

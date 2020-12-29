@@ -5,7 +5,7 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   render() {
     return (
       <div id="main">
@@ -16,7 +16,7 @@ class Main extends React.Component {
 
         {/* 로그인과 시작하기 버튼  */}
         <div className="main__buttonBox">
-          <Link to="/myfridge">
+          <Link to="/demofridge">
             <button className="main__btn">waf 시작해보기</button>
           </Link>
 

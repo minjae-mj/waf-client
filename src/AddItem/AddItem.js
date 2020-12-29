@@ -1,10 +1,8 @@
 import axios from "axios";
 import React, { Component } from "react";
-
 class AddItem extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       categories: [
         "선택 필수",
@@ -25,13 +23,7 @@ class AddItem extends Component {
           created_at: "2020-12-25",
           modified_at: "",
         },
-<<<<<<< HEAD
-        {},
-        {},
-=======
->>>>>>> cf8d675fc1e3a2b4a13e89b10331f490c558f959
       ],
-
       item: "",
       category: "",
       part: "",
@@ -40,23 +32,16 @@ class AddItem extends Component {
       boughtToday: true,
     };
   }
-
   // inputValueHandler = (key) => (e) => {
   //   this.setState({ [key]: e.target.value });
   // };
-
   inputValueHandler = (key) => (e) => {
     this.setState((prevState) => ({
       // purchase: {
-<<<<<<< HEAD
-=======
-      // ...prevState[key],
->>>>>>> cf8d675fc1e3a2b4a13e89b10331f490c558f959
       [key]: e.target.value,
       // },
     }));
   };
-
   boughtToday = (e) => {
     if (e.target.checked) {
       this.setState({
@@ -72,11 +57,10 @@ class AddItem extends Component {
       });
     }
   };
-
   putDatabase = () => {
     axios
       .post(
-        "https://localhost:4000//myfridge/cart/:id", //개인마다 카트가 다름.
+        "https://localhost:4000//myfridge/cart", //개인마다 카트가 다름.
         this.state.collection,
         {
           "Content-Type": "application/json",
@@ -86,64 +70,39 @@ class AddItem extends Component {
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
   };
-
   putCollection = (e) => {
+    const { collection } = this.state;
     const {
       item,
       category,
       part,
-      created_at,
       modified_at,
+      created_at,
       boughtToday,
     } = this.state;
-
-    if (
-      !item ||
-      !category ||
-      !part ||
-      !created_at ||
-      !modified_at ||
-<<<<<<< HEAD
-=======
-      !modified_at ||
->>>>>>> cf8d675fc1e3a2b4a13e89b10331f490c558f959
-      !boughtToday
-    ) {
+    if (!item || !category || !part) {
       console.log("더넣어");
     } else {
-<<<<<<< HEAD
-      const container = [];
-      container.push({
-        item,
-        category,
-        part,
-        boughtToday,
-        modified_at,
-        created_at,
-      });
-=======
-      console.log(this.state);
->>>>>>> cf8d675fc1e3a2b4a13e89b10331f490c558f959
+      const container = {
+        item: item,
+        category: category,
+        part: part,
+        created_at: created_at,
+        modified_at: modified_at,
+        boughtToday: boughtToday,
+      };
+      this.setState({ collection: collection.concat(container) });
     }
     console.log(e);
   };
-
   deleteCollection = () => {};
-
   render() {
     const { categories, collection } = this.state;
     const { userName, usernameOauth } = this.props;
-
     return (
       <div>
         {userName ? (
-<<<<<<< HEAD
           <div className="username">{userName}의 냉장고입니다.</div>
-=======
-          <div className="username">
-            {this.props.location.state.userName}의 냉장고입니다.
-          </div>
->>>>>>> cf8d675fc1e3a2b4a13e89b10331f490c558f959
         ) : (
           <div className="username">{usernameOauth}의 냉장고입니다.</div>
         )}
@@ -186,8 +145,8 @@ class AddItem extends Component {
           onChange={this.inputValueHandler("item")}
         ></input>
         <select type="part" onChange={this.inputValueHandler("part")}>
-          <option value="fridge">선택필수</option>
-          <option value="fridge">상온</option>
+          <option value="options">선택필수</option>
+          <option value="normal">상온</option>
           <option value="fridge">냉장</option>
           <option value="frozen">냉동</option>
         </select>
@@ -196,15 +155,18 @@ class AddItem extends Component {
           name="오늘구매"
           onClick={this.boughtToday.bind(this)}
         ></input>
-        <input
-          type="date"
-          onChange={this.inputValueHandler("modified_at")}
-        ></input>
+        {this.state.boughtToday ? (
+          <></>
+        ) : (
+          <input
+            type="date"
+            onChange={this.inputValueHandler("modified_at")}
+          ></input>
+        )}
         <button onClick={this.putCollection}> + </button>
         <button onClick={this.putDatabase}> 냉장고에 넣기 </button>
       </div>
     );
   }
 }
-
 export default AddItem;
