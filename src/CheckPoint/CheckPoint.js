@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Login from ".././Login/Login";
 import Myfridge from "../Myfridge/Myfridge";
 import axios from "axios";
-import { Link, Route, Switch, Redirect, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class CheckPoint extends Component {
   constructor(props) {
@@ -25,13 +25,20 @@ class CheckPoint extends Component {
         authorizationCode: authorizationCode,
       })
       .then((res) => {
-        this.setState({ isLogin: true });
+        if (res.data === "Signup Succeeded") {
+          this.props.history.push("/users");
+        } else {
+          console.log(res);
+          this.setState({ isLogin: true, userName: res.data.username });
+          window.localStorage.setItem("userName", `${res.data.username}`);
+        }
       })
       .then((res) => {
         this.props.history.push({
           pathname: "/myfridge",
           isLogin: this.state.isLogin,
           userName: this.state.userName,
+          logoutHandler: this.logoutHandler,
         });
       });
   }
@@ -43,6 +50,7 @@ class CheckPoint extends Component {
 
   setUserName(name) {
     this.setState({ userName: name });
+    window.localStorage.setItem({ userName: name });
     this.props.history.push({
       pathname: "/myfridge",
       isLogin: this.state.isLogin,
@@ -56,6 +64,9 @@ class CheckPoint extends Component {
     await axios.post("http://localhost:4000/users/signout").then((res) => {
       console.log("logedout");
       this.setState({ isLogin: false });
+      delete window.localStorage.userName;
+      window.localStorage.isLogin = false;
+      // delete window.localStorage.userName;
       this.props.history.push("/");
     });
   }
