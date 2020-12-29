@@ -22,6 +22,7 @@ class RealFridge extends Component {
   };
 
   showImages = () => {
+    console.log(this.props.userData);
     for (let item of this.props.userData) {
       let itemType = document.querySelector(`#${item.category}`);
       itemType.style.display = "block";
@@ -37,7 +38,7 @@ class RealFridge extends Component {
   }
 
   render() {
-    const { userData } = this.props;
+    const { userData, partNormal, partFrozen, partFridge } = this.props;
     return (
       <div id="demo">
         {/* 왼쪽 화면 */}
@@ -62,12 +63,40 @@ class RealFridge extends Component {
             <img id="veges" src={veges}></img>
           </div>
         </div>
+        <div className="part__division">
+          <div className="partNormal">상온</div>
+          <div className="partFridge">냉장</div>
+          <div className="partFrozen">냉동</div>
+        </div>
         <div>
           <ul className="sidebar">
-            {/*  eslint-disable-next-line array-callback-return */}
-            {userData.map((item) => (
-              <li key={item.id}>{item.category}</li>
-            ))}
+            {partFridge ? (
+              partFridge.map((item) => (
+                <li className="Item__List" key={item.id}>
+                  {item.category}
+                </li>
+              ))
+            ) : (
+              <></>
+            )}
+            {partFrozen ? (
+              partFrozen.map((item) => (
+                <li className="Item__List" key={item.id}>
+                  {item.category}
+                </li>
+              ))
+            ) : (
+              <></>
+            )}
+            {partNormal ? (
+              partNormal.map((item) => (
+                <li className="Item__List" key={item.id}>
+                  {item.category}
+                </li>
+              ))
+            ) : (
+              <></>
+            )}
           </ul>
           <button onClick={this.goToCart}> 냉장고에 더 넣기 </button>
         </div>

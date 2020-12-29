@@ -130,7 +130,7 @@ class AddItem extends Component {
           {/* eslint-disable-next-line array-callback-return */}
           {collection.map((item) => {
             return (
-              <li key={item.id}>
+              <li key={item.item}>
                 <div>{item.item}</div>
                 <div>{item.category}</div>
                 <div>{item.part}</div>

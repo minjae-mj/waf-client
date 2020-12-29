@@ -29,6 +29,7 @@ class CheckPoint extends Component {
           this.props.history.push("/users");
         } else {
           console.log(res);
+          console.log(res.data.userid);
           this.setState({ isLogin: true, userName: res.data.username });
           window.localStorage.setItem("userName", `${res.data.username}`);
           window.localStorage.setItem("userid", res.data.userid);
@@ -60,17 +61,17 @@ class CheckPoint extends Component {
     });
   }
 
-  async logoutHandler() {
+  logoutHandler = async () => {
     //세션로그아웃
     await axios.post("http://localhost:4000/users/signout").then((res) => {
       console.log("logedout");
       this.setState({ isLogin: false });
       delete window.localStorage.userName;
       window.localStorage.isLogin = false;
-      // delete window.localStorage.userName;
+      delete window.localStorage.userid;
       this.props.history.push("/");
     });
-  }
+  };
 
   componentDidMount() {
     // authorization server로부터 클라이언트로 리디렉션된 경우, authorization code가 함께 전달됩니다.
