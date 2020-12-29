@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 class AddItem extends Component {
   constructor(props) {
@@ -17,19 +18,18 @@ class AddItem extends Component {
       ],
       collection: [
         {
-          id: 1,
           item: "brocolli",
           category: "vegitable",
           part: "fridge",
           created_at: "2020-12-25",
-          modified_at: "",
+          modifiedAt: "",
         },
       ],
       item: "",
       category: "",
       part: "",
-      created_at: `${new Date()}`,
-      modified_at: "",
+      created_at: `${new Date().toISOString().split("T")[0]}`,
+      modifiedAt: "",
       boughtToday: false,
     };
   }
@@ -53,21 +53,22 @@ class AddItem extends Component {
     } else {
       this.setState({
         boughtToday: false,
-        modified_at: modified_date,
+        modifiedAt: modified_date,
       });
     }
   };
-  putDatabase = () => {
-    axios
+  putDatabase = async () => {
+    const { collection } = this.state;
+    const userid = window.localStorage.getItem("userid");
+    await axios
       .post(
-        "https://localhost:4000//myfridge/cart", //개인마다 카트가 다름.
-        this.state.collection,
-        {
-          "Content-Type": "application/json",
-          withCredentials: true,
-        }
+        "http://localhost:4000/myfridge/cart", //개인마다 카트가 다름.
+        { collection: collection, userid: userid }
       )
-      .then((response) => console.log(response))
+      .then((response) => {
+        console.log(response);
+        this.props.history.push("/myfridge");
+      })
       .catch((err) => console.log(err));
   };
   putCollection = (e) => {
@@ -76,7 +77,7 @@ class AddItem extends Component {
       item,
       category,
       part,
-      modified_at,
+      modifiedAt,
       created_at,
       boughtToday,
     } = this.state;
@@ -100,21 +101,29 @@ class AddItem extends Component {
             item: item,
             category: category,
             part: part,
-            modified_at: modified_at,
+            modifiedAt: modifiedAt,
           },
         ];
         this.setState({ collection: collection.concat(...container1) });
       }
     }
-    console.log(e);
   };
-  deleteCollection = () => {};
+
+  deleteCollection = () => {
+    const { collection } = this.state;
+    this.setState({ collection: collection.slice(0, collection.length - 1) });
+  };
+
   render() {
+    const name = window.localStorage.getItem("userName");
     const { categories, collection } = this.state;
-    const { userName, usernameOauth } = this.props;
     return (
       <div>
-        <div className="username">{userName}의 냉장고입니다.</div>
+        <div className="username">
+          {/* {this.props.location.userName} */}
+          {name}
+          님의 카트입니다.
+        </div>
 
         {/* 리스트업을 위한 자리 */}
         <ul>
@@ -125,8 +134,8 @@ class AddItem extends Component {
                 <div>{item.item}</div>
                 <div>{item.category}</div>
                 <div>{item.part}</div>
-                {item.modified_at ? (
-                  <div>{item.modified_at}</div>
+                {item.modifiedAt ? (
+                  <div>{item.modifiedAt}</div>
                 ) : (
                   <div>{item.created_at}</div>
                 )}
@@ -160,7 +169,7 @@ class AddItem extends Component {
           <option value="fridge">냉장</option>
           <option value="frozen">냉동</option>
         </select>
-
+        <span>오늘 구매</span>
         <input
           type="checkbox"
           name="오늘구매"
@@ -172,13 +181,13 @@ class AddItem extends Component {
           <input
             type="date"
             className="calendar"
-            onChange={this.inputValueHandler("modified_at")}
+            onChange={this.inputValueHandler("modifiedAt")}
           ></input>
         )}
         <button onClick={this.putCollection}> + </button>
-        <button onClick={this.putDatabase}> 냉장고에 넣기 </button>
+        <button onClick={this.putDatabase}>냉장고에 넣기</button>
       </div>
     );
   }
 }
-export default AddItem;
+export default withRouter(AddItem);

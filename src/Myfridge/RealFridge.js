@@ -10,32 +10,26 @@ import fish from "../Demo_fridge/img_fridge/fish.png";
 import meat from "../Demo_fridge/img_fridge/meat.png";
 import veges from "../Demo_fridge/img_fridge/veges.png";
 import fruit from "../Demo_fridge/img_fridge/fruit.png";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class RealFridge extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [],
-    };
-  }
-  changeItems = (obj) => {
-    let newItem = obj;
-    this.setState((state) => ({
-      items: state.items.concat(newItem),
-    }));
-
-    console.log(this.state.items);
+  goToCart = () => {
+    const name = window.localStorage.getItem("userName");
+    this.props.history.push({
+      pathname: "/cart",
+      userName: name,
+    });
   };
 
   showImages = () => {
-    for (let item of this.state.items) {
+    for (let item of this.props.userData) {
       let itemType = document.querySelector(`#${item.category}`);
       itemType.style.display = "block";
     }
   };
 
   componentDidMount() {
+    console.log(this.props);
     this.showImages();
   }
   componentDidUpdate() {
@@ -70,17 +64,16 @@ class RealFridge extends Component {
         </div>
         <div>
           <ul className="sidebar">
-            {userData.map((item) => {
-              <li key={item.id}>{item.category}</li>;
-            })}
+            {/*  eslint-disable-next-line array-callback-return */}
+            {userData.map((item) => (
+              <li key={item.id}>{item.category}</li>
+            ))}
           </ul>
-          <Link to="/cart">
-            <button> 냉장고에 넣기 </button>
-          </Link>
+          <button onClick={this.goToCart}> 냉장고에 더 넣기 </button>
         </div>
       </div>
     );
   }
 }
 
-export default RealFridge;
+export default withRouter(RealFridge);
