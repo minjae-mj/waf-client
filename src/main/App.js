@@ -6,10 +6,7 @@ import CheckPoint from "../CheckPoint/CheckPoint";
 import Demo from "../Demo_fridge/Demo";
 import Signup from "../Sign_up/Signup";
 import AddItem from "../AddItem/AddItem";
-<<<<<<< HEAD
 import Demo from "../Demo_fridge/Demo";
-=======
->>>>>>> f01a558f136b78731da3e0fa3333fc4fb58d8beb
 
 class App extends React.Component {
   constructor(props) {
