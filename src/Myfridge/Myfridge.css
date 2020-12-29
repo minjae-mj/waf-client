@@ -1,0 +1,9 @@
+.Myfridge__container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.Myfridge__userbox {
+  flex-basis: 15%;
+}
