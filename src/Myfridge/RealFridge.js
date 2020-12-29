@@ -1,18 +1,18 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
-import "./Demo.css";
-import AddItems from "./AddItems";
-import left_fridge from "./img_fridge/left_fridge.png";
-import mandu from "./img_fridge/mandu.png";
-import eggs from "./img_fridge/eggs.png";
-import dairy from "./img_fridge/dairy.png";
-import right_fridge from "./img_fridge/right_fridge.png";
-import fish from "./img_fridge/fish.png";
-import meat from "./img_fridge/meat.png";
-import veges from "./img_fridge/veges.png";
-import fruit from "./img_fridge/fruit.png";
+import { Component } from "react";
+import "./Myfridge.css";
+import left_fridge from "../Demo_fridge/img_fridge/left_fridge.png";
+import mandu from "../Demo_fridge/img_fridge/mandu.png";
+import eggs from "../Demo_fridge/img_fridge/eggs.png";
+import dairy from "../Demo_fridge/img_fridge/dairy.png";
+import right_fridge from "../Demo_fridge/img_fridge/right_fridge.png";
+import fish from "../Demo_fridge/img_fridge/fish.png";
+import meat from "../Demo_fridge/img_fridge/meat.png";
+import veges from "../Demo_fridge/img_fridge/veges.png";
+import fruit from "../Demo_fridge/img_fridge/fruit.png";
+import { Link } from "react-router-dom";
 
-export default class Demo extends React.Component {
+class RealFridge extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +30,7 @@ export default class Demo extends React.Component {
 
   showImages = () => {
     for (let item of this.state.items) {
-      let itemType = document.querySelector(`#${item.type}`);
+      let itemType = document.querySelector(`#${item.category}`);
       itemType.style.display = "block";
     }
   };
@@ -43,6 +43,7 @@ export default class Demo extends React.Component {
   }
 
   render() {
+    const { userData } = this.props;
     return (
       <div id="demo">
         {/* 왼쪽 화면 */}
@@ -67,15 +68,19 @@ export default class Demo extends React.Component {
             <img id="veges" src={veges}></img>
           </div>
         </div>
-
-        {/* 오른쪽 화면*/}
-        <div className="right">
-          <AddItems items={this.state.items} changeItems={this.changeItems} />
+        <div>
+          <ul className="sidebar">
+            {userData.map((item) => {
+              <li key={item.id}>{item.category}</li>;
+            })}
+          </ul>
+          <Link to="/cart">
+            <button> 냉장고에 넣기 </button>
+          </Link>
         </div>
       </div>
     );
   }
 }
 
-// 카테고리
-// 이름
+export default RealFridge;

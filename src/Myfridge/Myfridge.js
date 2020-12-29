@@ -1,79 +1,83 @@
 import axios from "axios";
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import RealFridge from "./RealFridge";
 
 class Myfridge extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      userData: [],
+      userName: "",
+      userData: [
+        {
+          id: 1,
+          item: "brocolli",
+          category: "vegitable",
+          part: "fridge",
+          created_at: "2020-12-25",
+          modified_at: "",
+        },
+        {
+          id: 1,
+          item: "brocolli",
+          category: "vegitable",
+          part: "fridge",
+          created_at: "2020-12-25",
+          modified_at: "",
+        },
+        {
+          id: 1,
+          item: "brocolli",
+          category: "vegitable",
+          part: "fridge",
+          created_at: "2020-12-25",
+          modified_at: "",
+        },
+      ],
     };
-
-    this.getNaverUserInfo = this.getNaverUserInfo.bind(this);
-    this.getGoogleUserInfo = this.getGoogleUserInfo.bind(this);
+    this.getUserFridge = this.getUserFridge.bind(this);
+    console.log(this.props.location.isLogin);
+    console.log(this.props.location.userName);
   }
 
-  getUserFridge = () => {};
-
-  async getNaverUserInfo() {
-    const { accessToken } = this.props;
-    console.log(accessToken);
-    let response = await axios.get("네이버주소", {
-      headers: {
-        authorization: `token ${accessToken}`,
-      },
-    });
-
-    this.setState({ username: response.data });
+  async getUserFridge() {
+    let data = await axios
+      .get("http://localhost:4000//myfridge/:userid")
+      .then((res) => console.log(res));
+    this.setState({ userData: data });
   }
 
-  async getGoogleUserInfo() {
-    const { accessToken } = this.props;
-    console.log(accessToken);
-    let response = await axios.get("구글", {
-      headers: {
-        authorization: `token ${accessToken}`,
-      },
-    });
-    this.setState({ username: response.data });
+  componentDidUpdate() {
+    this.getUserFridge();
   }
 
-  
   render() {
-    const { accessToken, userName } = this.props;
-    const { userData, username } = this.state;
-
-    if (!{ accessToken }) {
-      return <div className="need__Login">로그인이 필요합니다</div>;
-    }
+    const { logoutHandler } = this.props.location;
+    const { userData } = this.state;
 
     return (
-      <div>
-        {/* ------------------------유저네임-------------------------- */}
-        {userName ? (
-          <div className="username">{userName}의 냉장고입니다. </div>
-        ) : (
-          <div className="username">{username}의 냉장고입니다. </div>
-        )}
-        {/* ------------------------유저네임-------------------------- */}
-
-        <button onClick={this.props.logoutHandler}>로그아웃</button>
-        {/* ------------------------냉장고 리스트업-------------------------- */}
-
-        <ul>
-          {/* eslint-disable-next-line array-callback-return */}
+      <div className="Myfridge__container">
+        <div className="Myfridge__userbox">
+          <div className="username">
+            {this.props.location.userName}의 냉장고입니다.
+          </div>
+          {/* {(세션로그인)? ():()} */}
+          <button className="logout" onClick={logoutHandler}>
+            로그아웃
+          </button>
+        </div>
+        <RealFridge userData={userData} />
+        {/* <ul className="sidebar">
           {userData.map((item) => {
             <li key={item.id}>{item.category}</li>;
           })}
-        </ul>
-        {/* ------------------------냉장고 리스트업-------------------------- */}
-        <Link to="/cart">
+        </ul> */}
+        {/* <Link to="/cart">
           <button> 냉장고에 넣기 </button>
-        </Link>
+        </Link> */}
       </div>
     );
   }
 }
 
-export default Myfridge;
+export default withRouter(Myfridge);

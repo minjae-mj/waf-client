@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
+
 class AddItem extends Component {
   constructor(props) {
     super(props);
@@ -27,9 +28,9 @@ class AddItem extends Component {
       item: "",
       category: "",
       part: "",
-      created_at: new Date(),
+      created_at: `${new Date()}`,
       modified_at: "",
-      boughtToday: true,
+      boughtToday: false,
     };
   }
   // inputValueHandler = (key) => (e) => {
@@ -43,17 +44,16 @@ class AddItem extends Component {
     }));
   };
   boughtToday = (e) => {
+    const modified_date = document.querySelector(".calendar");
+
     if (e.target.checked) {
       this.setState({
-        // purchase: {
         boughtToday: true,
-        // },
       });
     } else {
       this.setState({
-        // purchase: {
         boughtToday: false,
-        // },
+        modified_at: modified_date,
       });
     }
   };
@@ -80,18 +80,31 @@ class AddItem extends Component {
       created_at,
       boughtToday,
     } = this.state;
+
     if (!item || !category || !part) {
       console.log("더넣어");
     } else {
-      const container = {
-        item: item,
-        category: category,
-        part: part,
-        created_at: created_at,
-        modified_at: modified_at,
-        boughtToday: boughtToday,
-      };
-      this.setState({ collection: collection.concat(container) });
+      if (boughtToday) {
+        const container = [
+          {
+            item: item,
+            category: category,
+            part: part,
+            created_at: created_at,
+          },
+        ];
+        this.setState({ collection: collection.concat(...container) });
+      } else {
+        const container1 = [
+          {
+            item: item,
+            category: category,
+            part: part,
+            modified_at: modified_at,
+          },
+        ];
+        this.setState({ collection: collection.concat(...container1) });
+      }
     }
     console.log(e);
   };
@@ -101,11 +114,8 @@ class AddItem extends Component {
     const { userName, usernameOauth } = this.props;
     return (
       <div>
-        {userName ? (
-          <div className="username">{userName}의 냉장고입니다.</div>
-        ) : (
-          <div className="username">{usernameOauth}의 냉장고입니다.</div>
-        )}
+        <div className="username">{userName}의 냉장고입니다.</div>
+
         {/* 리스트업을 위한 자리 */}
         <ul>
           {/* eslint-disable-next-line array-callback-return */}
@@ -150,6 +160,7 @@ class AddItem extends Component {
           <option value="fridge">냉장</option>
           <option value="frozen">냉동</option>
         </select>
+
         <input
           type="checkbox"
           name="오늘구매"
@@ -160,6 +171,7 @@ class AddItem extends Component {
         ) : (
           <input
             type="date"
+            className="calendar"
             onChange={this.inputValueHandler("modified_at")}
           ></input>
         )}

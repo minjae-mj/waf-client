@@ -2,52 +2,63 @@ import React, { Component } from "react";
 import Login from ".././Login/Login";
 import Myfridge from "../Myfridge/Myfridge";
 import axios from "axios";
-import { Route, Switch, Redirect } from "react-router-dom";
-import { withRouter } from "react-router-dom";
+import { Link, Route, Switch, Redirect, withRouter } from "react-router-dom";
 
 class CheckPoint extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLogin: false,
-      accessToken: "",
+      // accessToken: "",
       userName: "",
     };
 
     this.LoginHandler = this.LoginHandler.bind(this);
     this.setUserName = this.setUserName.bind(this);
     this.getAccessToken = this.getAccessToken.bind(this);
+    this.logoutHandler = this.logoutHandler.bind(this);
   }
-  async getAccessToken(authorizationCode) {
-    let resp = await axios.post("http://localhost:4000/callback", {
-      authorizationCode: authorizationCode,
-    });
 
-    this.setState({
-      isLogin: true,
-      accessToken: resp.data.accessToken,
-    });
-    console.log(resp.data);
-    console.log(authorizationCode);
-    this.props.history.push("/myfridge");
+  async getAccessToken(authorizationCode) {
+    await axios
+      .post("http://localhost:4000/callback", {
+        authorizationCode: authorizationCode,
+      })
+      .then((res) => {
+        this.setState({ isLogin: true });
+      })
+      .then((res) => {
+        this.props.history.push({
+          pathname: "/myfridge",
+          isLogin: this.state.isLogin,
+          userName: this.state.userName,
+        });
+      });
   }
 
   LoginHandler = (v) => {
+    //세션로그인
     this.setState({ isLogin: v });
-    this.props.history.push("/myfridge");
   };
 
   setUserName(name) {
     this.setState({ userName: name });
+    this.props.history.push({
+      pathname: "/myfridge",
+      isLogin: this.state.isLogin,
+      userName: this.state.userName,
+      logoutHandler: this.logoutHandler,
+    });
   }
 
-  logoutHandler = () => {
-    axios.post("http://localhost:4000/users/signout").then((res) => {
+  async logoutHandler() {
+    //세션로그아웃
+    await axios.post("http://localhost:4000/users/signout").then((res) => {
       console.log("logedout");
       this.setState({ isLogin: false });
-      this.props.history.push("/users");
+      this.props.history.push("/");
     });
-  };
+  }
 
   componentDidMount() {
     // authorization server로부터 클라이언트로 리디렉션된 경우, authorization code가 함께 전달됩니다.
@@ -61,14 +72,24 @@ class CheckPoint extends Component {
   }
 
   render() {
-    const { isLogin, accessToken, userName } = this.state;
+    const { isLogin, userName } = this.state;
+    console.log({ userName });
+    console.log({ isLogin });
 
     return (
       <div className="CheckPoint">
-        <Switch>
+        {!isLogin ? (
+          <Login
+            LoginHandler={this.LoginHandler}
+            setUserName={this.setUserName}
+          />
+        ) : (
+          <Myfridge logoutHandler={this.logoutHandler} />
+        )}
+        {/* <Switch>
           <Route
             path="/users"
-            render={() => (
+            render={(props) => (
               <Login
                 LoginHandler={this.LoginHandler}
                 setUserName={this.setUserName}
@@ -76,26 +97,26 @@ class CheckPoint extends Component {
             )}
           />
           <Route
-            exact
             path="/myfridge"
-            render={() => (
+            render={(props) => (
               <Myfridge
-                accessToken={accessToken}
-                userName={userName}
-                logoutHandler={this.logoutHandler.bind(this)}
+                {...props}
+                userName={this.state.userName}
+                logoutHandler={this.logoutHandler}
               />
             )}
           />
           <Route
             path="/"
-            render={() => {
+            render={(props) => {
               if (isLogin) {
                 return <Redirect to="/myfridge" />;
               }
               return <Redirect to="/users" />;
             }}
           />
-        </Switch>
+          //{" "}
+        </Switch> */}
       </div>
     );
   }
