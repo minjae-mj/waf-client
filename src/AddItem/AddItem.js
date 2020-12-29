@@ -59,12 +59,16 @@ class AddItem extends Component {
   };
   putDatabase = async () => {
     const { collection } = this.state;
+    const userid = window.localStorage.getItem("userid");
     await axios
       .post(
         "http://localhost:4000/myfridge/cart", //개인마다 카트가 다름.
-        { collection: collection }
+        { collection: collection, userid: userid }
       )
-      .then((response) => console.log(response))
+      .then((response) => {
+        console.log(response);
+        this.props.history.push("/myfridge");
+      })
       .catch((err) => console.log(err));
   };
   putCollection = (e) => {

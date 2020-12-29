@@ -31,6 +31,7 @@ class CheckPoint extends Component {
           console.log(res);
           this.setState({ isLogin: true, userName: res.data.username });
           window.localStorage.setItem("userName", `${res.data.username}`);
+          window.localStorage.setItem("userid", res.data.userid);
         }
       })
       .then((res) => {

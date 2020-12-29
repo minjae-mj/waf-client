@@ -35,21 +35,26 @@ class Myfridge extends Component {
         },
       ],
     };
-    // this.getUserFridge = this.getUserFridge.bind(this);
+    this.getUserFridge = this.getUserFridge.bind(this);
     console.log(this.props.location.isLogin);
     console.log(this.props.location.userName);
   }
 
-  // async getUserFridge() {
-  //   let data = await axios
-  //     // eslint-disable-next-line no-undef
-  //     .get(`http://localhost:4000/myfridge/:${userid}`)
-  //     .then((res) => console.log(res));
-  //   this.setState({ userData: data });
-  // }
+  async getUserFridge() {
+    const userid = window.localStorage.getItem("userid");
+    let data = await axios
+      // eslint-disable-next-line no-undef
+      .get(`http://localhost:4000/myfridge/:${userid}`)
+      .then((res) => console.log(res));
+    this.setState({ userData: data });
+  }
 
   componentDidUpdate() {
-    // this.getUserFridge();
+    this.getUserFridge();
+  }
+
+  componentDidMount() {
+    this.getUserFridge();
   }
 
   render() {
