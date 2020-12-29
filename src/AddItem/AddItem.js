@@ -4,7 +4,6 @@ import React, { Component } from "react";
 class AddItem extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       categories: [
         "선택 필수",
@@ -26,7 +25,6 @@ class AddItem extends Component {
           modified_at: "",
         },
       ],
-
       item: "",
       category: "",
       part: "",
@@ -35,11 +33,9 @@ class AddItem extends Component {
       boughtToday: false,
     };
   }
-
   // inputValueHandler = (key) => (e) => {
   //   this.setState({ [key]: e.target.value });
   // };
-
   inputValueHandler = (key) => (e) => {
     this.setState((prevState) => ({
       // purchase: {
@@ -47,7 +43,6 @@ class AddItem extends Component {
       // },
     }));
   };
-
   boughtToday = (e) => {
     const modified_date = document.querySelector(".calendar");
 
@@ -62,7 +57,6 @@ class AddItem extends Component {
       });
     }
   };
-
   putDatabase = () => {
     axios
       .post(
@@ -76,7 +70,6 @@ class AddItem extends Component {
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
   };
-
   putCollection = (e) => {
     const { collection } = this.state;
     const {
@@ -115,13 +108,10 @@ class AddItem extends Component {
     }
     console.log(e);
   };
-
   deleteCollection = () => {};
-
   render() {
     const { categories, collection } = this.state;
     const { userName, usernameOauth } = this.props;
-
     return (
       <div>
         <div className="username">{userName}의 냉장고입니다.</div>
@@ -191,5 +181,4 @@ class AddItem extends Component {
     );
   }
 }
-
 export default AddItem;
