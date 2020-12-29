@@ -39,7 +39,7 @@ export default class Demo extends React.Component {
           냉장고에 물건을 추가해주세요
         </div>
         <select id="fridge__select">
-          <option value="Type">Type</option>
+          {/* <option value="Type">Type</option> */}
           <option value="meat">Meat</option>
           <option value="seafood">Seafood</option>
           <option value="veges">Veges</option>
