@@ -1,12 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import "./Demo.css";
 import AddItems from "./AddItems";
-
 import left_fridge from "./img_fridge/left_fridge.png";
 import mandu from "./img_fridge/mandu.png";
 import eggs from "./img_fridge/eggs.png";
 import dairy from "./img_fridge/dairy.png";
-
 import right_fridge from "./img_fridge/right_fridge.png";
 import fish from "./img_fridge/fish.png";
 import meat from "./img_fridge/meat.png";

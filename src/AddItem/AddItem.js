@@ -25,16 +25,14 @@ class AddItem extends Component {
           created_at: "2020-12-25",
           modified_at: "",
         },
-        {},
-        {},
       ],
 
       item: "",
       category: "",
       part: "",
-      created_at: new Date(),
+      created_at: `${new Date()}`,
       modified_at: "",
-      boughtToday: true,
+      boughtToday: false,
     };
   }
 
@@ -51,17 +49,16 @@ class AddItem extends Component {
   };
 
   boughtToday = (e) => {
+    const modified_date = document.querySelector(".calendar");
+
     if (e.target.checked) {
       this.setState({
-        // purchase: {
         boughtToday: true,
-        // },
       });
     } else {
       this.setState({
-        // purchase: {
         boughtToday: false,
-        // },
+        modified_at: modified_date,
       });
     }
   };
@@ -69,7 +66,7 @@ class AddItem extends Component {
   putDatabase = () => {
     axios
       .post(
-        "https://localhost:4000//myfridge/cart/:id", //개인마다 카트가 다름.
+        "https://localhost:4000//myfridge/cart", //개인마다 카트가 다름.
         this.state.collection,
         {
           "Content-Type": "application/json",
@@ -81,34 +78,40 @@ class AddItem extends Component {
   };
 
   putCollection = (e) => {
+    const { collection } = this.state;
     const {
       item,
       category,
       part,
-      created_at,
       modified_at,
+      created_at,
       boughtToday,
     } = this.state;
 
-    if (
-      !item ||
-      !category ||
-      !part ||
-      !created_at ||
-      !modified_at ||
-      !boughtToday
-    ) {
+    if (!item || !category || !part) {
       console.log("더넣어");
     } else {
-      const container = [];
-      container.push({
-        item,
-        category,
-        part,
-        boughtToday,
-        modified_at,
-        created_at,
-      });
+      if (boughtToday) {
+        const container = [
+          {
+            item: item,
+            category: category,
+            part: part,
+            created_at: created_at,
+          },
+        ];
+        this.setState({ collection: collection.concat(...container) });
+      } else {
+        const container1 = [
+          {
+            item: item,
+            category: category,
+            part: part,
+            modified_at: modified_at,
+          },
+        ];
+        this.setState({ collection: collection.concat(...container1) });
+      }
     }
     console.log(e);
   };
@@ -121,11 +124,8 @@ class AddItem extends Component {
 
     return (
       <div>
-        {userName ? (
-          <div className="username">{userName}의 냉장고입니다.</div>
-        ) : (
-          <div className="username">{usernameOauth}의 냉장고입니다.</div>
-        )}
+        <div className="username">{userName}의 냉장고입니다.</div>
+
         {/* 리스트업을 위한 자리 */}
         <ul>
           {/* eslint-disable-next-line array-callback-return */}
@@ -165,20 +165,26 @@ class AddItem extends Component {
           onChange={this.inputValueHandler("item")}
         ></input>
         <select type="part" onChange={this.inputValueHandler("part")}>
-          <option value="fridge">선택필수</option>
-          <option value="fridge">상온</option>
+          <option value="options">선택필수</option>
+          <option value="normal">상온</option>
           <option value="fridge">냉장</option>
           <option value="frozen">냉동</option>
         </select>
+
         <input
           type="checkbox"
           name="오늘구매"
           onClick={this.boughtToday.bind(this)}
         ></input>
-        <input
-          type="date"
-          onChange={this.inputValueHandler("modified_at")}
-        ></input>
+        {this.state.boughtToday ? (
+          <></>
+        ) : (
+          <input
+            type="date"
+            className="calendar"
+            onChange={this.inputValueHandler("modified_at")}
+          ></input>
+        )}
         <button onClick={this.putCollection}> + </button>
         <button onClick={this.putDatabase}> 냉장고에 넣기 </button>
       </div>

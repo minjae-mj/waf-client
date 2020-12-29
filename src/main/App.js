@@ -6,6 +6,7 @@ import CheckPoint from "../CheckPoint/CheckPoint";
 import Myfridge from "../Myfridge/Myfridge";
 import Signup from "../Sign_up/Signup";
 import AddItem from "../AddItem/AddItem";
+import Demo from "../Demo_fridge/Demo";
 
 class App extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class App extends React.Component {
       <div id="main">
         <Switch>
           <Route exact path="/" render={() => <Main />} />
+          <Route exact path="/demofridge" render={() => <Demo />} />
           <Route exact path="/cart" render={() => <AddItem />} />
           <Route exact path="/users" render={() => <CheckPoint />} />
           <Route exact path="/myfridge" render={() => <Myfridge />} />
