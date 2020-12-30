@@ -15,7 +15,7 @@ class CheckPoint extends Component {
 
     this.LoginHandler = this.LoginHandler.bind(this);
     this.getAccessToken = this.getAccessToken.bind(this);
-    this.logoutHandler = this.logoutHandler.bind(this);
+    // this.logoutHandler = this.logoutHandler.bind(this);
   }
 
   async getAccessToken(authorizationCode) {
@@ -45,7 +45,6 @@ class CheckPoint extends Component {
           pathname: "/myfridge",
           isLogin: this.state.isLogin,
           userName: this.state.userName,
-          logoutHandler: this.logoutHandler,
         });
       });
   }
@@ -60,32 +59,8 @@ class CheckPoint extends Component {
       pathname: "/myfridge",
       isLogin: this.state.isLogin,
       userName: this.state.userName,
-      logoutHandler: this.logoutHandler,
     });
   }
-
-  logoutHandler = async () => {
-    const { ourToken } = this.state;
-
-    if (!{ ourToken }) {
-      await axios.post("http://localhost:4000/users/signout").then((res) => {
-        console.log("loggedout");
-        this.setState({ isLogin: false, userName: "" });
-        window.localStorage.removeItem("userName");
-        window.localStorage.removeItem("isLogin");
-        window.localStorage.removeItem("userid");
-        this.props.history.push("/");
-      });
-    } else {
-      console.log("logoutauth");
-      console.log({ ourToken });
-      this.setState({ isLogin: false, userName: "" });
-      window.localStorage.removeItem("userName");
-      window.localStorage.removeItem("isLogin");
-      window.localStorage.removeItem("userid");
-      this.props.history.push("/");
-    }
-  };
 
   componentDidMount() {
     // authorization server로부터 클라이언트로 리디렉션된 경우, authorization code가 함께 전달됩니다.
@@ -104,42 +79,7 @@ class CheckPoint extends Component {
     console.log({ isLogin });
     return (
       <div className="CheckPoint">
-        {!isLogin ? (
-          <Login LoginHandler={this.LoginHandler} />
-        ) : (
-          <Myfridge logoutHandler={this.logoutHandler} />
-        )}
-        {/* <Switch>
-          <Route
-            path="/users"
-            render={(props) => (
-              <Login
-                LoginHandler={this.LoginHandler}
-                setUserName={this.setUserName}
-              />
-            )}
-          />
-          <Route
-            path="/myfridge"
-            render={(props) => (
-              <Myfridge
-                {...props}
-                userName={this.state.userName}
-                logoutHandler={this.logoutHandler}
-              />
-            )}
-          />
-          <Route
-            path="/"
-            render={(props) => {
-              if (isLogin) {
-                return <Redirect to="/myfridge" />;
-              }
-              return <Redirect to="/users" />;
-            }}
-          />
-          //{" "}
-        </Switch> */}
+        {!isLogin ? <Login LoginHandler={this.LoginHandler} /> : <Myfridge />}
       </div>
     );
   }

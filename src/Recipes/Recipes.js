@@ -1,6 +1,6 @@
 import { Component } from "react";
 import axios from "axios";
-import { YOUTUBE_API_KEY } from "../config/youtube";
+import { YOUTUBE_API_KEY } from "../config/mytube";
 import { withRouter } from "react-router-dom";
 import "./Recipes.css";
 import Player from "./Player";

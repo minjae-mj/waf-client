@@ -1,9 +1,7 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from "react";
 
 export default class Playlist extends Component {
-  constructor(props) {
-    super(props);
-  }
   // fakeData = [
   //   {
   //     thumbnails: { default: { url: "33333" } },

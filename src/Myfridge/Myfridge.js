@@ -15,8 +15,6 @@ class Myfridge extends Component {
     };
 
     this.getUserFridge = this.getUserFridge.bind(this);
-    console.log(this.props.location.isLogin);
-    console.log(this.props.location.userName);
   }
 
   async getUserFridge() {
@@ -42,7 +40,6 @@ class Myfridge extends Component {
               this.setState((prev) => ({
                 partNormal: prev.partNormal.concat(el),
               }));
-              console.log(this.state.partNormal);
             }
           }
         }
@@ -50,14 +47,19 @@ class Myfridge extends Component {
       .catch((err) => console.log(err));
   }
 
+  logoutHandler = () => {
+    window.location.replace("/");
+    window.localStorage.removeItem("userName");
+    window.localStorage.removeItem("isLogin");
+    window.localStorage.removeItem("userid");
+  };
+
   componentDidMount() {
     this.getUserFridge();
-    console.log("che merda2222222222222222222");
-    console.log(this.props);
   }
 
   render() {
-    const { logoutHandler, userName } = this.props.location;
+    const { userName } = this.props.location;
     const { userData, partFridge, partFrozen, partNormal } = this.state;
     const name = window.localStorage.getItem("userName");
     // const logoutHandlerLocal = window.localStorage.getItem("logoutHandler");
@@ -67,7 +69,7 @@ class Myfridge extends Component {
         <div className="Myfridge__userbox">
           <div className="username"> {name} 님의 냉장고입니다.</div>
           {/* {(세션로그인)? ():()} */}
-          <button className="logout" onClick={logoutHandler}>
+          <button className="logout" onClick={this.logoutHandler}>
             로그아웃
           </button>
         </div>

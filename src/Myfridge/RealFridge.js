@@ -1,3 +1,4 @@
+/* eslint-disable no-extend-native */
 /* eslint-disable jsx-a11y/alt-text */
 import { Component } from "react";
 import "./Myfridge.css";
@@ -11,6 +12,7 @@ import meat from "../Demo_fridge/img_fridge/meat.png";
 import veges from "../Demo_fridge/img_fridge/veges.png";
 import fruit from "../Demo_fridge/img_fridge/fruit.png";
 import { withRouter } from "react-router-dom";
+import axios from "axios";
 
 class RealFridge extends Component {
   constructor(props) {
@@ -19,8 +21,10 @@ class RealFridge extends Component {
       status: "전체",
     };
   }
+
   goToCart = () => {
     const name = window.localStorage.getItem("userName");
+
     this.props.history.push({
       pathname: "/cart",
       userName: name,
@@ -55,7 +59,7 @@ class RealFridge extends Component {
           const oldResult = document.querySelectorAll(`#${partBox[0]}`);
           for (let el of newResult) {
             el.style.display = "block";
-            console.log("--------", el.style.display, el, el.id);
+            console.log(el.innerText);
           }
           for (let ele of oldResult) {
             ele.style.display = "none";
@@ -74,14 +78,50 @@ class RealFridge extends Component {
     }
   };
 
-  // getDDay = (expiredAfter, modifiedAt, createdAt) => {
-  //   const current = new Date().toISOString().get;
-  // };
+  removeItem = async (e) => {
+    const item = e.target.parentElement.children[1].innerText;
+    const userid = window.localStorage.getItem("userid");
+
+    await axios
+      .put("http://localhost:4000/myfridge/removeItem", {
+        userid: userid,
+        item: item,
+      })
+      .then((res) => {
+        console.log(res);
+        window.location.reload();
+      })
+      .catch((err) => console.error);
+  };
+
+  getDDay = (expiredAfter, modifiedAt, createdAt) => {
+    const current = new Date().getTime();
+    const dateOfPurchase = modifiedAt
+      ? new Date(modifiedAt).getTime()
+      : new Date(createdAt).getTime();
+    const addDaysTo = (days) => {
+      Date.prototype.addDays = function (days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+      };
+      var date = new Date(dateOfPurchase);
+      return date.addDays(days).toISOString();
+    };
+    const expire = new Date(addDaysTo(expiredAfter)).getTime();
+    const distance = Math.floor(current - expire);
+    if (distance < 0) {
+      const result = Math.abs(Math.floor(distance / (1000 * 60 * 60 * 24)));
+      return `${result} 일 남았습니다.`;
+    } else {
+      return `${Math.floor(distance / (1000 * 60 * 60 * 24))} 일 지났습니다.`;
+    }
+  };
 
   componentDidMount() {
-    console.log(this.props);
     this.showImages();
   }
+
   componentDidUpdate() {
     this.showImages();
   }
@@ -133,14 +173,23 @@ class RealFridge extends Component {
               {userData ? (
                 userData.map((item) => (
                   <div>
-                    <button id="전체" className="part__TotalList">
+                    <button
+                      id="전체"
+                      className="part__TotalList"
+                      onClick={this.removeItem}
+                    >
                       -
                     </button>
                     <li id="전체" className="part__TotalList" key={item.id}>
                       {item.name}
                     </li>
                     <span id="전체" className="part__TotalList">
-                      소비기한 : 구매일로부터 {item.expiredAfter}일 이내 드세요.
+                      소비기한 :
+                      {this.getDDay(
+                        item.expiredAfter,
+                        item.modifiedAt,
+                        item.createdAt
+                      )}
                     </span>
                   </div>
                 ))
@@ -150,14 +199,23 @@ class RealFridge extends Component {
               {partFridge ? (
                 partFridge.map((item) => (
                   <div>
-                    <button id="냉장" className="part__List">
+                    <button
+                      id="냉장"
+                      className="part__List"
+                      onClick={this.removeItem}
+                    >
                       -
                     </button>
                     <li id="냉장" className="part__List" key={item.id}>
-                      {item.name},
+                      {item.name}
                     </li>
                     <span id="냉장" className="part__List">
-                      소비기한 : 구매일로부터 {item.expiredAfter}일 이내 드세요.
+                      소비기한 :
+                      {this.getDDay(
+                        item.expiredAfter,
+                        item.modifiedAt,
+                        item.createdAt
+                      )}
                     </span>
                   </div>
                 ))
@@ -167,14 +225,23 @@ class RealFridge extends Component {
               {partFrozen ? (
                 partFrozen.map((item) => (
                   <div>
-                    <button id="냉동" className="part__List">
+                    <button
+                      id="냉동"
+                      className="part__List"
+                      onClick={this.removeItem}
+                    >
                       -
                     </button>
                     <li id="냉동" className="part__List" key={item.id}>
-                      {item.name},
+                      {item.name}
                     </li>
                     <span id="냉동" className="part__List">
-                      소비기한 : 구매일로부터 {item.expiredAfter}일 이내 드세요.
+                      소비기한 :
+                      {this.getDDay(
+                        item.expiredAfter,
+                        item.modifiedAt,
+                        item.createdAt
+                      )}
                     </span>
                   </div>
                 ))
@@ -183,15 +250,24 @@ class RealFridge extends Component {
               )}
               {partNormal ? (
                 partNormal.map((item) => (
-                  <div className="part__List">
-                    <button id="상온" className="part__List">
+                  <div>
+                    <button
+                      id="상온"
+                      className="part__List"
+                      onClick={this.removeItem}
+                    >
                       -
                     </button>
                     <li id="상온" className="part__List" key={item.id}>
-                      {item.name}, {item.part}, {item.category}
+                      {item.name}
                     </li>
                     <span id="상온" className="part__List">
-                      소비기한 : 구매일로부터 {item.expiredAfter}일 이내 드세요.
+                      소비기한 :
+                      {this.getDDay(
+                        item.expiredAfter,
+                        item.modifiedAt,
+                        item.createdAt
+                      )}
                     </span>
                   </div>
                 ))
