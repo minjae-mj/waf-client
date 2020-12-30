@@ -14,7 +14,6 @@ class CheckPoint extends Component {
     };
 
     this.LoginHandler = this.LoginHandler.bind(this);
-    this.setUserName = this.setUserName.bind(this);
     this.getAccessToken = this.getAccessToken.bind(this);
     this.logoutHandler = this.logoutHandler.bind(this);
   }
@@ -37,6 +36,8 @@ class CheckPoint extends Component {
           });
           window.localStorage.setItem("userName", `${res.data.username}`);
           window.localStorage.setItem("userid", `${res.data.userid}`);
+          window.localStorage.setItem("isLogin", true);
+          window.localStorage.setItem("logoutHandler", this.logoutHandler);
         }
       })
       .then((res) => {
@@ -49,15 +50,12 @@ class CheckPoint extends Component {
       });
   }
 
-  LoginHandler = (v) => {
-    //세션로그인
-    this.setState({ isLogin: v });
-  };
-
-  setUserName(name, userid) {
-    this.setState({ userName: name });
+  LoginHandler(name, userid, value) {
+    this.setState({ userName: name, isLogin: value });
     window.localStorage.setItem("userName", name);
     window.localStorage.setItem("userid", userid);
+    window.localStorage.setItem("isLogin", value);
+    window.localStorage.setItem("logoutHandler", this.logoutHandler);
     this.props.history.push({
       pathname: "/myfridge",
       isLogin: this.state.isLogin,
@@ -74,7 +72,7 @@ class CheckPoint extends Component {
         console.log("loggedout");
         this.setState({ isLogin: false, userName: "" });
         window.localStorage.removeItem("userName");
-        window.localStorage.isLogin = false;
+        window.localStorage.removeItem("isLogin");
         window.localStorage.removeItem("userid");
         this.props.history.push("/");
       });
@@ -83,7 +81,7 @@ class CheckPoint extends Component {
       console.log({ ourToken });
       this.setState({ isLogin: false, userName: "" });
       window.localStorage.removeItem("userName");
-      window.localStorage.isLogin = false;
+      window.localStorage.removeItem("isLogin");
       window.localStorage.removeItem("userid");
       this.props.history.push("/");
     }
@@ -104,14 +102,10 @@ class CheckPoint extends Component {
     const { isLogin, userName } = this.state;
     console.log({ userName });
     console.log({ isLogin });
-
     return (
       <div className="CheckPoint">
         {!isLogin ? (
-          <Login
-            LoginHandler={this.LoginHandler}
-            setUserName={this.setUserName}
-          />
+          <Login LoginHandler={this.LoginHandler} />
         ) : (
           <Myfridge logoutHandler={this.logoutHandler} />
         )}

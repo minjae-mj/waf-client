@@ -9,10 +9,10 @@ class AddItem extends Component {
       categories: [
         "선택 필수",
         "dairy",
-        "fruit",
+        "fruits",
         "veges",
         "meat",
-        "fish",
+        "seafood",
         "mandu",
         "eggs",
       ],
@@ -59,18 +59,28 @@ class AddItem extends Component {
   };
   putDatabase = async () => {
     const { collection } = this.state;
-    const userid = window.localStorage.getItem("userid");
-    await axios
-      .post(
-        "http://localhost:4000/myfridge/cart", //개인마다 카트가 다름.
-        { collection: collection, userid: userid }
-      )
-      .then((response) => {
-        console.log(response);
-        this.props.history.push("/myfridge");
-      })
-      .catch((err) => console.log(err));
+    const { item, category, part } = this.state;
+
+    if (!item || !category || !part) {
+      console.log("더넣어");
+    } else {
+      const userid = window.localStorage.getItem("userid");
+      await axios
+        .post(
+          "http://localhost:4000/myfridge/cart", //개인마다 카트가 다름.
+          { collection: collection, userid: userid }
+        )
+        .then((response) => {
+          console.log(response);
+
+          this.props.history.push({
+            pathname: "/myfridge",
+          });
+        })
+        .catch((err) => console.log(err));
+    }
   };
+
   putCollection = (e) => {
     const { collection } = this.state;
     const {

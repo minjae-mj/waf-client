@@ -1,10 +1,7 @@
+/* eslint-disable no-extend-native */
 import React, { Component } from "react";
 
 export default class Itemlist extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   addDaysTo = (days) => {
     Date.prototype.addDays = function (days) {
       var date = new Date(this.valueOf());
@@ -14,6 +11,7 @@ export default class Itemlist extends Component {
     var date = new Date();
     return date.addDays(days).toLocaleDateString();
   };
+
   currentDate = new Date().toLocaleDateString();
   currentTime = new Date().getTime();
   getDDay = (obj) => {
@@ -28,7 +26,7 @@ export default class Itemlist extends Component {
       expireDate = 7; // 해산물은 7일
     } else if (obj.type === "meat") {
       expireDate = 5; // 육류는 5일
-    } else if (obj.type === "fruit") {
+    } else if (obj.type === "fruits") {
       expireDate = 10; // 과일은 10일
     } else if (obj.type === "dairy") {
       expireDate = 9; // 유제품은 9일

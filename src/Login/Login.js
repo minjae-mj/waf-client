@@ -82,8 +82,7 @@ class Login extends React.Component {
       })
         .then((res) => {
           console.log(res);
-          this.props.LoginHandler(true);
-          this.props.setUserName(res.data.username, res.data.userid);
+          this.props.LoginHandler(res.data.username, res.data.userid, true);
         })
         .then((res) => {
           console.log("done");

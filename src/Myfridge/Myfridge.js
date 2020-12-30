@@ -8,28 +8,12 @@ class Myfridge extends Component {
     super(props);
     this.state = {
       userName: "",
-      userData: [
-        {
-          id: "12",
-          item: "brocolli",
-          category: "seafood",
-          part: "fridge",
-          created_at: "2020-12-25",
-          modifiedAt: "",
-        },
-        {
-          id: "124",
-          item: "brocolli",
-          category: "eggs",
-          part: "fridge",
-          created_at: "2020-12-25",
-          modifiedAt: "",
-        },
-      ],
+      userData: [],
       partFridge: [],
       partFrozen: [],
       partNormal: [],
     };
+
     this.getUserFridge = this.getUserFridge.bind(this);
     console.log(this.props.location.isLogin);
     console.log(this.props.location.userName);
@@ -54,10 +38,11 @@ class Myfridge extends Component {
               this.setState((prev) => ({
                 partFrozen: prev.partFrozen.concat(el),
               }));
-            } else {
+            } else if (el.part === "normal") {
               this.setState((prev) => ({
                 partNormal: prev.partNormal.concat(el),
               }));
+              console.log(this.state.partNormal);
             }
           }
         }
@@ -68,12 +53,14 @@ class Myfridge extends Component {
   componentDidMount() {
     this.getUserFridge();
     console.log("che merda2222222222222222222");
+    console.log(this.props);
   }
 
   render() {
     const { logoutHandler, userName } = this.props.location;
-    const { userData, partNormal, partFrozen, partFridge } = this.state;
+    const { userData, partFridge, partFrozen, partNormal } = this.state;
     const name = window.localStorage.getItem("userName");
+    // const logoutHandlerLocal = window.localStorage.getItem("logoutHandler");
 
     return (
       <div className="Myfridge__container">
@@ -86,10 +73,10 @@ class Myfridge extends Component {
         </div>
         <RealFridge
           userData={userData}
-          partNormal={partNormal}
-          partFrozen={partFrozen}
-          partFridge={partFridge}
           userName={userName}
+          partFridge={partFridge}
+          partFrozen={partFrozen}
+          partNormal={partNormal}
         />
       </div>
     );
