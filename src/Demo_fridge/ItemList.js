@@ -42,7 +42,7 @@ export default class Itemlist extends Component {
       return `${howManyDaysLeft}일 남았습니다.`;
     } else {
       // 사용자가 날짜를 선택하지 않으면, 구매 날짜는 현재이고, ( 소비 기한 - 오늘 날짜 )일이 남음
-      let dateYouBought = new Date(obj.date).toLocaleDateString();
+      let dateYouBought = new Date(obj.date).toISOString();
       let addDaysTo = (days) => {
         Date.prototype.addDays = function (days) {
           var date = new Date(this.valueOf());
