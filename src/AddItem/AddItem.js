@@ -57,6 +57,7 @@ class AddItem extends Component {
       });
     }
   };
+
   putDatabase = async () => {
     const { collection } = this.state;
     const { item, category, part } = this.state;
@@ -72,12 +73,13 @@ class AddItem extends Component {
         )
         .then((response) => {
           console.log(response);
-
           this.props.history.push({
             pathname: "/myfridge",
           });
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+        });
     }
   };
 
@@ -200,4 +202,5 @@ class AddItem extends Component {
     );
   }
 }
+
 export default withRouter(AddItem);

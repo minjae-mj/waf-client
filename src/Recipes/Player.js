@@ -1,11 +1,7 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import { Component } from "react";
 
 export default class Player extends Component {
-  constructor(props) {
-    super(props);
-    // console.log(this.props);
-    // console.log("this.props.currentVideo");
-  }
   // componentDidMount() {
   //   console.log(this.props.currentVideo);
   // }
