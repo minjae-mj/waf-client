@@ -21,6 +21,8 @@ class RealFridge extends Component {
     });
   };
 
+  showLists = () => {};
+
   showImages = () => {
     console.log(this.props.userData);
     for (let item of this.props.userData) {
@@ -64,9 +66,9 @@ class RealFridge extends Component {
           </div>
         </div>
         <div className="part__division">
-          <div className="partNormal">상온</div>
-          <div className="partFridge">냉장</div>
-          <div className="partFrozen">냉동</div>
+          <div className="partList">상온</div>
+          <div className="partList">냉장</div>
+          <div className="partList">냉동</div>
         </div>
         <div>
           <ul className="sidebar">

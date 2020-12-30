@@ -9,7 +9,7 @@ class CheckPoint extends Component {
     super(props);
     this.state = {
       isLogin: false,
-      // accessToken: "",
+      ourToken: "",
       userName: "",
     };
 
@@ -28,11 +28,15 @@ class CheckPoint extends Component {
         if (res.data === "Signup Succeeded") {
           this.props.history.push("/users");
         } else {
-          console.log(res);
+          console.log("&&&&", res);
           console.log(res.data.userid);
-          this.setState({ isLogin: true, userName: res.data.username });
+          this.setState({
+            isLogin: true,
+            userName: res.data.username,
+            ourToken: res.data.ourToken,
+          });
           window.localStorage.setItem("userName", `${res.data.username}`);
-          window.localStorage.setItem("userid", res.data.userid);
+          window.localStorage.setItem("userid", `${res.data.userid}`);
         }
       })
       .then((res) => {
@@ -50,9 +54,10 @@ class CheckPoint extends Component {
     this.setState({ isLogin: v });
   };
 
-  setUserName(name) {
+  setUserName(name, userid) {
     this.setState({ userName: name });
-    window.localStorage.setItem({ userName: name });
+    window.localStorage.setItem("userName", name);
+    window.localStorage.setItem("userid", userid);
     this.props.history.push({
       pathname: "/myfridge",
       isLogin: this.state.isLogin,
@@ -62,15 +67,26 @@ class CheckPoint extends Component {
   }
 
   logoutHandler = async () => {
-    //세션로그아웃
-    await axios.post("http://localhost:4000/users/signout").then((res) => {
-      console.log("logedout");
-      this.setState({ isLogin: false });
-      delete window.localStorage.userName;
+    const { ourToken } = this.state;
+
+    if (!{ ourToken }) {
+      await axios.post("http://localhost:4000/users/signout").then((res) => {
+        console.log("loggedout");
+        this.setState({ isLogin: false, userName: "" });
+        window.localStorage.removeItem("userName");
+        window.localStorage.isLogin = false;
+        window.localStorage.removeItem("userid");
+        this.props.history.push("/");
+      });
+    } else {
+      console.log("logoutauth");
+      console.log({ ourToken });
+      this.setState({ isLogin: false, userName: "" });
+      window.localStorage.removeItem("userName");
       window.localStorage.isLogin = false;
-      delete window.localStorage.userid;
+      window.localStorage.removeItem("userid");
       this.props.history.push("/");
-    });
+    }
   };
 
   componentDidMount() {

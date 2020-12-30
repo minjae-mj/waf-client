@@ -2,10 +2,6 @@ import React from "react";
 import { Link, Switch, Route, Redirect, withRouter } from "react-router-dom";
 
 class Main extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div id="main">
@@ -29,4 +25,4 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
+export default withRouter(Main);
