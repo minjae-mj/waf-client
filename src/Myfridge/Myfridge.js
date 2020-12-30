@@ -65,11 +65,6 @@ class Myfridge extends Component {
       .catch((err) => console.log(err));
   }
 
-  componentDidUpdate() {
-    this.getUserFridge();
-    console.log("che merda1111111111111111111");
-  }
-
   componentDidMount() {
     this.getUserFridge();
     console.log("che merda2222222222222222222");
