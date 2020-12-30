@@ -73,7 +73,7 @@ class RealFridge extends Component {
             {partFridge ? (
               partFridge.map((item) => (
                 <li className="Item__List" key={item.id}>
-                  {item.category}
+                  {item.item} {item.category}
                 </li>
               ))
             ) : (
@@ -82,7 +82,7 @@ class RealFridge extends Component {
             {partFrozen ? (
               partFrozen.map((item) => (
                 <li className="Item__List" key={item.id}>
-                  {item.category}
+                  {item.item} {item.category}
                 </li>
               ))
             ) : (
@@ -91,7 +91,7 @@ class RealFridge extends Component {
             {partNormal ? (
               partNormal.map((item) => (
                 <li className="Item__List" key={item.id}>
-                  {item.category}
+                  {item.item} {item.category}
                 </li>
               ))
             ) : (
