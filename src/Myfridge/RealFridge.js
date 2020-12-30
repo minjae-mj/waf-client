@@ -13,6 +13,12 @@ import fruit from "../Demo_fridge/img_fridge/fruit.png";
 import { withRouter } from "react-router-dom";
 
 class RealFridge extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      status: "전체",
+    };
+  }
   goToCart = () => {
     const name = window.localStorage.getItem("userName");
     this.props.history.push({
@@ -21,15 +27,56 @@ class RealFridge extends Component {
     });
   };
 
-  showLists = () => {};
+  showLists = (e) => {
+    if (this.state.status === "") {
+      const partBox = [];
+      this.setState({ status: e.target.innerText });
+      const res = document.querySelectorAll(`#${e.target.innerText}`);
+      partBox.push(this.state.status);
+      for (let item of res) {
+        item.style.display = "block";
+      }
+    } else {
+      if (
+        this.state.status === "전체" ||
+        this.state.status === "상온" ||
+        this.state.status === "냉장" ||
+        this.state.status === "냉동"
+      ) {
+        const partBox = [];
+        partBox.push(this.state.status);
+        this.setState({ status: e.target.innerText });
+        partBox.push(e.target.innerText);
+        if (partBox[0] === e.target.innerText) {
+          partBox.pop();
+          return;
+        } else {
+          const newResult = document.querySelectorAll(`#${e.target.innerText}`);
+          const oldResult = document.querySelectorAll(`#${partBox[0]}`);
+          for (let el of newResult) {
+            el.style.display = "block";
+            console.log("--------", el.style.display, el, el.id);
+          }
+          for (let ele of oldResult) {
+            ele.style.display = "none";
+          }
+          partBox.pop();
+        }
+        console.log(partBox, this.state);
+      }
+    }
+  };
 
   showImages = () => {
-    console.log(this.props.userData);
     for (let item of this.props.userData) {
       let itemType = document.querySelector(`#${item.category}`);
       itemType.style.display = "block";
     }
   };
+
+  // getDDay = (expiredAfter, modifiedAt, createdAt) => {
+  //   const current = new Date().toISOString().get;
+  // };
 
   componentDidMount() {
     console.log(this.props);
@@ -65,42 +112,95 @@ class RealFridge extends Component {
             <img id="veges" src={veges}></img>
           </div>
         </div>
-        <div className="part__division">
-          <div className="partList">상온</div>
-          <div className="partList">냉장</div>
-          <div className="partList">냉동</div>
-        </div>
-        <div>
-          <ul className="sidebar">
-            {partFridge ? (
-              partFridge.map((item) => (
-                <li className="Item__List" key={item.id}>
-                  {item.item} {item.category}
-                </li>
-              ))
-            ) : (
-              <></>
-            )}
-            {partFrozen ? (
-              partFrozen.map((item) => (
-                <li className="Item__List" key={item.id}>
-                  {item.item} {item.category}
-                </li>
-              ))
-            ) : (
-              <></>
-            )}
-            {partNormal ? (
-              partNormal.map((item) => (
-                <li className="Item__List" key={item.id}>
-                  {item.item} {item.category}
-                </li>
-              ))
-            ) : (
-              <></>
-            )}
-          </ul>
-          <button onClick={this.goToCart}> 냉장고에 더 넣기 </button>
+        {/* -------------------------------------------------------------------------------- */}
+        <div className="right">
+          <div className="part__division">
+            <div type="전체" className="partList" onClick={this.showLists}>
+              전체
+            </div>
+            <div type="상온" className="partList" onClick={this.showLists}>
+              상온
+            </div>
+            <div type="냉장" className="partList" onClick={this.showLists}>
+              냉장
+            </div>
+            <div type="냉동" className="partList" onClick={this.showLists}>
+              냉동
+            </div>
+          </div>
+          <div>
+            <ul className="sidebar">
+              {userData ? (
+                userData.map((item) => (
+                  <div>
+                    <button id="전체" className="part__TotalList">
+                      -
+                    </button>
+                    <li id="전체" className="part__TotalList" key={item.id}>
+                      {item.name}
+                    </li>
+                    <span id="전체" className="part__TotalList">
+                      소비기한 : 구매일로부터 {item.expiredAfter}일 이내 드세요.
+                    </span>
+                  </div>
+                ))
+              ) : (
+                <></>
+              )}
+              {partFridge ? (
+                partFridge.map((item) => (
+                  <div>
+                    <button id="냉장" className="part__List">
+                      -
+                    </button>
+                    <li id="냉장" className="part__List" key={item.id}>
+                      {item.name},
+                    </li>
+                    <span id="냉장" className="part__List">
+                      소비기한 : 구매일로부터 {item.expiredAfter}일 이내 드세요.
+                    </span>
+                  </div>
+                ))
+              ) : (
+                <></>
+              )}
+              {partFrozen ? (
+                partFrozen.map((item) => (
+                  <div>
+                    <button id="냉동" className="part__List">
+                      -
+                    </button>
+                    <li id="냉동" className="part__List" key={item.id}>
+                      {item.name},
+                    </li>
+                    <span id="냉동" className="part__List">
+                      소비기한 : 구매일로부터 {item.expiredAfter}일 이내 드세요.
+                    </span>
+                  </div>
+                ))
+              ) : (
+                <></>
+              )}
+              {partNormal ? (
+                partNormal.map((item) => (
+                  <div className="part__List">
+                    <button id="상온" className="part__List">
+                      -
+                    </button>
+                    <li id="상온" className="part__List" key={item.id}>
+                      {item.name}, {item.part}, {item.category}
+                    </li>
+                    <span id="상온" className="part__List">
+                      소비기한 : 구매일로부터 {item.expiredAfter}일 이내 드세요.
+                    </span>
+                  </div>
+                ))
+              ) : (
+                <></>
+              )}
+            </ul>
+            <button onClick={this.goToCart}> 냉장고에 더 넣기 </button>
+          </div>
         </div>
       </div>
     );

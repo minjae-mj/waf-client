@@ -1,5 +1,4 @@
 .Myfridge__container {
-  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -20,4 +19,12 @@
 
 .sidbar {
   flex-basis: 40%;
+}
+
+.part__List {
+  display: none;
+}
+
+.part__TotalList {
+  display: block;
 }
