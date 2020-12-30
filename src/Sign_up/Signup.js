@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { Component } from "react";
 import "./Signup.css";
+import { withRouter } from "react-router-dom";
 
-export default class Signup extends Component {
+class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +23,9 @@ export default class Signup extends Component {
     console.log(this.state.password);
     console.log(this.state.username);
     console.log(this.state.mobile);
-    axios.post("http://localhost:4000/users/signup", this.state);
+    axios
+      .post("http://localhost:4000/users/signup", this.state)
+      .then(() => this.props.history.push("/users"));
   };
 
   render() {
@@ -53,3 +56,5 @@ export default class Signup extends Component {
     );
   }
 }
+
+export default withRouter(Signup);

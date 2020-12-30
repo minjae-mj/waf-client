@@ -13,13 +13,16 @@ export default class Demo extends React.Component {
     let selectVal = document.querySelector(`#fridge__select`).value;
     let nameVal = document.querySelector(`.itemName`).value;
     let dateVal = document.querySelector(`.dateYouBuy`).value;
-
     let info = {
       type: selectVal,
       name: nameVal,
       date: dateVal,
     };
-    this.props.changeItems(info);
+    if (nameVal.length === 0) {
+      alert("재료 이름을 적어주세요");
+    } else {
+      this.props.changeItems(info);
+    }
   };
 
   // componentDidUpdate() {
