@@ -18,14 +18,6 @@ class Myfridge extends Component {
           modifiedAt: "",
         },
         {
-          id: "126",
-          item: "brocolli",
-          category: "dairy",
-          part: "fridge",
-          created_at: "2020-12-25",
-          modifiedAt: "",
-        },
-        {
           id: "124",
           item: "brocolli",
           category: "eggs",
@@ -34,6 +26,9 @@ class Myfridge extends Component {
           modifiedAt: "",
         },
       ],
+      partFridge: [],
+      partFrozen: [],
+      partNormal: [],
     };
     this.getUserFridge = this.getUserFridge.bind(this);
     console.log(this.props.location.isLogin);
@@ -42,24 +37,42 @@ class Myfridge extends Component {
 
   async getUserFridge() {
     const userid = window.localStorage.getItem("userid");
-    let data = await axios
-      // eslint-disable-next-line no-undef
-      .get(`http://localhost:4000/myfridge/:${userid}`)
-      .then((res) => console.log(res));
-    this.setState({ userData: data });
-  }
 
-  componentDidUpdate() {
-    this.getUserFridge();
+    await axios
+      // eslint-disable-next-line no-undef
+      .get(`http://localhost:4000/myfridge/${userid}`)
+      .then((res) => {
+        console.log(res);
+        if (res.data) {
+          this.setState({ userData: res.data });
+          for (let el of res.data) {
+            if (el.part === "fridge") {
+              this.setState((prev) => ({
+                partFridge: prev.partFridge.concat(el),
+              }));
+            } else if (el.part === "frozen") {
+              this.setState((prev) => ({
+                partFrozen: prev.partFrozen.concat(el),
+              }));
+            } else {
+              this.setState((prev) => ({
+                partNormal: prev.partNormal.concat(el),
+              }));
+            }
+          }
+        }
+      })
+      .catch((err) => console.log(err));
   }
 
   componentDidMount() {
     this.getUserFridge();
+    console.log("che merda2222222222222222222");
   }
 
   render() {
     const { logoutHandler, userName } = this.props.location;
-    const { userData } = this.state;
+    const { userData, partNormal, partFrozen, partFridge } = this.state;
     const name = window.localStorage.getItem("userName");
 
     return (
@@ -71,15 +84,13 @@ class Myfridge extends Component {
             로그아웃
           </button>
         </div>
-        <RealFridge userData={userData} userName={userName} />
-        {/* <ul className="sidebar">
-          {userData.map((item) => {
-            <li key={item.id}>{item.category}</li>;
-          })}
-        </ul> */}
-        {/* <Link to="/cart">
-          <button> 냉장고에 넣기 </button>
-        </Link> */}
+        <RealFridge
+          userData={userData}
+          partNormal={partNormal}
+          partFrozen={partFrozen}
+          partFridge={partFridge}
+          userName={userName}
+        />
       </div>
     );
   }
