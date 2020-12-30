@@ -38,14 +38,16 @@ class Recipes extends Component {
     // });
 
     let videoSendRequest = await axios.get(url);
-    let iGotData = await videoSendRequest.then((res) => {
-      console.log(res);
-      console.log(res.data);
-      this.setState({
-        videoList: res.data.items,
-        currentVideo: res.data.items[0],
-      });
-    });
+    let iGotData = await videoSendRequest
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+        this.setState({
+          videoList: res.data.items,
+          currentVideo: res.data.items[0],
+        });
+      })
+      .catch((err) => console.log("err"));
   };
 
   componentDidMount() {

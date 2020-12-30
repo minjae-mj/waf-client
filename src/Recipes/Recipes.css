@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 24px 0px;
+}
+#recipes {
+  display: flex;
+  flex-direction: column;
+}
+.recipes__navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.recipes__navbar__btn {
+  border: 2px solid black;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 8px;
+}
