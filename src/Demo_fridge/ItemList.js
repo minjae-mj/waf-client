@@ -14,7 +14,7 @@ export default class Itemlist extends Component {
     var date = new Date();
     return date.addDays(days).toLocaleDateString();
   };
-
+  currentDate = new Date().toLocaleDateString();
   currentTime = new Date().getTime();
   getDDay = (obj) => {
     let expireDate = 0;
