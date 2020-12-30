@@ -7,6 +7,7 @@ import Signup from "../Sign_up/Signup";
 import AddItem from "../AddItem/AddItem";
 import Demo from "../Demo_fridge/Demo";
 import Myfridge from "../Myfridge/Myfridge";
+import Recipes from "../Recipes/Recipes";
 
 class App extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class App extends React.Component {
           <Route exact path="/users" render={() => <CheckPoint />} />
           <Route exact path="/myfridge" render={() => <Myfridge />} />
           <Route exact path="/signup" render={() => <Signup />} />
+          <Route exact path="/recipes" render={() => <Recipes />} />
         </Switch>
       </div>
     );
