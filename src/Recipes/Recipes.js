@@ -1,6 +1,6 @@
 import { Component } from "react";
 import axios from "axios";
-import { YOUTUBE_API_KEY } from "../config/mytube";
+import { YOUTUBE_API_KEY } from "../config/youtube";
 import { withRouter } from "react-router-dom";
 import "./Recipes.css";
 import Player from "./Player";
@@ -12,7 +12,6 @@ class Recipes extends Component {
     this.state = {
       videoList: null,
       currentVideo: null,
-      item: "돼지고기",
     };
   }
   goBack = () => {
@@ -20,8 +19,9 @@ class Recipes extends Component {
   };
 
   searchYoutube = async (item) => {
+    console.log(item);
     let params = {
-      q: item, // (수정 필요)props로 내려오는 재료 이름을 넣을것.
+      q: `${item} 레시피`, // (수정 필요)props로 내려오는 재료 이름을 넣을것.
       part: "snippet",
       maxResults: 5,
       key: YOUTUBE_API_KEY,
@@ -59,15 +59,18 @@ class Recipes extends Component {
   };
 
   componentDidMount() {
-    this.searchYoutube(this.state.item);
+    const ingredient = window.localStorage.getItem("ingredient");
+    console.log(ingredient);
+    this.searchYoutube(ingredient);
   }
 
   render() {
     const { videoList, currentVideo } = this.state;
+    const ingredient = window.localStorage.getItem("ingredient");
     return (
       <div id="recipes">
         <div className="recipes__navbar">
-          <div>떙떙떙님의 레시피 플레이어 입니다.</div>
+          <div> {ingredient} 레시피 검색 결과 입니다</div>
           <div className="recipes__navbar__btn" onClick={() => this.goBack()}>
             나의 냉장고로 돌아가기
           </div>
