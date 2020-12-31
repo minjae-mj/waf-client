@@ -19,6 +19,7 @@ class RealFridge extends Component {
     super(props);
     this.state = {
       status: "전체",
+      ingredient: "",
     };
   }
 
@@ -28,6 +29,15 @@ class RealFridge extends Component {
     this.props.history.push({
       pathname: "/cart",
       userName: name,
+    });
+  };
+
+  clickIngredient = (e) => {
+    let target = e.target.innerText;
+    this.setState({ ingredient: target });
+    window.localStorage.setItem("ingredient", target);
+    this.props.history.push({
+      pathname: "/recipes",
     });
   };
 
@@ -180,7 +190,12 @@ class RealFridge extends Component {
                     >
                       -
                     </button>
-                    <li id="전체" className="part__TotalList" key={item.id}>
+                    <li
+                      id="전체"
+                      className="part__TotalList"
+                      key={item.id}
+                      onClick={this.clickIngredient}
+                    >
                       {item.name}
                     </li>
                     <span id="전체" className="part__TotalList">
@@ -206,7 +221,12 @@ class RealFridge extends Component {
                     >
                       -
                     </button>
-                    <li id="냉장" className="part__List" key={item.id}>
+                    <li
+                      id="냉장"
+                      className="part__List"
+                      key={item.id}
+                      onClick={this.clickIngredient}
+                    >
                       {item.name}
                     </li>
                     <span id="냉장" className="part__List">
@@ -232,7 +252,12 @@ class RealFridge extends Component {
                     >
                       -
                     </button>
-                    <li id="냉동" className="part__List" key={item.id}>
+                    <li
+                      id="냉동"
+                      className="part__List"
+                      key={item.id}
+                      onClick={this.clickIngredient}
+                    >
                       {item.name}
                     </li>
                     <span id="냉동" className="part__List">
@@ -258,7 +283,12 @@ class RealFridge extends Component {
                     >
                       -
                     </button>
-                    <li id="상온" className="part__List" key={item.id}>
+                    <li
+                      id="상온"
+                      className="part__List"
+                      key={item.id}
+                      onClick={this.clickIngredient}
+                    >
                       {item.name}
                     </li>
                     <span id="상온" className="part__List">

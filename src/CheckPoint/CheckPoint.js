@@ -74,12 +74,13 @@ class CheckPoint extends Component {
   }
 
   render() {
+    const isLogged = window.localStorage.getItem("isLogin");
     const { isLogin, userName } = this.state;
     console.log({ userName });
     console.log({ isLogin });
     return (
       <div className="CheckPoint">
-        {!isLogin ? <Login LoginHandler={this.LoginHandler} /> : <Myfridge />}
+        {!isLogged ? <Login LoginHandler={this.LoginHandler} /> : <Myfridge />}
       </div>
     );
   }
