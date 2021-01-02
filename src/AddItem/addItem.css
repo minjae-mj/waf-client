@@ -1,0 +1,99 @@
+ul {
+  padding: 0px;
+}
+.logo {
+  margin: 8px 0px 0px 112px;
+  padding-bottom: 16px;
+}
+.greenBox {
+  background-color: #4a7575;
+  position: fixed;
+  max-width: 80%;
+  height: 80%;
+  margin: auto;
+  top: 40px;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  z-index: 1;
+  opacity: 0.9;
+  display: flex;
+  flex-direction: column;
+}
+.userInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 40px 80px 24px 80px;
+  padding-bottom: 8px;
+  border-bottom: solid 4px #fafafa;
+}
+.username {
+  color: #fafafa;
+  font-size: 24px;
+  font-weight: bold;
+}
+.backBtn {
+  cursor: pointer;
+  /* color: #346464; */
+  color: #fafafa;
+}
+
+.inputArea {
+  /* margin: 16px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0px 80px;
+  padding-bottom: 16px;
+  border-bottom: solid 4px #fafafa;
+  color: #fafafa;
+}
+.input {
+  padding: 4px;
+  margin: 0px 8px;
+}
+.Item__btn {
+  display: inline-block;
+  cursor: pointer;
+  background: #b3aa9f;
+  border: 1px solid #b3aa9f;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+  line-height: 24px;
+  color: #fafafa;
+  margin: 0px;
+  padding: 0px;
+}
+
+.listBox {
+  /* max-width: ; */
+  display: flex;
+  justify-content: center;
+  color: #fafafa;
+  margin: auto;
+  height: 320px;
+  width: 640px;
+  overflow-y: auto;
+  /* background-color: black; */
+}
+.listBox li {
+  display: flex;
+}
+.listBox li div {
+  margin: 4px 8px;
+}
+
+.addItemBtn {
+  margin: 0px 88px 40px 88px;
+  padding: 4px;
+  outline: none;
+  background: #c4c4c4;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+}
