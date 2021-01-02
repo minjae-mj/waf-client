@@ -30,10 +30,10 @@ export default class Playlist extends Component {
           {videoList.map((video) => (
             <li key={video.id.videoId} className="recipes__playerList__video">
               <img src={video.snippet.thumbnails.default.url}></img>
-              <div className="recipes__playerList_words">
+              <div className="recipes__playerList_title">
                 {video.snippet.title}
               </div>
-              <div className="recipes__playerList_words">
+              <div className="recipes__playerList_description">
                 {video.snippet.description}
               </div>
             </li>

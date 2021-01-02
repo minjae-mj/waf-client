@@ -1,13 +1,18 @@
+import "./Main.css";
+
 import React from "react";
 import { Link, Switch, Route, Redirect, withRouter } from "react-router-dom";
 
 class Main extends React.Component {
   render() {
     return (
-      <div id="main">
+      <div>
         {/* 상단 이미지와 한줄글 파트 */}
         <div className="main__img">
-          <div className="main__description">냉장고 관리가 필요할땐, waf</div>
+          <div className="main__description">
+            냉장고 관리가 <br></br>필요할 때 <br></br>W<span>h</span>a
+            <span>t's in my</span>f<span>ridge</span> <br></br>
+          </div>
         </div>
 
         {/* 로그인과 시작하기 버튼  */}

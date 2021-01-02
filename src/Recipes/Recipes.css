@@ -14,23 +14,80 @@ li {
 }
 .recipes__navbar {
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: center;
+  margin: 8px 0px 0px 112px;
 }
 
+/* .logo {
+  margin: 8px 0px 0px 112px;
+  padding-bottom: 16px;
+} */
+
+.recipeAndButton {
+  position: relative;
+  top: 15px;
+  left: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.recommandRecipe {
+  position: relative;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
 .recipes__navbar__btn {
-  border: 2px solid black;
+  background: #7eaaa6;
+  border-radius: 5px;
+  color: #fafafa;
+  font-size: 0.8rem;
+  font-weight: bold;
+  /* margin: 5em auto; */
+  padding: 0.1em;
+  margin-top: 1em auto;
+  cursor: pointer;
+}
+
+#playerAndList {
+  background-color: #fafafa;
+  position: fixed;
+  max-width: 80%;
+  height: 80%;
+  margin: auto;
+  top: 40px;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  z-index: 1;
+  opacity: 0.9;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipes__navbar span {
+  color: #346464;
+  font-size: 3.6rem;
+  font-weight: bold;
+  transform: rotate(345deg);
+  display: flex;
+  justify-content: space-around;
+  /* align-items: center; */
+}
+
+/* .recipes__navbar__btn {
+  border: 1px solid black;
   border-radius: 8px;
   cursor: pointer;
   padding: 8px;
-}
+} */
 
 .recipes__player {
-  margin: 32px;
+  margin: 12px;
 }
 .recipes__current__VideoBox {
-  width: 66%;
-  height: 50vh;
+  width: 80%;
+  height: 40vh;
   margin: auto;
 }
 .recipes__current__Video {
@@ -39,17 +96,38 @@ li {
   margin: auto;
 }
 .recipes__current__title {
-  font-size: 24px;
+  font-size: 1.1rem;
   font-weight: bolder;
 }
 .recipes__playerList {
   display: flex;
   justify-content: center;
-  margin: 16px 0px;
+  margin: 50px 0px;
   padding: 0px;
 }
 .recipes__playerList__video {
-  padding: 8px;
+  padding: 10px;
   max-width: 130px;
   height: 30px;
+}
+
+.recipes__playerList_title {
+  font-size: 1rem;
+  font-weight: bolder;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.2em;
+  height: 2.4em;
+}
+
+.recipes__playerList_description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 라인수 */
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  line-height: 1.2em;
+  height: 2.4em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
 }

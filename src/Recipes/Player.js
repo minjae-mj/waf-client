@@ -2,13 +2,6 @@
 import { Component } from "react";
 
 export default class Player extends Component {
-  // componentDidMount() {
-  //   console.log(this.props.currentVideo);
-  // }
-  // componentDidUpdate() {
-  //   console.log(this.props.currentVideo);
-  // }
-
   render() {
     const { currentVideo } = this.props;
     return (
