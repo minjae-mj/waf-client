@@ -36,6 +36,7 @@ li {
   position: relative;
   font-weight: bold;
   font-size: 1.2rem;
+  margin-left: 40px;
 }
 .recipes__navbar__btn {
   background: #7eaaa6;
@@ -46,6 +47,8 @@ li {
   /* margin: 5em auto; */
   padding: 0.1em;
   margin-top: 1em auto;
+  margin-right: 110px;
+  margin-bottom: 5px;
   cursor: pointer;
 }
 
