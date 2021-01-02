@@ -23,7 +23,7 @@ class Recipes extends Component {
     let params = {
       q: `${item} 레시피`, // (수정 필요)props로 내려오는 재료 이름을 넣을것.
       part: "snippet",
-      maxResults: 5,
+      maxResults: 2,
       key: YOUTUBE_API_KEY,
       type: "video",
     };
@@ -38,24 +38,8 @@ class Recipes extends Component {
           videoList: res.data.items,
           currentVideo: res.data.items[0],
         });
-        // console.log(this.state.videoList);
-        // console.log(this.state.currentVideo);
       })
       .catch((err) => console.log(err));
-    // async사용하기.....가 안되네용....... 힝....
-    // try {
-    //   let videoSendRequest = await axios.get(url);
-    //   let iGotData = await videoSendRequest.then((res) => {
-    //     console.log(res);
-    //     console.log(res.data);
-    //     this.setState({
-    //       videoList: res.data.items,
-    //       currentVideo: res.data.items[0],
-    //     });
-    //   });
-    // } catch (err) {
-    //   console.log(err);
-    // }
   };
 
   componentDidMount() {
@@ -70,16 +54,40 @@ class Recipes extends Component {
     return (
       <div id="recipes">
         <div className="recipes__navbar">
-          <div> {ingredient} 레시피 검색 결과 입니다</div>
-          <div className="recipes__navbar__btn" onClick={() => this.goBack()}>
-            나의 냉장고로 돌아가기
-          </div>
+          <span>waf</span>
         </div>
-        {currentVideo ? <Player currentVideo={currentVideo} /> : "Loading"}
-        {videoList ? <PlayList videoList={videoList} /> : "Loading"}
+        <div id="playerAndList">
+          <div className="recipeAndButton">
+            <div className="recommandRecipe"> {ingredient} 추천 레시피 </div>
+            <button
+              className="recipes__navbar__btn"
+              onClick={() => this.goBack()}
+            >
+              냉장고로 돌아가기
+            </button>
+          </div>
+          {currentVideo ? <Player currentVideo={currentVideo} /> : "Loading"}
+          {videoList ? <PlayList videoList={videoList} /> : "Loading"}
+        </div>
       </div>
     );
   }
 }
 
 export default withRouter(Recipes);
+
+{
+  /* <div id="recipes">
+        <div className="recipes__navbar">
+          <span>waf</span>
+          <div> {ingredient} 레시피 검색 결과 입니다</div>
+          <div className="recipes__navbar__btn" onClick={() => this.goBack()}>
+            나의 냉장고로 돌아가기
+          </div>
+        </div>
+        <div className="playerAndList">
+        {currentVideo ? <Player currentVideo={currentVideo} /> : "Loading"}
+        {videoList ? <PlayList videoList={videoList} /> : "Loading"}
+        </div>
+      </div>  */
+}
