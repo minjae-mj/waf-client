@@ -52,8 +52,7 @@ class AddItem extends Component {
     const { collection } = this.state;
     const { item, category, part } = this.state;
 
-    if (!item || !category || !part) {
-      // console.log("더넣어");
+    if (!item || !category || !part || category === "선택 필수") {
       alert("필수사항을 입력해주세요");
     } else {
       const userid = window.localStorage.getItem("userid");
@@ -84,8 +83,7 @@ class AddItem extends Component {
       boughtToday,
     } = this.state;
 
-    if (!item || !category || !part) {
-      // console.log("더넣어");
+    if (!item || !category || !part || category === "선택 필수") {
       alert("필수사항을 입력해주세요");
     } else {
       if (boughtToday) {
@@ -111,7 +109,9 @@ class AddItem extends Component {
       }
     }
   };
-
+  goBackToFridge = () => {
+    this.props.history.push("/myfridge");
+  };
   deleteCollection = () => {
     const { collection } = this.state;
     this.setState({ collection: collection.slice(0, collection.length - 1) });
@@ -126,11 +126,11 @@ class AddItem extends Component {
         <div className="greenBox">
           <div className="userInfo">
             <div className="username">{name}님의 카트입니다.</div>
-            <div className="backBtn">냉장고로 돌아가기</div>
+            <div className="backBtn" onClick={this.goBackToFridge}>
+              냉장고로 돌아가기
+            </div>
           </div>
-
           <div className="inputArea">
-            {/* addItem을 위한 인풋창 */}
             <div className="Item__btn  input" onClick={this.deleteCollection}>
               -
             </div>
@@ -184,10 +184,6 @@ class AddItem extends Component {
             <div className="Item__btn input" onClick={this.putCollection}>
               +
             </div>
-            {/* 나중에 마지막에 잘라서 쓰기 */}
-            {/* <button className="input" onClick={this.putDatabase}>
-              냉장고에 넣기
-            </button> */}
           </div>
 
           <div className="listBox">
@@ -218,79 +214,3 @@ class AddItem extends Component {
 }
 
 export default withRouter(AddItem);
-
-// render() {
-//   const name = window.localStorage.getItem("userName");
-//   const { categories, collection } = this.state;
-//   return (
-//     <div>
-//       <div className="greenBox">
-//         <div className="username">
-//           {name}
-//           님의 카트입니다.
-//         </div>
-
-//         리스트업을 위한 자리
-//         <ul>
-//           {collection.map((item) => {
-//             return (
-//               <li key={item.item}>
-//                 <div>{item.item}</div>
-//                 <div>{item.category}</div>
-//                 <div>{item.part}</div>
-//                 {item.modifiedAt ? (
-//                   <div>{item.modifiedAt}</div>
-//                 ) : (
-//                   <div>{item.created_at}</div>
-//                 )}
-//               </li>
-//             );
-//           })}
-//         </ul>
-//         addItem을 위한 인풋창
-//         <button onClick={this.deleteCollection}> - </button>
-//         <select
-//           name="categories"
-//           type="category"
-//           onChange={this.inputValueHandler("category")}
-//         >
-//           {categories.map((c, index) => {
-//             return (
-//               <option value={c} key={index}>
-//                 {c}
-//               </option>
-//             );
-//           })}
-//         </select>
-//         <input
-//           placeholder="구매하신 것을 적어주세요"
-//           type="item"
-//           onChange={this.inputValueHandler("item")}
-//         ></input>
-//         <select type="part" onChange={this.inputValueHandler("part")}>
-//           <option value="options">선택필수</option>
-//           <option value="normal">상온</option>
-//           <option value="fridge">냉장</option>
-//           <option value="frozen">냉동</option>
-//         </select>
-//         <span>오늘 구매</span>
-//         <input
-//           type="checkbox"
-//           name="오늘구매"
-//           onClick={this.boughtToday.bind(this)}
-//         ></input>
-//         {this.state.boughtToday ? (
-//           <></>
-//         ) : (
-//           <input
-//             type="date"
-//             className="calendar"
-//             onChange={this.inputValueHandler("modifiedAt")}
-//           ></input>
-//         )}
-//         <button onClick={this.putCollection}> + </button>
-//         <button onClick={this.putDatabase}>냉장고에 넣기</button>
-//       </div>
-//     </div>
-//   );
-// }
