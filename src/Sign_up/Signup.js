@@ -49,28 +49,35 @@ class Signup extends Component {
 
   render() {
     return (
-      <div id="signup">
+      <div className="register__wrapper">
+        <p className="register__text">회원 정보를 입력해주세요.</p>
         <input
-          placeholder="홍길동"
-          type="username"
-          onChange={this.handleInputValue("username")}
-        ></input>
-        <input
-          placeholder="영문 및 숫자 8자리"
-          type="password"
-          onChange={this.handleInputValue("password")}
-        ></input>
-        <input
-          placeholder="이메일을 작성해주세요"
+          placeholder="이메일"
           type="email"
+          className="input__email"
           onChange={this.handleInputValue("email")}
-        ></input>
+        />
         <input
-          placeholder="01012345678"
+          placeholder="비밀번호 (영문 및 숫자 8자리)"
+          type="password"
+          className="input__password"
+          onChange={this.handleInputValue("password")}
+        />
+        <input
+          placeholder="닉네임"
+          type="username"
+          className="input__username"
+          onChange={this.handleInputValue("username")}
+        />
+        <input
+          placeholder="휴대폰 번호"
           type="mobile"
+          className="input__mobile"
           onChange={this.handleInputValue("mobile")}
-        ></input>
-        <button onClick={() => this.clickBtn()}>회원 가입하기</button>
+        />
+        <button className="btn__register" onClick={() => this.clickBtn()}>
+          회원 가입하기
+        </button>
       </div>
     );
   }

@@ -1,29 +1,90 @@
-main {
-  height: 100vh;
+.register__wrapper {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  background-color: white;
+  opacity: 80%;
+  border-radius: 20px;
+  width: 45%;
+  height: 70%;
+  padding: 5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.subContainer {
-  margin: 10rem;
-}
-
-.naver__Oauth {
-  margin: 0;
+.input__email,
+.input__password,
+.btn__register,
+.btn__signup {
+  width: 90%;
   height: 2rem;
-  width: 9rem;
-  background-size: 9rem;
-  background-position: center center;
-  background-image: url("./naver.PNG");
-  border: 1px solid yellow;
-  display: block;
+  outline-style: none;
+  border-radius: 3px;
+  margin-bottom: 1.2rem;
+  padding: 1.5rem 2.5rem;
+  color: #346464;
+  font-size: 1rem;
+  font-weight: 400;
+}
+::placeholder {
+  color: #346464;
 }
 
-.google__Oauth {
-  margin: 0;
-  height: 2.1rem;
-  width: 9rem;
-  background-size: 9rem;
-  background-position: center center;
-  background-image: url("./google.png");
-  border: 1px solid yellow;
-  display: inline-block;
+.input__email,
+.input__password {
+  background-color: #fafafa;
+  border: 1.8px solid #346464;
+  box-shadow: 0.2rem 0.2rem 0.4rem #346464;
+}
+
+#oauth__box {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin-bottom: 1.2rem;
+  padding: 1rem 0;
+  justify-content: space-between;
+}
+
+.btn__google,
+.btn__naver {
+  width: 45%;
+  cursor: pointer;
+  box-shadow: 0.2rem 0.4rem 0.4rem #314145;
+  transition: all 0.1s;
+}
+
+.btn__google:hover,
+.btn__naver:hover {
+  box-shadow: 0.2rem 0.4rem 0.4rem #141b1d;
+}
+
+.btn__register,
+.btn__signup {
+  line-height: 0;
+  font-size: 1.2rem;
+  transition: all 0.1s;
+}
+
+.btn__register {
+  background-color: #7eaaa6;
+  border: 1.8px solid #346464;
+  color: white;
+}
+
+.btn__signup {
+  background-color: #fafafa;
+  border: 1.8px solid #346464;
+  color: #346464;
+}
+
+.btn__register:hover {
+  background-color: #346464;
+}
+
+.btn__register:active,
+.btn__signup:active {
+  transform: translateY(3px);
 }

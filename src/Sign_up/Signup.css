@@ -1,4 +1,24 @@
-#signup {
-  display: flex;
-  flex-direction: column;
+.input__username,
+.input__mobile {
+  width: 90%;
+  height: 2rem;
+  outline-style: none;
+  border-radius: 3px;
+  margin-bottom: 1.2rem;
+  padding: 1.5rem 2.5rem;
+  color: #346464;
+  font-size: 1rem;
+  font-weight: 400;
+  background-color: #fafafa;
+  border: 1.8px solid #346464;
+  box-shadow: 0.2rem 0.2rem 0.4rem #346464;
+}
+
+.register__text {
+  color: black;
+  position: absolute;
+  font-size: 1.3rem;
+  font-weight: 700;
+  top: 7%;
+  left: 12%;
 }
