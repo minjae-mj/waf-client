@@ -1,21 +1,28 @@
-/* font-family: "Noto Sans KR", sans-serif; */
-
 * {
+  font-family: "Noto Sans KR", sans-serif;
   box-sizing: border-box;
 }
 
-#main {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+body {
+  margin: 0px 0px;
 }
 
-.main__img {
+#main {
+  height: 100vh;
+  background: url("./img/fridge.jpeg");
+  opacity: 85%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* .main__img {
   display: flex;
   align-items: center;
   justify-content: center;
   background: url("img/mainImage.jpg") center/cover no-repeat;
-  height: 80%;
+  height: 100%;
   text-align: center;
 }
 .main__description {
@@ -29,4 +36,4 @@
 }
 .main__btn {
   margin: 8px;
-}
+} */
