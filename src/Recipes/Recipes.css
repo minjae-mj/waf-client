@@ -7,9 +7,7 @@ ul {
 li {
   text-align: center;
 }
-body {
-  margin: 24px 0px;
-}
+
 #recipes {
   display: flex;
   flex-direction: column;
