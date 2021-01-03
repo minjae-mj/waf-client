@@ -56,7 +56,8 @@ padding-bottom: 10px;
   padding-top: 20px;
   padding-bottom:20px;
   padding-left: 30px;
-  margin-left:160px;
+  margin-left:110px;
+  font-weight: bold;
 }
 .spaceMaker{
   flex: 4 1 auto;
@@ -178,7 +179,7 @@ padding-bottom: 10px;
   position: absolute;
   width: 170px;
   height: 115px;
-  top: 205px;
+  top: 215px;
   left: 35%;
   display: none;
 }
@@ -186,7 +187,7 @@ padding-bottom: 10px;
   position: absolute;
   width: 170px;
   height: 120px;
-  top: 380px;
+  top: 400px;
   left: 35%;
   display: none;
 }
@@ -195,7 +196,7 @@ padding-bottom: 10px;
 
   width: 110px;
   height: 110px;
-  top: 610px;
+  top: 640px;
   left: 33%;
   display: none;
 }
@@ -203,7 +204,7 @@ padding-bottom: 10px;
   position: absolute;
   width: 110px;
   height: 110px;
-  top: 610px;
+  top: 640px;
   left: 40%;
   display: none;
 }
@@ -361,4 +362,6 @@ display: none;
   color:#fafafa;
   padding-top: 10px;
   font-size: 24px;
+    font-weight: bold;
+
 }

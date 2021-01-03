@@ -44,6 +44,7 @@ class RealFridge extends Component {
   showLists = (e) => {
     if (e.target.id === 'total') {
       this.setState({ status: this.props.userData })
+      
     } else {
       if (e.target.id === "normal") {
         this.setState({ status: this.props.partNormal })
