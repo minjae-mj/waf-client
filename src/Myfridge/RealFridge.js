@@ -42,22 +42,33 @@ class RealFridge extends Component {
   };
 
   showLists = (e) => {
-    const forRemove = document.querySelector(".partList_click");
-    forRemove.classList.remove("partList_click");
+    const forRemove = document.querySelectorAll(".partList_click");
+    console.log(forRemove);
+    for (let el of forRemove) {
+      el.classList.remove("partList_click");
+    }
+  //  forRemove.classList.remove("partList");
+    console.log(forRemove);
+
+    
     if (e.target.id === 'total') {
       this.setState({ status: this.props.userData })
+      e.target.classList.add("partList_click");
     } else {
       if (e.target.id === "normal") {
         this.setState({ status: this.props.partNormal })
-      e.target.className = "partList_click";
+        e.target.classList.add("partList_click");
+
       }
       else if (e.target.id === "fridge") {
         this.setState({ status: this.props.partFridge })
-        e.target.className = "partList_click";
+        e.target.classList.add("partList_click");
+
       }
       else if (e.target.id === "frozen") {
         this.setState({ status: this.props.partFrozen })
-        e.target.className = "partList_click";
+        e.target.classList.add("partList_click");
+
       }
     }
   }
@@ -126,7 +137,7 @@ class RealFridge extends Component {
   }
 
   render() {
-    // const { userData, partNormal, partFrozen, partFridge } = this.props;
+    const { userData } = this.props;
     const{status} = this.state;
     return (
       <div id="myfridge">
@@ -156,7 +167,7 @@ class RealFridge extends Component {
           <div className="part__division">
             <div
               id="total"
-              className="partList_click"
+              className="partList"
               onClick={this.showLists}>
               전체
             </div>
@@ -182,7 +193,7 @@ class RealFridge extends Component {
 
           <div className="sidebar_container">
             <ul className="sidebar">
-              {status ? (
+              {status.length !== 0 ? (
                 status.map((item) => (
                   <div className="bundleOfList">
                     <div
@@ -205,14 +216,32 @@ class RealFridge extends Component {
                     </>
                   </div>
                 ))
-              ) : (
-                <></>
-              )}
+              ) : (userData.map((item) => (
+                <div className="bundleOfList">
+                  <div
+                    className="part__TotalList__minus"
+                    onClick={this.removeItem}>
+                    -
+                    </div>
+                  <li
+                    className="part__TotalList__item"
+                    key={item.id}
+                    onClick={this.clickIngredient}>
+                    {item.name}
+                  </li>
+                  <>
+                    {this.getDDay(
+                      item.expiredAfter,
+                      item.modifiedAt,
+                      item.createdAt
+                    )}
+                  </>
+                </div>
+              )))}
             </ul>
           </div>
           <div className="myfridge__button" onClick={this.goToCart}>
-            {" "}
-            냉장고에 재료 넣기{" "}
+            냉장고에 재료 넣기
           </div>
         </div>
       </div>
