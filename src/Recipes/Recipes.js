@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 import "./Recipes.css";
 import Player from "./Player";
 import PlayList from "./PlayList";
+import logo from "./Waf.png";
 
 class Recipes extends Component {
   constructor(props) {
@@ -19,11 +20,10 @@ class Recipes extends Component {
   };
 
   searchYoutube = async (item) => {
-    console.log(item);
     let params = {
       q: `${item} 레시피`,
       part: "snippet",
-      maxResults: 2,
+      maxResults: 5,
       key: YOUTUBE_API_KEY,
       type: "video",
     };
@@ -55,10 +55,9 @@ class Recipes extends Component {
     const { videoList, currentVideo } = this.state;
     const ingredient = window.localStorage.getItem("ingredient");
     return (
-      <div id="recipes">
-        <div className="recipes__navbar">
-          <span>waf</span>
-        </div>
+      <div>
+        <img className="logo" src={logo} />
+        <div className="recipes__navbar"></div>
         <div id="playerAndList">
           <div className="recipeAndButton">
             <div className="recommandRecipe"> {ingredient} 추천 레시피 </div>
@@ -70,6 +69,7 @@ class Recipes extends Component {
             </button>
           </div>
           {currentVideo ? <Player currentVideo={currentVideo} /> : "Loading"}
+
           {videoList ? (
             <PlayList
               videoList={videoList}
@@ -78,6 +78,11 @@ class Recipes extends Component {
           ) : (
             "Loading"
           )}
+
+//           {videoList ? <PlayList videoList={videoList} /> : "Loading"}
+//           {/* <Player />
+//           <PlayList /> */}
+
         </div>
       </div>
     );
