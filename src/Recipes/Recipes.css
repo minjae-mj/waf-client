@@ -8,11 +8,6 @@ li {
   text-align: center;
 }
 
-/* #recipes {
-  display: flex;
-  flex-direction: column;
-} */
-
 .logo {
   margin: 8px 0px 0px 112px;
   padding-bottom: 16px;
@@ -53,6 +48,7 @@ li {
 #playerAndList {
   background-color: #fafafa;
   position: fixed;
+  border-radius: 20px;
   max-width: 80%;
   height: 80%;
   margin: auto;
