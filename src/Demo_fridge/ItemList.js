@@ -2,6 +2,19 @@
 import React, { Component } from "react";
 
 export default class Itemlist extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPart: "전체",
+    };
+  }
+
+  changePart = (e) => {
+    let part = e.target.innerHTML;
+    this.setState({ currentPart: part });
+    console.log(this.state.currentPart);
+  };
+
   addDaysTo = (days) => {
     Date.prototype.addDays = function (days) {
       var date = new Date(this.valueOf());
@@ -66,119 +79,167 @@ export default class Itemlist extends Component {
     }
   };
 
-  showListDemo = (e) => {
-    console.log(e.target.innerHTML);
-    for (let item of this.props.items) {
-      if (e.target.innerHTML !== "전체" && item.part === e.target.innerHTML) {
-        let itemStyle = document.querySelectorAll(`#${item.part}`);
-        for (let el of itemStyle) {
-          el.style.display = "block";
-        }
-      } else {
-        if (e.target.innerHTML === "전체") {
-          let itemStyle = document.querySelectorAll(`#전체`);
-          for (let el of itemStyle) {
-            el.style.display = "block";
-          }
-        }
-      }
-    }
-  };
+  // showListDemo = () => {
+  //   const { items, currentPart } = this.props;
+
+  //   for (let item of items) {
+  //     if (item.part === currentPart) {
+  //       return (
+  //         <>
+  //           <div>item.part</div>
+  //           <div></div>
+  //           <div></div>
+  //         </>
+  //       );
+  //     }
+  //   }
+  // };
+
+  // componentDidUpdate() {
+  //   this.showListDemo();
+  // }
+
+  // showListDemo = (e) => {
+  //   console.log(e.target.innerHTML);
+  //   for (let item of this.props.items) {
+  //     if (e.target.innerHTML !== "전체" && item.part === e.target.innerHTML) {
+  //       let itemStyle = document.querySelectorAll(`#${item.part}`);
+  //       for (let el of itemStyle) {
+  //         el.style.display = "block";
+  //       }
+  //     } else {
+  //       if (e.target.innerHTML === "전체") {
+  //         let itemStyle = document.querySelectorAll(`#전체`);
+  //         for (let el of itemStyle) {
+  //           el.style.display = "block";
+  //         }
+  //       }
+  //     }
+  //   }
+  // };
 
   render() {
-    const { items } = this.props;
+    const { items, changePart } = this.props;
     {
       console.log({ items });
     }
-
     return (
       <div className="demo__itemListBox">
-        {/* <div className="demo__itemList__title">나의 냉장고에 있는 재료들</div> */}
         <div className="demo__itemList__category">
-          <div className="fridge_Section">
-            <div className="demopart_section" onClick={this.showListDemo}>
+          <div className="demopart_section" onClick={this.changePart}>
+            <div className="part" onClick={changePart}>
               전체
             </div>
-            <ul className="demoul_section">
-              {items.map((item) =>
-                item.part === "냉장" ||
-                item.part === "상온" ||
-                item.part === "냉동" ? (
-                  <>
-                    <li id="전체" className="demoli">
-                      {item.name}
-                    </li>
-                    <span className="demoperiod">{this.getDDay(item)}</span>
-                  </>
-                ) : (
-                  <></>
-                )
-              )}
-            </ul>
-          </div>
-
-          <div className="fridge_Section">
-            <div className="demopart_section" onClick={this.showListDemo}>
-              상온
-            </div>
-            <ul className="demoul_section">
-              {items.map((item) =>
-                item.part === "상온" ? (
-                  <>
-                    <li id="상온" className="demoli">
-                      {item.name}
-                    </li>
-                    <span className="demoperiod">{this.getDDay(item)}</span>
-                  </>
-                ) : (
-                  <></>
-                )
-              )}
-            </ul>
-          </div>
-
-          <div className="fridge_Section">
-            <div className="demopart_section" onClick={this.showListDemo}>
+            <div className="part" onClick={changePart}>
               냉장
             </div>
-            <ul className="demoul_section">
-              {items.map((item) =>
-                item.part === "냉장" ? (
-                  <>
-                    <li id="냉장" className="demoli">
-                      {item.name}
-                    </li>
-                    <span className="demoperiod">{this.getDDay(item)}</span>
-                  </>
-                ) : (
-                  <></>
-                )
-              )}
-            </ul>
-          </div>
-
-          <div className="fridge_Section">
-            <div className="demopart_section" onClick={this.showListDemo}>
+            <div className="part" onClick={changePart}>
+              상온
+            </div>
+            <div className="part" onClick={changePart}>
               냉동
             </div>
-            <ul className="demoul_section">
-              {items.map((item) =>
-                item.part === "냉장" ? (
-                  <>
-                    <li id="냉동" className="demoli">
-                      {item.name}
-                    </li>
-                    <span className="demoperiod">{this.getDDay(item)}</span>
-                  </>
-                ) : (
-                  <></>
-                )
-              )}
-            </ul>
+          </div>
+          <div className="fridge_Section">
+            {this.state.currentPart === "전체"
+              ? items.map((item) => <div>{item.name}</div>)
+              : items.map((item) =>
+                  item.part === this.state.currentPart ? (
+                    <div>{item.name}</div>
+                  ) : null
+                )}
           </div>
         </div>
       </div>
     );
+    // return (
+    //   <div className="demo__itemListBox">
+    //     {/* <div className="demo__itemList__title">나의 냉장고에 있는 재료들</div> */}
+    //     <div className="demo__itemList__category">
+    //       <div className="fridge_Section">
+    //         <div className="demopart_section" onClick={this.changePart}>
+    //           전체
+    //         </div>
+    //         <ul className="demoul_section">
+    //           {items.map((item) =>
+    //             item.part === "냉장" ||
+    //             item.part === "상온" ||
+    //             item.part === "냉동" ? (
+    //               <>
+    //                 <li id="전체" className="demoli">
+    //                   {item.name}
+    //                 </li>
+    //                 <span className="demoperiod">{this.getDDay(item)}</span>
+    //               </>
+    //             ) : (
+    //               <></>
+    //             )
+    //           )}
+    //         </ul>
+    //       </div>
+
+    //       <div className="fridge_Section">
+    //         <div className="demopart_section" onClick={this.changePart}>
+    //           상온
+    //         </div>
+    //         <ul className="demoul_section">
+    //           {items.map((item) =>
+    //             item.part === "상온" ? (
+    //               <>
+    //                 <li id="상온" className="demoli">
+    //                   {item.name}
+    //                 </li>
+    //                 <span className="demoperiod">{this.getDDay(item)}</span>
+    //               </>
+    //             ) : (
+    //               <></>
+    //             )
+    //           )}
+    //         </ul>
+    //       </div>
+
+    //       <div className="fridge_Section">
+    //         <div className="demopart_section" onClick={this.showListDemo}>
+    //           냉장
+    //         </div>
+    //         <ul className="demoul_section">
+    //           {items.map((item) =>
+    //             item.part === "냉장" ? (
+    //               <>
+    //                 <li id="냉장" className="demoli">
+    //                   {item.name}
+    //                 </li>
+    //                 <span className="demoperiod">{this.getDDay(item)}</span>
+    //               </>
+    //             ) : (
+    //               <></>
+    //             )
+    //           )}
+    //         </ul>
+    //       </div>
+
+    //       <div className="fridge_Section">
+    //         <div className="demopart_section" onClick={this.showListDemo}>
+    //           냉동
+    //         </div>
+    //         <ul className="demoul_section">
+    //           {items.map((item) =>
+    //             item.part === "냉장" ? (
+    //               <>
+    //                 <li id="냉동" className="demoli">
+    //                   {item.name}
+    //                 </li>
+    //                 <span className="demoperiod">{this.getDDay(item)}</span>
+    //               </>
+    //             ) : (
+    //               <></>
+    //             )
+    //           )}
+    //         </ul>
+    //       </div>
+    //     </div>
+    //   </div>
+    // );
   }
 }
 // props.items = {

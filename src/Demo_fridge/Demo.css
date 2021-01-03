@@ -232,18 +232,37 @@
   font-weight: bold;
   color: #346464;
 }
-.demo__itemList__category {
+/* .demo__itemList__category {
   height: 100%;
   border: 5px solid blue;
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding: 50px;
+} */
+.demo__itemList__category {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  border: 5px solid blue;
+  justify-content: center;
 }
-.demopart_section {
+
+/* .demopart_section {
   border: 2px dashed red;
   flex: 1 1 auto;
+} */
+.demopart_section {
+  display: flex;
 }
+.part {
+  width: 100%;
+  text-align: center;
+  padding: 4px;
+  border: 1px solid green;
+}
+
 .demoul_section {
   flex: 1 1 auto;
   border: 2px dashed green;
@@ -251,11 +270,19 @@
   flex-direction: column;
 }
 
-.fridge_Section {
+/* .fridge_Section {
   border: 5px solid yellow;
   height: 100%;
   display: block;
   flex: 1 1 auto;
+} */
+.fridge_Section {
+  border: 5px solid yellow;
+  height: 100%;
+  /* display: block; */
+  /* flex: 1 1 auto; */
+  overflow-y: auto;
+  /* background: crimson; */
 }
 
 .demoli {
