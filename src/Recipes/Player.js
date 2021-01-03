@@ -17,6 +17,8 @@ export default class Player extends Component {
           </div>
         </div>
 
+
+
         {/* 아래 코드는 youtube api key 소진시..... */}
         {/* <div className="recipes__current__VideoBox">
           <iframe
@@ -31,6 +33,7 @@ export default class Player extends Component {
             알려드릴게요~{" "}
           </div>
         </div> */}
+
       </div>
     );
   }
