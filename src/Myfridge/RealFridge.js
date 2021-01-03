@@ -42,18 +42,22 @@ class RealFridge extends Component {
   };
 
   showLists = (e) => {
+    const forRemove = document.querySelector(".partList_click");
+    forRemove.classList.remove("partList_click");
     if (e.target.id === 'total') {
       this.setState({ status: this.props.userData })
-      
     } else {
       if (e.target.id === "normal") {
         this.setState({ status: this.props.partNormal })
+      e.target.className = "partList_click";
       }
       else if (e.target.id === "fridge") {
         this.setState({ status: this.props.partFridge })
+        e.target.className = "partList_click";
       }
       else if (e.target.id === "frozen") {
         this.setState({ status: this.props.partFrozen })
+        e.target.className = "partList_click";
       }
     }
   }
@@ -101,9 +105,15 @@ class RealFridge extends Component {
     const distance = Math.floor(current - expire);
     if (distance < 0) {
       const result = Math.abs(Math.floor(distance / (1000 * 60 * 60 * 24)));
-      return `${result}일 남음`;
+      return (
+        <span className="part__Yet__expired"> {result}일 남음</span>
+      );
     } else {
-      return `${Math.floor(distance / (1000 * 60 * 60 * 24))}일 지남`;
+      return (
+        <span className="part__expired">
+          {Math.floor(distance / (1000 * 60 * 60 * 24))}일 지남
+        </span>
+      );
     }
   }
 
@@ -124,17 +134,17 @@ class RealFridge extends Component {
         <div className="left__my">
           {/* 왼쪽 냉장고 */}
           <div className="fridge">
-            <div className="fridge_leftside__my" ></div>
+            <div className="fridge_leftside__my"></div>
             {/* <div className="ingredient"> */}
             <img id="mandu-m" src={mandu}></img>
             <img id="eggs-m" src={eggs}></img>
             <img id="dairy-m" src={dairy}></img>
             {/* </div> */}
-          {/* </div> */}
+            {/* </div> */}
 
-          {/* 오른쪽 냉장고 */}
-          {/* <div className="fridge"> */}
-            <div className="fridge_rightside__my" ></div>
+            {/* 오른쪽 냉장고 */}
+            {/* <div className="fridge"> */}
+            <div className="fridge_rightside__my"></div>
             <img id="seafood-m" src={fish}></img>
             <img id="meat-m" src={meat}></img>
             <img id="fruits-m" src={fruit}></img>
@@ -143,58 +153,69 @@ class RealFridge extends Component {
         </div>
         {/* -------------------------------------------------------------------------------- */}
         <div className="right__my">
-
           <div className="part__division">
-            <div id="total" className="partList" onClick={this.showLists}>
+            <div
+              id="total"
+              className="partList_click"
+              onClick={this.showLists}>
               전체
             </div>
-            <div id="normal" className="partList" onClick={this.showLists}>
+            <div
+              id="normal"
+              className="partList"
+              onClick={this.showLists}>
               상온
             </div>
-            <div id="fridge" className="partList" onClick={this.showLists}>
+            <div
+              id="fridge"
+              className="partList"
+              onClick={this.showLists}>
               냉장
             </div>
-            <div id="frozen" className="partList" onClick={this.showLists}>
+            <div
+              id="frozen"
+              className="partList"
+              onClick={this.showLists}>
               냉동
             </div>
           </div>
-          
-          <div className= "sidebar_container">
+
+          <div className="sidebar_container">
             <ul className="sidebar">
               {status ? (
-                status.map((item)=>(
-                  <div className = "bundleOfList">
+                status.map((item) => (
+                  <div className="bundleOfList">
                     <div
                       className="part__TotalList__minus"
-                      onClick={this.removeItem}
-                    >
+                      onClick={this.removeItem}>
                       -
                     </div>
                     <li
-                      
                       className="part__TotalList__item"
                       key={item.id}
-                      onClick={this.clickIngredient}
-                    >
+                      onClick={this.clickIngredient}>
                       {item.name}
                     </li>
-                    <span className="part__TotalList__expired">
+                    <>
                       {this.getDDay(
                         item.expiredAfter,
                         item.modifiedAt,
                         item.createdAt
                       )}
-                    </span>
+                    </>
                   </div>
                 ))
               ) : (
                 <></>
               )}
             </ul>
-            </div>
-            <div className="myfridge__button" onClick={this.goToCart}> 냉장고에 재료 넣기 </div>
           </div>
+          <div className="myfridge__button" onClick={this.goToCart}>
+            {" "}
+            냉장고에 재료 넣기{" "}
           </div>
+        </div>
+      </div>
     );
   }
 }
