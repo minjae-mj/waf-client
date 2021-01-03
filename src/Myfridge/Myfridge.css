@@ -1,30 +1,364 @@
+
 .Myfridge__container {
+  /* border: 5px solid black; */
   display: flex;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
 }
 
-.Myfridge__userbox {
-  flex-basis: 15%;
+.logo_{
+flex-basis: 10%;
+background-image: url("./waf.png");
+background-repeat: no-repeat;
+background-position: start center;
+background-size: contain;
+margin-left: 40px;
+padding-bottom: 10px;
 }
 
-.demo {
-  height: 85%;
+.whiteBackground_myfridge {
+  width: 100%;
+  display: flex;
+  z-index: 1;
+  position: relative;
+  flex-direction: column;
+  height:100%;
+}
+
+.whiteBackground_myfridge::after {
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.8;
+  content: "";
+}
+
+.Myfridge__userbox{
+  display: flex;
+  flex-direction: row;
+  flex-basis: 10% ; /* justify-content: flex-start; */
+  /* text-align: center; */
+  width: 100%;
+  /* border: 5px solid yellow; */
+
+}
+
+.username__myfridge{
+  font-size: 30px;
+  /* background-color: #346464; */
+  color: #000000;
+  text-align: start;
+  height: 80px;
+  flex: 3 1 auto;
+  padding-top: 20px;
+  padding-bottom:20px;
+  padding-left: 30px;
+  margin-left:160px;
+}
+.spaceMaker{
+  flex: 4 1 auto;
+}
+.logoutContainer{
+  width: 140px;
+  height: 40px;
+  /* border: 1px solid #346464; */
+  flex: 1 1 auto;
+  margin-right: 50px;
+  margin-top:20px;
+  margin-bottom: 20px;
+}
+
+.logout{
+  color : #346464;
+  font-size: 24px;
+}
+
+
+.myfridge__maincontent{
+  flex-basis: 80%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 30px;
+}
+
+
+#myfridge{
+  /* border: 5px dashed purple; */
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: row;
 }
 
-.left {
-  flex-basis: 60%;
+
+.left__my {
+  /* border: 5px solid blue; */
+  flex-basis: 55%;
+  display: flex;
 }
 
-.sidbar {
-  flex-basis: 40%;
+
+
+.fridge {
+  /* position: relative; */
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
-.part__List {
+.fridge_leftside__my {
+  /* background: url("./img_fridge/left_fridge.png") center/cover no-repeat; */
+  /* height: 500px;*/
+  flex: 1 1 auto;
+  background-image: url("./img_fridge/left_fridge.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right center;
+  position: relative;
+  padding: 20px;
+
+  /* display: grid;
+  grid-column: 300px;
+  grid-row: 1fr 100px 1fr;
+  grid-row-gap: 10px; */
+}
+
+.fridge_rightside__my {
+  flex: 1 1 auto;
+  background-image: url("./img_fridge/right_fridge.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  position: relative;
+  padding: 20px;
+  /* background: url("./img_fridge/right_fridge.png") center/cover no-repeat;*/
+}
+
+#mandu-m {
+  /* background-image: url("./img_fridge/mandu.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right top; */
+  width: 120px;
+  height: auto;
+  left: 300px;
+  top: 20%;
+  /* flex: 2 1 auto; */
+  /* width: 132px;
+  height: 120px;
+  top: 48px;
+  left: 56px; */
+  display: none;
+  position: absolute;
+}
+
+#dairy-m {
+  position: absolute;
+  width: 150px;
+  height: auto;
+  left: 280px;
+  top: 70%;
+  display: none;
+}
+#eggs-m {
+  position: absolute;
+  width: 200px;
+  height: 48px;
+  left: 260px;
+  top: 53%;
+  display: none;
+  flex: 1 1 auto;
+}
+
+#seafood-m {
+  position: absolute;
+  width: 170px;
+  height: 115px;
+  top: 205px;
+  left: 35%;
+  display: none;
+}
+#meat-m {
+  position: absolute;
+  width: 170px;
+  height: 120px;
+  top: 380px;
+  left: 35%;
+  display: none;
+}
+#veges-m {
+  position: absolute;
+
+  width: 110px;
+  height: 110px;
+  top: 610px;
+  left: 33%;
+  display: none;
+}
+#fruits-m {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  top: 610px;
+  left: 40%;
   display: none;
 }
 
-.part__TotalList {
-  display: block;
+.right__my {
+  
+  flex-basis: 35%;
+  /* border: 5px solid orange; */
+  display: flex;
+  margin: 30px 70px 30px 30px;
+  flex-direction: column;
+  /* width: 100px;
+  height: 100px;
+  background-color: greenyellow; */
+}
+
+.part__division{
+  flex: 1 0 auto;
+  /* border: 5px dashed 346464; */
+  display: flex;
+  flex-direction: row;
+  font-size: 24px;
+}
+.partList{
+  flex: 1 1 auto;
+  border: 1px solid #DDDEDF;
+  padding: 20px;
+  text-align: center;
+  background-color: #346464;
+  color: #fafafa;
+}
+
+.sidebar_container{
+  flex: 10 1 auto;
+  /* border: 5px dashed gold; */
+  background-color: #DDDEDF;
+  overflow-y: auto;
+  height: 300px;
+
+}
+
+.button_area{
+  flex: 1 1 auto;
+  /* border: 4px solid pink; */
+}
+
+.sidebar{
+
+}
+
+.bundleOfList{
+/* border: 1px solid grey; */
+display: flex;
+flex-direction: row;
+height: 60px;
+margin: 15px;
+}
+
+.part__TotalList__minus{
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  /* border: 1px solid #b3aa9f; */
+  border-radius: 50%;
+  font-size: 48px;
+  margin-left: 30px;
+  text-align:center;
+  background-color: red;
+  color:#fafafa;
+  /* border: 1px solid black; */
+  cursor: pointer;
+  line-height: 32px;
+  margin-top: 5px;
+  margin-bottom:7px;
+}
+
+.part__TotalList__item{
+  display: inline-block;
+  color: #000000;
+  margin-left: 30px;  
+  font-size: 20px;
+  width: 120px;
+  /* border: 1px solid black; */
+	vertical-align: middle;
+  margin-top: 7px;
+  margin-bottom:7px;
+  padding: 5px;
+}
+
+.part__TotalList__expired{
+  display: inline-block;
+  margin-left: 170px;  
+  color: #000000;
+  font-size: 20px;
+  width: 100px;
+  /* border: 1px solid black; */
+  text-align: center;
+  margin-top: 7px;
+  margin-bottom:7px;
+  padding: 5px;
+  background-color:#705F52;
+  margin-right: 10px;
+}
+
+
+
+.part__List__minus{
+  display: none;
+  width: 48px;
+  height: 48px;
+  /* border: 1px solid #b3aa9f; */
+  border-radius: 50%;
+  font-size: 48px;
+  margin-left: 30px;
+  text-align:center;
+  background-color: red;
+  color:#fafafa;
+  /* border: 1px solid black; */
+  cursor: pointer;
+  line-height: 32px;
+  margin-top: 5px;
+  margin-bottom:7px;
+}
+.part__List__item{
+display: none;
+  color: #000000;
+  margin-left: 30px;  
+  font-size: 20px;
+  width: 120px;
+  /* border: 1px solid black; */
+	vertical-align: middle;
+  margin-top: 7px;
+  margin-bottom:7px;
+  padding: 5px;
+}
+.part__List__expired{
+  display: none;
+  margin-left: 10px;  
+  color: #000000;
+  font-size: 20px;
+  width: 100px;
+  /* border: 1px solid black; */
+  text-align: center;
+  margin-top: 7px;
+  margin-bottom:7px;
+  padding: 5px;
+  background-color:#705F52;
+  margin-right: 10px;
+}
+
+.myfridge__button{
+  flex: 1 1 auto;
+  text-align: center;
+  background-color: #7EAAA6;
+  color:#fafafa;
+  padding-top: 10px;
+  font-size: 24px;
 }

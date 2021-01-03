@@ -2,6 +2,9 @@ import axios from "axios";
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import RealFridge from "./RealFridge";
+import "./Myfridge.css";
+import logo from "./waf.png"
+
 
 class Myfridge extends Component {
   constructor(props) {
@@ -66,13 +69,21 @@ class Myfridge extends Component {
 
     return (
       <div className="Myfridge__container">
+      <div className="logo_" ></div>
+      <div className="whiteBackground_myfridge">
+
         <div className="Myfridge__userbox">
-          <div className="username"> {name} 님의 냉장고입니다.</div>
+          <div className="username__myfridge"> {name} 님의 냉장고입니다.</div>
           {/* {(세션로그인)? ():()} */}
+          <div className="spaceMaker"></div>
+          <div className="logoutContainer">
           <button className="logout" onClick={this.logoutHandler}>
             로그아웃
           </button>
+         </div> 
         </div>
+
+      <div className="myfridge__maincontent">
         <RealFridge
           userData={userData}
           userName={userName}
@@ -80,6 +91,8 @@ class Myfridge extends Component {
           partFrozen={partFrozen}
           partNormal={partNormal}
         />
+        </div>
+      </div>
       </div>
     );
   }
