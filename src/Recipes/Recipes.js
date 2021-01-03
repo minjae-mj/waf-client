@@ -85,19 +85,3 @@ class Recipes extends Component {
 }
 
 export default withRouter(Recipes);
-
-{
-  /* <div id="recipes">
-        <div className="recipes__navbar">
-          <span>waf</span>
-          <div> {ingredient} 레시피 검색 결과 입니다</div>
-          <div className="recipes__navbar__btn" onClick={() => this.goBack()}>
-            나의 냉장고로 돌아가기
-          </div>
-        </div>
-        <div className="playerAndList">
-        {currentVideo ? <Player currentVideo={currentVideo} /> : "Loading"}
-        {videoList ? <PlayList videoList={videoList} /> : "Loading"}
-        </div>
-      </div>  */
-}

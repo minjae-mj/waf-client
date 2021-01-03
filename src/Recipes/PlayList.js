@@ -2,25 +2,6 @@
 import React, { Component } from "react";
 
 export default class Playlist extends Component {
-  // fakeData = [
-  //   {
-  //     thumbnails: { default: { url: "33333" } },
-  //     snippet: { title: "titleeeeee" },
-  //   },
-  //   {
-  //     thumbnails: { default: { url: "33333" } },
-  //     snippet: { title: "titleeeeee123213" },
-  //   },
-  //   {
-  //     thumbnails: { default: { url: "33333" } },
-  //     snippet: { title: "titleee21312312eee" },
-  //   },
-  //   {
-  //     thumbnails: { default: { url: "33333" } },
-  //     snippet: { title: "titlee21321312eeee" },
-  //   },
-  // ];
-
   render() {
     const { videoList, changeCurrentVideo } = this.props;
     return (
@@ -42,17 +23,6 @@ export default class Playlist extends Component {
             </li>
           ))}
         </ul>
-
-        {/* 아래 코드는 youtube api key 소진시..... */}
-        {/* <ul>
-          {this.fakeData.map((video) => (
-            <li>
-              <div>{video.thumbnails.default.url}</div>
-              <div>{video.snippet.title}</div>
-              <img src={video.snippet.thumbnails.default.url}></img>
-            </li>
-          ))}
-        </ul> */}
       </div>
     );
   }

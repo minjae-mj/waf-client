@@ -16,15 +16,6 @@ export default class Player extends Component {
             {currentVideo.snippet.title}
           </div>
         </div>
-
-        {/* 아래 코드는 youtube api key 소진시..... */}
-        {/* <div className="recipes__current__VideoBox">
-          <iframe className="recipes__current__Video"></iframe>
-          <div className="recipes__current__title">
-            {" "}
-            e마트를 압도한 신개념 장보기앱 waf !{" "}
-          </div>
-        </div> */}
       </div>
     );
   }
