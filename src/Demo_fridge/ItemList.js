@@ -39,7 +39,7 @@ export default class Itemlist extends Component {
         (expire - this.currentTime) / (1000 * 60 * 60 * 24)
       );
 
-      return `${howManyDaysLeft}일 남았습니다.`;
+      return `${howManyDaysLeft}일 남음`;
     } else {
       // 사용자가 날짜를 선택하지 않으면, 구매 날짜는 현재이고, ( 소비 기한 - 오늘 날짜 )일이 남음
       let dateYouBought = new Date(obj.date).toISOString();
@@ -59,58 +59,120 @@ export default class Itemlist extends Component {
       );
 
       if (howManyDaysLeft < 0) {
-        return `${Math.abs(howManyDaysLeft)}일 지났습니다.`;
+        return `${Math.abs(howManyDaysLeft)}일 지남`;
       } else {
-        return `${howManyDaysLeft}일 남았습니다.`;
+        return `${howManyDaysLeft}일 남음`;
+      }
+    }
+  };
+
+  showListDemo = (e) => {
+    console.log(e.target.innerHTML);
+    for (let item of this.props.items) {
+      if (e.target.innerHTML !== "전체" && item.part === e.target.innerHTML) {
+        let itemStyle = document.querySelectorAll(`#${item.part}`);
+        for (let el of itemStyle) {
+          el.style.display = "block";
+        }
+      } else {
+        if (e.target.innerHTML === "전체") {
+          let itemStyle = document.querySelectorAll(`#전체`);
+          for (let el of itemStyle) {
+            el.style.display = "block";
+          }
+        }
       }
     }
   };
 
   render() {
     const { items } = this.props;
-    // console.log(items);
+    {
+      console.log({ items });
+    }
+
     return (
       <div className="demo__itemListBox">
-        <div className="demo__itemList__title">나의 냉장고에 있는 재료들</div>
+        {/* <div className="demo__itemList__title">나의 냉장고에 있는 재료들</div> */}
         <div className="demo__itemList__category">
           <div className="fridge_Section">
-            <div>냉장 식품</div>
-            <ul>
+            <div className="demopart_section" onClick={this.showListDemo}>
+              전체
+            </div>
+            <ul className="demoul_section">
               {items.map((item) =>
-                item.type !== "mandu" ? (
-                  <li>
-                    {!item.date
-                      ? `${item.name} (구매 날짜 : ${
-                          this.currentDate
-                        } (${this.getDDay(item)})`
-                      : `${
-                          item.name
-                        } (구매 날짜 : ${item.date.toLocaleString()} (${this.getDDay(
-                          item
-                        )})`}
-                  </li>
-                ) : null
+                item.part === "냉장" ||
+                item.part === "상온" ||
+                item.part === "냉동" ? (
+                  <>
+                    <li id="전체" className="demoli">
+                      {item.name}
+                    </li>
+                    <span className="demoperiod">{this.getDDay(item)}</span>
+                  </>
+                ) : (
+                  <></>
+                )
               )}
             </ul>
           </div>
 
-          <div className="frozen_Section">
-            <div>냉동 식품</div>
-            <ul>
+          <div className="fridge_Section">
+            <div className="demopart_section" onClick={this.showListDemo}>
+              상온
+            </div>
+            <ul className="demoul_section">
               {items.map((item) =>
-                item.type === "mandu" ? (
-                  <li>
-                    {!item.date
-                      ? `${item.name} (구매 날짜 : ${
-                          this.currentDate
-                        } (${this.getDDay(item)})`
-                      : `${
-                          item.name
-                        } (구매 날짜 : ${item.date.toLocaleString()} (${this.getDDay(
-                          item
-                        )})`}
-                  </li>
-                ) : null
+                item.part === "상온" ? (
+                  <>
+                    <li id="상온" className="demoli">
+                      {item.name}
+                    </li>
+                    <span className="demoperiod">{this.getDDay(item)}</span>
+                  </>
+                ) : (
+                  <></>
+                )
+              )}
+            </ul>
+          </div>
+
+          <div className="fridge_Section">
+            <div className="demopart_section" onClick={this.showListDemo}>
+              냉장
+            </div>
+            <ul className="demoul_section">
+              {items.map((item) =>
+                item.part === "냉장" ? (
+                  <>
+                    <li id="냉장" className="demoli">
+                      {item.name}
+                    </li>
+                    <span className="demoperiod">{this.getDDay(item)}</span>
+                  </>
+                ) : (
+                  <></>
+                )
+              )}
+            </ul>
+          </div>
+
+          <div className="fridge_Section">
+            <div className="demopart_section" onClick={this.showListDemo}>
+              냉동
+            </div>
+            <ul className="demoul_section">
+              {items.map((item) =>
+                item.part === "냉장" ? (
+                  <>
+                    <li id="냉동" className="demoli">
+                      {item.name}
+                    </li>
+                    <span className="demoperiod">{this.getDDay(item)}</span>
+                  </>
+                ) : (
+                  <></>
+                )
               )}
             </ul>
           </div>

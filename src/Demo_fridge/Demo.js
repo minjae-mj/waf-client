@@ -46,31 +46,34 @@ export default class Demo extends React.Component {
     return (
       <div id="demo">
         {/* 왼쪽 화면 */}
-        <div className="left">
-          {/* 왼쪽 냉장고 */}
-          <div className="fridge">
-            <img className="fridge_leftside" src={left_fridge}></img>
-            {/* <div className="ingredient"> */}
-            <img id="mandu" src={mandu}></img>
-            <img id="eggs" src={eggs}></img>
-            <img id="dairy" src={dairy}></img>
-            {/* </div> */}
+        <img className="logo"></img>
+        <div className="name__section"> guest님의 냉장고입니다. </div>
+        <div className="whiteBackground">
+          <div className="left">
+            {/* 왼쪽 냉장고 */}
+            <div className="fridge">
+              <div className="fridge_leftside">
+                {/* <img className="fridge_leftside" src={left_fridge}></img> */}
+                <img id="mandu" src={mandu}></img>
+                {/* <div id="mandu"></div> */}
+                <img id="eggs" src={eggs}></img>
+                <img id="dairy" src={dairy}></img>
+              </div>
+
+              {/* <img className="fridge_rightside" src={right_fridge}></img> */}
+              <div className="fridge_rightside">
+                <img id="seafood" src={fish}></img>
+                <img id="meat" src={meat}></img>
+                <img id="fruits" src={fruit}></img>
+                <img id="veges" src={veges}></img>
+              </div>
+            </div>
           </div>
 
-          {/* 오른쪽 냉장고 */}
-          <div className="fridge">
-            <img className="fridge_rightside" src={right_fridge}></img>
-
-            <img id="seafood" src={fish}></img>
-            <img id="meat" src={meat}></img>
-            <img id="fruits" src={fruit}></img>
-            <img id="veges" src={veges}></img>
+          {/* 오른쪽 화면*/}
+          <div className="right">
+            <AddItems items={this.state.items} changeItems={this.changeItems} />
           </div>
-        </div>
-
-        {/* 오른쪽 화면*/}
-        <div className="right">
-          <AddItems items={this.state.items} changeItems={this.changeItems} />
         </div>
       </div>
     );
