@@ -75,7 +75,12 @@ export default class Demo extends React.Component {
             </button>
           </div>
         </div>
-        <Itemlist items={this.props.items} />
+        <Itemlist
+          items={this.props.items}
+          // changeItems={this.changeItems}
+          changePart={this.props.changePart}
+          currentPart={this.props.currentPart}
+        />
       </div>
     );
   }

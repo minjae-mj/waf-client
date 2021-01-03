@@ -17,14 +17,21 @@ export default class Demo extends React.Component {
     super(props);
     this.state = {
       items: [],
+      // currentPart: "전체",
     };
   }
+
+  // changePart = (e) => {
+  //   let part = e.target.innerHTML;
+  //   this.setState({ currentPart: part });
+  //   console.log(this.state.currentPart);
+  // };
+
   changeItems = (obj) => {
     let newItem = obj;
     this.setState((state) => ({
       items: state.items.concat(newItem),
     }));
-
     console.log(this.state.items);
   };
 
@@ -72,7 +79,12 @@ export default class Demo extends React.Component {
 
           {/* 오른쪽 화면*/}
           <div className="right">
-            <AddItems items={this.state.items} changeItems={this.changeItems} />
+            <AddItems
+              changeItems={this.changeItems}
+              changePart={this.changePart}
+              items={this.state.items}
+              currentPart={this.state.currentPart}
+            />
           </div>
         </div>
       </div>
