@@ -18,7 +18,7 @@ class RealFridge extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: "전체",
+      status: [],
       ingredient: "",
     };
   }
@@ -42,48 +42,42 @@ class RealFridge extends Component {
   };
 
   showLists = (e) => {
-    if (this.state.status === "") {
-      const partBox = [];
-      this.setState({ status: e.target.innerText });
-      const res = document.querySelectorAll(`#${e.target.innerText}`);
-      partBox.push(this.state.status);
-      for (let item of res) {
-        item.style.display = "block";
-      }
+    const forRemove = document.querySelectorAll(".partList_click");
+    console.log(forRemove);
+    for (let el of forRemove) {
+      el.classList.remove("partList_click");
+    }
+  //  forRemove.classList.remove("partList");
+    console.log(forRemove);
+
+    
+    if (e.target.id === 'total') {
+      this.setState({ status: this.props.userData })
+      e.target.classList.add("partList_click");
     } else {
-      if (
-        this.state.status === "전체" ||
-        this.state.status === "상온" ||
-        this.state.status === "냉장" ||
-        this.state.status === "냉동"
-      ) {
-        const partBox = [];
-        partBox.push(this.state.status);
-        this.setState({ status: e.target.innerText });
-        partBox.push(e.target.innerText);
-        if (partBox[0] === e.target.innerText) {
-          partBox.pop();
-          return;
-        } else {
-          const newResult = document.querySelectorAll(`#${e.target.innerText}`);
-          const oldResult = document.querySelectorAll(`#${partBox[0]}`);
-          for (let el of newResult) {
-            el.style.display = "block";
-            console.log(el.innerText);
-          }
-          for (let ele of oldResult) {
-            ele.style.display = "none";
-          }
-          partBox.pop();
-        }
-        console.log(partBox, this.state);
+      if (e.target.id === "normal") {
+        this.setState({ status: this.props.partNormal })
+        e.target.classList.add("partList_click");
+
+      }
+      else if (e.target.id === "fridge") {
+        this.setState({ status: this.props.partFridge })
+        e.target.classList.add("partList_click");
+
+      }
+      else if (e.target.id === "frozen") {
+        this.setState({ status: this.props.partFrozen })
+        e.target.classList.add("partList_click");
+
       }
     }
-  };
+  }
+
+  
 
   showImages = () => {
     for (let item of this.props.userData) {
-      let itemType = document.querySelector(`#${item.category}`);
+      let itemType = document.querySelector(`#${item.category}-m`);
       itemType.style.display = "block";
     }
   };
@@ -122,11 +116,17 @@ class RealFridge extends Component {
     const distance = Math.floor(current - expire);
     if (distance < 0) {
       const result = Math.abs(Math.floor(distance / (1000 * 60 * 60 * 24)));
-      return `${result} 일 남았습니다.`;
+      return (
+        <span className="part__Yet__expired"> {result}일 남음</span>
+      );
     } else {
-      return `${Math.floor(distance / (1000 * 60 * 60 * 24))} 일 지났습니다.`;
+      return (
+        <span className="part__expired">
+          {Math.floor(distance / (1000 * 60 * 60 * 24))}일 지남
+        </span>
+      );
     }
-  };
+  }
 
   componentDidMount() {
     this.showImages();
@@ -137,180 +137,117 @@ class RealFridge extends Component {
   }
 
   render() {
-    const { userData, partNormal, partFrozen, partFridge } = this.props;
+    const { userData } = this.props;
+    const{status} = this.state;
     return (
-      <div id="demo">
+      <div id="myfridge">
         {/* 왼쪽 화면 */}
-        <div className="left">
+        <div className="left__my">
           {/* 왼쪽 냉장고 */}
           <div className="fridge">
-            <img className="fridge_leftside" src={left_fridge}></img>
+            <div className="fridge_leftside__my"></div>
             {/* <div className="ingredient"> */}
-            <img id="mandu" src={mandu}></img>
-            <img id="eggs" src={eggs}></img>
-            <img id="dairy" src={dairy}></img>
+            <img id="mandu-m" src={mandu}></img>
+            <img id="eggs-m" src={eggs}></img>
+            <img id="dairy-m" src={dairy}></img>
             {/* </div> */}
-          </div>
+            {/* </div> */}
 
-          {/* 오른쪽 냉장고 */}
-          <div className="fridge">
-            <img className="fridge_rightside" src={right_fridge}></img>
-
-            <img id="seafood" src={fish}></img>
-            <img id="meat" src={meat}></img>
-            <img id="fruits" src={fruit}></img>
-            <img id="veges" src={veges}></img>
+            {/* 오른쪽 냉장고 */}
+            {/* <div className="fridge"> */}
+            <div className="fridge_rightside__my"></div>
+            <img id="seafood-m" src={fish}></img>
+            <img id="meat-m" src={meat}></img>
+            <img id="fruits-m" src={fruit}></img>
+            <img id="veges-m" src={veges}></img>
           </div>
         </div>
         {/* -------------------------------------------------------------------------------- */}
-        <div className="right">
+        <div className="right__my">
           <div className="part__division">
-            <div type="전체" className="partList" onClick={this.showLists}>
+            <div
+              id="total"
+              className="partList"
+              onClick={this.showLists}>
               전체
             </div>
-            <div type="상온" className="partList" onClick={this.showLists}>
+            <div
+              id="normal"
+              className="partList"
+              onClick={this.showLists}>
               상온
             </div>
-            <div type="냉장" className="partList" onClick={this.showLists}>
+            <div
+              id="fridge"
+              className="partList"
+              onClick={this.showLists}>
               냉장
             </div>
-            <div type="냉동" className="partList" onClick={this.showLists}>
+            <div
+              id="frozen"
+              className="partList"
+              onClick={this.showLists}>
               냉동
             </div>
           </div>
-          <div>
+
+          <div className="sidebar_container">
             <ul className="sidebar">
-              {userData ? (
-                userData.map((item) => (
-                  <div>
-                    <button
-                      id="전체"
-                      className="part__TotalList"
-                      onClick={this.removeItem}
-                    >
+              {status.length !== 0 ? (
+                status.map((item) => (
+                  <div className="bundleOfList">
+                    <div
+                      className="part__TotalList__minus"
+                      onClick={this.removeItem}>
                       -
-                    </button>
+                    </div>
                     <li
-                      id="전체"
-                      className="part__TotalList"
+                      className="part__TotalList__item"
                       key={item.id}
-                      onClick={this.clickIngredient}
-                    >
+                      onClick={this.clickIngredient}>
                       {item.name}
                     </li>
-                    <span id="전체" className="part__TotalList">
-                      소비기한 :
+                    <>
                       {this.getDDay(
                         item.expiredAfter,
                         item.modifiedAt,
                         item.createdAt
                       )}
-                    </span>
+                    </>
                   </div>
                 ))
-              ) : (
-                <></>
-              )}
-              {partFridge ? (
-                partFridge.map((item) => (
-                  <div>
-                    <button
-                      id="냉장"
-                      className="part__List"
-                      onClick={this.removeItem}
-                    >
-                      -
-                    </button>
-                    <li
-                      id="냉장"
-                      className="part__List"
-                      key={item.id}
-                      onClick={this.clickIngredient}
-                    >
-                      {item.name}
-                    </li>
-                    <span id="냉장" className="part__List">
-                      소비기한 :
-                      {this.getDDay(
-                        item.expiredAfter,
-                        item.modifiedAt,
-                        item.createdAt
-                      )}
-                    </span>
-                  </div>
-                ))
-              ) : (
-                <></>
-              )}
-              {partFrozen ? (
-                partFrozen.map((item) => (
-                  <div>
-                    <button
-                      id="냉동"
-                      className="part__List"
-                      onClick={this.removeItem}
-                    >
-                      -
-                    </button>
-                    <li
-                      id="냉동"
-                      className="part__List"
-                      key={item.id}
-                      onClick={this.clickIngredient}
-                    >
-                      {item.name}
-                    </li>
-                    <span id="냉동" className="part__List">
-                      소비기한 :
-                      {this.getDDay(
-                        item.expiredAfter,
-                        item.modifiedAt,
-                        item.createdAt
-                      )}
-                    </span>
-                  </div>
-                ))
-              ) : (
-                <></>
-              )}
-              {partNormal ? (
-                partNormal.map((item) => (
-                  <div>
-                    <button
-                      id="상온"
-                      className="part__List"
-                      onClick={this.removeItem}
-                    >
-                      -
-                    </button>
-                    <li
-                      id="상온"
-                      className="part__List"
-                      key={item.id}
-                      onClick={this.clickIngredient}
-                    >
-                      {item.name}
-                    </li>
-                    <span id="상온" className="part__List">
-                      소비기한 :
-                      {this.getDDay(
-                        item.expiredAfter,
-                        item.modifiedAt,
-                        item.createdAt
-                      )}
-                    </span>
-                  </div>
-                ))
-              ) : (
-                <></>
-              )}
+              ) : (userData.map((item) => (
+                <div className="bundleOfList">
+                  <div
+                    className="part__TotalList__minus"
+                    onClick={this.removeItem}>
+                    -
+                    </div>
+                  <li
+                    className="part__TotalList__item"
+                    key={item.id}
+                    onClick={this.clickIngredient}>
+                    {item.name}
+                  </li>
+                  <>
+                    {this.getDDay(
+                      item.expiredAfter,
+                      item.modifiedAt,
+                      item.createdAt
+                    )}
+                  </>
+                </div>
+              )))}
             </ul>
-            <button onClick={this.goToCart}> 냉장고에 더 넣기 </button>
+          </div>
+          <div className="myfridge__button" onClick={this.goToCart}>
+            냉장고에 재료 넣기
           </div>
         </div>
       </div>
     );
   }
 }
+            
 
 export default withRouter(RealFridge);
