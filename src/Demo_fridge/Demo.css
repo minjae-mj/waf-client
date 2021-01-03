@@ -8,12 +8,22 @@
   height: 100%;
   flex-direction: column;
 }
+.userInfo{
+  flex-basis: 10%;
+display: flex;
+flex-direction: row;
+}
 
 .name__section {
-  flex-basis: 10%;
   padding: 24px;
   font-size: 32px;
   font-weight: bold;
+}
+.loggedOut{
+  font-weight: bold;
+  width: 130px;
+  border: 1px solid #346464;
+  text-align: center;
 }
 
 .whiteBackground {
@@ -231,6 +241,7 @@
 
 /* -------------------------------------------- */
 .demo__itemListBox {
+  margin-top: 28px;
   flex: 3 3 auto;
   /* border: 5px solid pink; */
 }

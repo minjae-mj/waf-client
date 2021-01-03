@@ -11,8 +11,9 @@ import fish from "./img_fridge/fish.png";
 import meat from "./img_fridge/meat.png";
 import veges from "./img_fridge/veges.png";
 import fruit from "./img_fridge/fruit.png";
+import { withRouter } from "react-router-dom";
 
-export default class Demo extends React.Component {
+class Demo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,6 +37,10 @@ export default class Demo extends React.Component {
     }
   };
 
+  goToSignup = () => {
+    this.props.history.push("/signup");
+  }
+
   componentDidMount() {
     this.showImages();
   }
@@ -49,7 +54,12 @@ export default class Demo extends React.Component {
         {/* 왼쪽 화면 */}
         <img className="logo"></img>
         <div className="whiteBackground">
-          <div className="name__section"> guest님의 냉장고입니다. </div>
+          <div className="userInfo">
+            <div className="name__section">guest님의 냉장고입니다.</div>
+            <span className="loggedOut" onClick={this.goToSignup}>
+              회원가입
+            </span>
+          </div>
           <div className="content">
             <div className="left">
               {/* 왼쪽 냉장고 */}
@@ -102,3 +112,4 @@ export default class Demo extends React.Component {
 
 // 카테고리
 // 이름
+export default withRouter(Demo);
