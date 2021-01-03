@@ -1,7 +1,26 @@
 /* eslint-disable no-extend-native */
 import React, { Component } from "react";
+import removeBtn from "./img_fridge/removeBtn.png";
 
 export default class Itemlist extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPart: "전체",
+    };
+  }
+
+  changePart = (e) => {
+    let findActiveClass = document.querySelector(".active");
+    findActiveClass.classList.remove("active");
+
+    let targetCategory = e.target;
+    targetCategory.classList.add("active");
+
+    let part = e.target.innerHTML;
+    this.setState({ currentPart: part });
+  };
+
   addDaysTo = (days) => {
     Date.prototype.addDays = function (days) {
       var date = new Date(this.valueOf());
@@ -50,7 +69,7 @@ export default class Itemlist extends Component {
           return date;
         };
         var date = new Date(dateYouBought);
-        return date.addDays(days).toLocaleDateString();
+        return date.addDays(days).toISOString();
       };
 
       let expire = new Date(addDaysTo(expireDate)).getTime();
@@ -87,97 +106,69 @@ export default class Itemlist extends Component {
 
   render() {
     const { items } = this.props;
-    {
-      console.log({ items });
-    }
 
     return (
-      <div className="demo__itemListBox">
-        {/* <div className="demo__itemList__title">나의 냉장고에 있는 재료들</div> */}
-        <div className="demo__itemList__category">
-          <div className="fridge_Section">
-            <div className="demopart_section" onClick={this.showListDemo}>
-              전체
-            </div>
-            <ul className="demoul_section">
-              {items.map((item) =>
-                item.part === "냉장" ||
-                item.part === "상온" ||
-                item.part === "냉동" ? (
-                  <>
-                    <li id="전체" className="demoli">
-                      {item.name}
-                    </li>
-                    <span className="demoperiod">{this.getDDay(item)}</span>
-                  </>
-                ) : (
-                  <></>
-                )
-              )}
-            </ul>
-          </div>
-
-          <div className="fridge_Section">
-            <div className="demopart_section" onClick={this.showListDemo}>
-              상온
-            </div>
-            <ul className="demoul_section">
-              {items.map((item) =>
-                item.part === "상온" ? (
-                  <>
-                    <li id="상온" className="demoli">
-                      {item.name}
-                    </li>
-                    <span className="demoperiod">{this.getDDay(item)}</span>
-                  </>
-                ) : (
-                  <></>
-                )
-              )}
-            </ul>
-          </div>
-
-          <div className="fridge_Section">
-            <div className="demopart_section" onClick={this.showListDemo}>
-              냉장
-            </div>
-            <ul className="demoul_section">
-              {items.map((item) =>
-                item.part === "냉장" ? (
-                  <>
-                    <li id="냉장" className="demoli">
-                      {item.name}
-                    </li>
-                    <span className="demoperiod">{this.getDDay(item)}</span>
-                  </>
-                ) : (
-                  <></>
-                )
-              )}
-            </ul>
-          </div>
-
-          <div className="fridge_Section">
-            <div className="demopart_section" onClick={this.showListDemo}>
-              냉동
-            </div>
-            <ul className="demoul_section">
-              {items.map((item) =>
-                item.part === "냉장" ? (
-                  <>
-                    <li id="냉동" className="demoli">
-                      {item.name}
-                    </li>
-                    <span className="demoperiod">{this.getDDay(item)}</span>
-                  </>
-                ) : (
-                  <></>
-                )
-              )}
-            </ul>
-          </div>
+      <>
+        <div className="demo__list__tap" onClick={this.changePart}>
+          <span
+            className="demo__list__tap__whole active"
+            onClick={this.showListDemo}
+          >
+            전체
+          </span>
+          <span className="demo__list__tap__fridge" onClick={this.showListDemo}>
+            냉장
+          </span>
+          <span
+            className="demo__list__tap__freezer"
+            onClick={this.showListDemo}
+          >
+            냉동
+          </span>
+          <span className="demo__list__tap__normal" onClick={this.showListDemo}>
+            상온
+          </span>
         </div>
-      </div>
+
+        <ul className="demo__list__showbox">
+          {this.state.currentPart === "전체"
+            ? items.map((item) => (
+                <li className="demo__list__item">
+                  <img
+                    src={removeBtn}
+                    alt="remove button"
+                    className="demo__list__removeBtn"
+                  />
+                  <div className="demo__list__name">{item.name}</div>
+                  {this.getDDay(item).slice(-2) === "남음" ? (
+                    <span className="demo__list__expiry__good">
+                      {this.getDDay(item)}
+                    </span>
+                  ) : (
+                    <span className="demo__list__expiry__bad">
+                      {this.getDDay(item)}
+                    </span>
+                  )}
+                </li>
+              ))
+            : items.map((item) =>
+                item.part === this.state.currentPart ? (
+                  <li className="demo__list__item">
+                    <div className="demo__list__name">{item.name}</div>
+                    {this.getDDay(item).slice(-2) === "남음" ? (
+                      <span className="demo__list__expiry__good">
+                        {this.getDDay(item)}
+                      </span>
+                    ) : (
+                      <span className="demo__list__expiry__bad">
+                        {this.getDDay(item)}
+                      </span>
+                    )}
+                  </li>
+                ) : null
+              )}
+        </ul>
+      </>
     );
   }
 }

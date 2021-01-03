@@ -6,10 +6,10 @@ export default class Demo extends React.Component {
   // props.value === [{},{},{} ...]
 
   clickBtn = () => {
-    let selectVal = document.querySelector(`#fridge__select`).value;
-    let nameVal = document.querySelector(`.itemName`).value;
-    let dateVal = document.querySelector(`.dateYouBuy`).value;
-    let partVal = document.querySelector(`#fridge__select__part`).value;
+    let selectVal = document.querySelector(`.demo__input__category`).value;
+    let nameVal = document.querySelector(`.demo__input__name`).value;
+    let dateVal = document.querySelector(`.demo__input__date`).value;
+    let partVal = document.querySelector(`.demo__input__part`).value;
 
     let info = {
       type: selectVal,
@@ -36,13 +36,11 @@ export default class Demo extends React.Component {
 
   render() {
     return (
-      <div className="container__DemoAdd">
-        <div className="fridge__inputBox">
-          <div className="fridge__inputBox__title">
-            냉장고에 물건을 추가해주세요
-          </div>
-          <div className="demo__inputContainer">
-            <select id="fridge__select">
+      <>
+        <div className="demo__input">
+          <p className="demo__input__text">냉장고에 물건을 추가해주세요.</p>
+          <div className="demo__input__container">
+            <select className="demo__input__category">
               {/* <option value="Type">Type</option> */}
               <option value="shouldChoose">선택필수</option>
               <option value="meat">Meat</option>
@@ -54,29 +52,74 @@ export default class Demo extends React.Component {
               <option value="mandu">Frozen</option>
             </select>
 
-            <select id="fridge__select__part">
-              <option value="선택필수">선택필수</option>
+            <select className="demo__input__part">
+              <option value="shouldChoose">선택필수</option>
               <option value="상온">상온</option>
               <option value="냉장">냉장</option>
               <option value="냉동">냉동</option>
             </select>
 
             <input
-              className="itemName"
+              className="demo__input__name"
               type="text"
               placeholder="재료 이름을 적어주세요"
-            ></input>
-            <input className="dateYouBuy" type="date"></input>
+            />
+            <input className="demo__input__date" type="date" />
             <button
-              className="inputbutton__demo"
+              className="demo__input__btn"
               onClick={() => this.clickBtn()}
             >
               냉장고에 재료 넣기
             </button>
           </div>
         </div>
-        <Itemlist items={this.props.items} />
-      </div>
+        <div className="demo__list">
+          <Itemlist items={this.props.items} />
+        </div>
+      </>
     );
   }
 }
+
+/*
+<div className="container__DemoAdd">
+        <div className="fridge__inputBox">
+          <div className="fridge__inputBox__title">
+            냉장고에 물건을 추가해주세요
+          </div>
+          <div className="demo__inputContainer">
+            <select id="fridge__select">
+              {/* <option value="Type">Type</option> */
+//              <option value="shouldChoose">선택필수</option>
+//              <option value="meat">Meat</option>
+//              <option value="seafood">Seafood</option>
+//              <option value="veges">Veges</option>
+//              <option value="fruits">Fruits</option>
+//              <option value="eggs">Eggs</option>
+//              <option value="dairy">Dairy</option>
+//              <option value="mandu">Frozen</option>
+//            </select>
+
+//            <select id="fridge__select__part">
+//              <option value="선택필수">선택필수</option>
+//              <option value="상온">상온</option>
+//              <option value="냉장">냉장</option>
+//              <option value="냉동">냉동</option>
+//            </select>
+
+//            <input
+//              className="itemName"
+//              type="text"
+//              placeholder="재료 이름을 적어주세요"
+//            ></input>
+//           <input className="dateYouBuy" type="date"></input>
+//            <button
+//              className="inputbutton__demo"
+//              onClick={() => this.clickBtn()}
+//            >
+//              냉장고에 재료 넣기
+//            </button>
+//          </div>
+//        </div>
+//        <Itemlist items={this.props.items} />
+//      </div>

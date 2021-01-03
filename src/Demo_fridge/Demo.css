@@ -1,264 +1,274 @@
-#demo {
-  border: 5px solid black;
+.whitebox {
+  background-color: #fafafa;
+  position: absolute;
+  top: 11%;
+  left: 8%;
+  opacity: 80%;
+  border-radius: 20px;
+  width: 84%;
+  height: 80%;
+  padding: 0 1.8rem;
+}
+
+.demo__name {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.demo__main {
+  width: 100%;
+  height: 80%;
+  display: flex;
+}
+
+/* demo fridge graphics */
+
+.demo__fridge {
+  width: 45%;
+  height: 100%;
+  margin-right: 2rem;
+  padding: 1.5rem 0;
+
+  position: relative;
+}
+
+.demo__fridge__bg {
+  width: 100%;
+  height: inherit;
+}
+
+.demo__fridge__bg__left {
+  z-index: -10;
+  width: 46.7%;
+}
+
+.demo__fridge__bg__right {
+  z-index: -10;
+  width: 52%;
+}
+
+.demo__fridge__items {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+
+  display: flex;
+}
+
+.demo__fridge__items__left,
+.demo__fridge__items__right {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: inherit;
+}
+
+.demo__fridge__items__left {
+  left: 0;
+}
+.demo__fridge__items__right {
+  left: 50%;
+}
+
+.demo__fridge__img {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 80px 120px;
-  max-width: 100%;
-  height: 100%;
-  flex-direction: column;
 }
 
-.name__section {
-  flex-basis: 10%;
+.img-1 {
+  flex-basis: 36%;
 }
 
-.whiteBackground {
-  flex-basis: 90%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  z-index: 1;
-  position: relative;
+.img-2 {
+  flex-basis: 20%;
 }
 
-.whiteBackground::after {
-  width: 100%;
-  height: 100%;
-  background-color: #fafafa;
-  position: absolute;
-  z-index: -1;
-  opacity: 0.8;
-  content: "";
+.img-3 {
+  flex-basis: 44%;
 }
 
-.left {
-  /* border: 5px solid blue; */
-  flex-basis: 45%;
-  display: flex;
+.img-4 {
+  flex-basis: 36%;
 }
 
-.right {
-  flex-basis: 55%;
-  border: 5px solid orange;
-  display: flex;
-  /* width: 100px;
-  height: 100px;
-  background-color: greenyellow; */
+.img-5 {
+  flex-basis: 25%;
 }
 
-.fridge {
-  /* position: relative; */
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
-
-.fridge_leftside {
-  /* background: url("./img_fridge/left_fridge.png") center/cover no-repeat; */
-  /* height: 500px;*/
-  flex: 1 1 auto;
-  border: 1px solid red;
-  background-image: url("./img_fridge/left_fridge.png");
-  background-size: 85%;
-  background-repeat: no-repeat;
-  background-position: right center;
-  position: relative;
-  padding: 20px;
-
-  /* display: grid;
-  grid-column: 300px;
-  grid-row: 1fr 100px 1fr;
-  grid-row-gap: 10px; */
-}
-
-.fridge_rightside {
-  flex: 1 1 auto;
-  background-image: url("./img_fridge/right_fridge.png");
-  border: 1px solid red;
-  background-size: 95%;
-  background-repeat: no-repeat;
-  background-position: left center;
-  position: relative;
-  padding: 20px;
-  /* background: url("./img_fridge/right_fridge.png") center/cover no-repeat;*/
+.img-6 {
+  flex-basis: 39%;
 }
 
 #mandu {
-  /* background-image: url("./img_fridge/mandu.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: right top; */
-  width: 120px;
-  height: auto;
-  left: 130px;
-  top: 5%;
-  /* flex: 2 1 auto; */
-  /* width: 132px;
-  height: 120px;
-  top: 48px;
-  left: 56px; */
+  width: 39%;
+  align-self: flex-end;
   display: none;
-  position: absolute;
+}
+
+#eggs {
+  width: 52%;
+  align-self: flex-end;
+  display: none;
 }
 
 #dairy {
-  position: absolute;
-  width: 140px;
-  height: auto;
-  left: 130px;
-  top: 70%;
+  width: 47%;
   display: none;
-}
-#eggs {
-  position: absolute;
-  width: 190px;
-  height: 40px;
-  left: 100px;
-  top: 50%;
-  display: none;
-  flex: 1 1 auto;
 }
 
 #seafood {
-  position: absolute;
-  width: 170px;
-  height: 95px;
-  top: 150px;
-  left: 30%;
+  width: 60%;
+  align-self: flex-end;
   display: none;
 }
-#meat {
-  position: absolute;
-  width: 170px;
-  height: 120px;
-  top: 320px;
-  left: 30%;
-  display: none;
-}
-#veges {
-  position: absolute;
 
-  width: 100px;
-  height: 100px;
-  top: 580px;
-  left: 23%;
+#meat {
+  width: 48%;
+  align-self: flex-end;
   display: none;
 }
+
 #fruits {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 520px;
-  left: 60%;
+  width: 27%;
+  margin: 1rem;
   display: none;
 }
-/* --------------------------------- */
-.container__DemoAdd {
+
+#veges {
+  width: 28%;
+  display: none;
+}
+
+/* demo fridge input and list */
+
+.demo__cart {
+  width: 55%;
+  height: 100%;
+
   display: flex;
   flex-direction: column;
-  border: 5px solid black;
-  width: 100%;
-  height: 100%;
-  padding: 50px;
 }
 
-.fridge__inputBox {
-  flex: 2 2 auto;
-  border-top: 5px solid #7eaaa6;
-  width: 100%;
-  padding: 20px;
-
-  text-align: left;
+.demo__input {
+  background-color: #dddedf;
+  padding: 0.5rem 0.6rem;
+  border-top: 0.8rem solid #7eaaa6;
+  border-radius: 10px;
+  margin-bottom: 1rem;
 }
-.fridge__inputBox__title {
-  color: #346464;
-  font-size: 24px;
-  font-weight: bold;
-  padding-left: 20px;
+
+.demo__input__text {
+  margin: 0 auto;
   margin-bottom: 10px;
 }
 
-.demo__inputContainer {
-  padding-left: 20px;
-}
-
-#fridge__select {
-  color: #346464;
-  font-size: 12px;
-  margin-right: 5px;
-  border: 1px solid #7eaaa6;
-  width: 100px;
-  height: 25px;
-}
-
-#fridge__select__part {
-  color: #346464;
-  font-size: 12px;
-  margin-right: 5px;
-  border: 1px solid #7eaaa6;
-  width: 100px;
-  height: 25px;
-}
-.dateYouBuy {
-  color: #346464;
-  margin-right: 5px;
-  height: 25px;
-  width: 120px;
-  border: 1px solid #7eaaa6;
-}
-.itemName {
-  color: #346464;
-  margin-right: 5px;
-  border: 1px solid #7eaaa6;
-  width: 150px;
-  height: 25px;
-}
-
-.inputbutton__demo {
-  color: #346464;
-  border: 1px solid #7eaaa6;
-  width: 150px;
-  height: 25px;
-}
-
-/* -------------------------------------------- */
-.demo__itemListBox {
-  flex: 3 3 auto;
-  border: 5px solid pink;
-}
-.demo__itemList__title {
-  font-size: 20px;
-  font-weight: bold;
-  color: #346464;
-}
-.demo__itemList__category {
-  height: 100%;
-  border: 5px solid blue;
+.demo__input__container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 50px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 0;
 }
-.demopart_section {
-  border: 2px dashed red;
-  flex: 1 1 auto;
+
+.demo__input__category,
+.demo__input__part,
+.demo__input__name,
+.demo__input__date,
+.demo__input__btn {
+  color: #346464;
+  background-color: #c4c4c4;
+  border: 1px solid #7eaaa6;
+  border-radius: 3px;
+  outline-style: none;
+  transition: all 0.1s;
 }
-.demoul_section {
-  flex: 1 1 auto;
-  border: 2px dashed green;
+.demo__input__btn:active {
+  transform: translateY(1px);
+}
+
+.demo__list {
+  flex-grow: 1;
+  background-color: #dddedf;
+  border-bottom: 0.8rem solid #7eaaa6;
+  border-radius: 10px;
+
   display: flex;
   flex-direction: column;
+
+  position: relative;
 }
 
-.fridge_Section {
-  border: 5px solid yellow;
-  height: 100%;
-  display: block;
-  flex: 1 1 auto;
+.demo__list__tap {
+  color: #ffffff;
+  height: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
 }
 
-.demoli {
+.demo__list__tap__whole,
+.demo__list__tap__fridge,
+.demo__list__tap__freezer,
+.demo__list__tap__normal {
+  background-color: #7eaaa6;
+
+  height: inherit;
+  flex-basis: 25%;
+  text-align: center;
 }
-.demoperiod {
+
+.active {
+  color: #346464;
+  background-color: #dddedf;
+}
+
+.demo__list__showbox {
+  flex-grow: 1;
+  margin: 0 0;
+  padding: 0 4rem;
+  background-color: #dddedf;
+}
+
+.demo__list__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 1.5rem 0;
+}
+
+.demo__list__removeBtn {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.demo__list__name {
+  flex-basis: 70%;
+  padding-left: 0.8rem;
+  text-align: left;
+}
+
+.demo__list__expiry__good {
+  flex-basis: auto;
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: #ffffff;
+  background-color: #b3aa9f;
+}
+
+.demo__list__expiry__bad {
+  flex-basis: auto;
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: #ffffff;
+  background-color: #705f52;
 }

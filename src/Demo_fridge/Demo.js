@@ -2,15 +2,17 @@
 import React from "react";
 import "./Demo.css";
 import AddItems from "./AddItems";
+
 import left_fridge from "./img_fridge/left_fridge.png";
+import right_fridge from "./img_fridge/right_fridge.png";
+
 import mandu from "./img_fridge/mandu.png";
 import eggs from "./img_fridge/eggs.png";
 import dairy from "./img_fridge/dairy.png";
-import right_fridge from "./img_fridge/right_fridge.png";
-import fish from "./img_fridge/fish.png";
-import meat from "./img_fridge/meat.png";
+import seafood from "./img_fridge/fish.png";
+import fruits from "./img_fridge/fruit.png";
 import veges from "./img_fridge/veges.png";
-import fruit from "./img_fridge/fruit.png";
+import meat from "./img_fridge/meat.png";
 
 export default class Demo extends React.Component {
   constructor(props) {
@@ -44,34 +46,42 @@ export default class Demo extends React.Component {
 
   render() {
     return (
-      <div id="demo">
-        {/* 왼쪽 화면 */}
-        <img className="logo"></img>
-        <div className="name__section"> guest님의 냉장고입니다. </div>
-        <div className="whiteBackground">
-          <div className="left">
-            {/* 왼쪽 냉장고 */}
-            <div className="fridge">
-              <div className="fridge_leftside">
-                {/* <img className="fridge_leftside" src={left_fridge}></img> */}
-                <img id="mandu" src={mandu}></img>
-                {/* <div id="mandu"></div> */}
-                <img id="eggs" src={eggs}></img>
-                <img id="dairy" src={dairy}></img>
-              </div>
+      <div className="whitebox">
+        <p className="demo__name">Guest 님의 냉장고</p>
+        <div className="demo__main">
+          <div className="demo__fridge">
+            <div className="demo__fridge__bg">
+              <img src={left_fridge} className="demo__fridge__bg__left" />
+              <img src={right_fridge} className="demo__fridge__bg__right" />
+            </div>
 
-              {/* <img className="fridge_rightside" src={right_fridge}></img> */}
-              <div className="fridge_rightside">
-                <img id="seafood" src={fish}></img>
-                <img id="meat" src={meat}></img>
-                <img id="fruits" src={fruit}></img>
-                <img id="veges" src={veges}></img>
+            <div className="demo__fridge__items">
+              <div className="demo__fridge__items__left">
+                <div className="demo__fridge__img img-1">
+                  <img id="mandu" src={mandu} alt="frozen food image" />
+                </div>
+                <div className="demo__fridge__img img-2">
+                  <img id="eggs" src={eggs} alt="eggs image" />
+                </div>
+                <div className="demo__fridge__img img-3">
+                  <img id="dairy" src={dairy} alt="dairy food image" />
+                </div>
+              </div>
+              <div className="demo__fridge__items__right ">
+                <div className="demo__fridge__img img-4">
+                  <img id="seafood" src={seafood} alt="seafood image" />
+                </div>
+                <div className="demo__fridge__img img-5">
+                  <img id="meat" src={meat} alt="meat image" />
+                </div>
+                <div className="demo__fridge__img img-6">
+                  <img id="fruits" src={fruits} alt="fruits image" />
+                  <img id="veges" src={veges} alt="veges image" />
+                </div>
               </div>
             </div>
           </div>
-
-          {/* 오른쪽 화면*/}
-          <div className="right">
+          <div className="demo__cart">
             <AddItems items={this.state.items} changeItems={this.changeItems} />
           </div>
         </div>
@@ -79,6 +89,3 @@ export default class Demo extends React.Component {
     );
   }
 }
-
-// 카테고리
-// 이름
