@@ -22,13 +22,16 @@ export default class Playlist extends Component {
   // ];
 
   render() {
-    const { videoList } = this.props;
+    const { videoList, changeCurrentVideo } = this.props;
     return (
       <div className="recipes__playerListBox">
-        {/* {console.log(videoList)} */}
         <ul className="recipes__playerList">
           {videoList.map((video) => (
-            <li key={video.id.videoId} className="recipes__playerList__video">
+            <li
+              key={video.id.videoId}
+              className="recipes__playerList__video"
+              onClick={() => changeCurrentVideo(video)}
+            >
               <img src={video.snippet.thumbnails.default.url}></img>
               <div className="recipes__playerList_title">
                 {video.snippet.title}

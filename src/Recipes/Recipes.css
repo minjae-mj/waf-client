@@ -112,6 +112,7 @@ li {
   padding: 10px;
   max-width: 130px;
   height: 30px;
+  cursor: pointer;
 }
 
 .recipes__playerList_title {

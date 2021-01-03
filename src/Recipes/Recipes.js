@@ -21,7 +21,7 @@ class Recipes extends Component {
   searchYoutube = async (item) => {
     console.log(item);
     let params = {
-      q: `${item} 레시피`, // (수정 필요)props로 내려오는 재료 이름을 넣을것.
+      q: `${item} 레시피`,
       part: "snippet",
       maxResults: 2,
       key: YOUTUBE_API_KEY,
@@ -33,13 +33,16 @@ class Recipes extends Component {
     axios
       .get(url)
       .then((res) => {
-        // console.log(res);
         this.setState({
           videoList: res.data.items,
           currentVideo: res.data.items[0],
         });
       })
       .catch((err) => console.log(err));
+  };
+
+  changeCurrentVideo = (video) => {
+    this.setState({ currentVideo: video });
   };
 
   componentDidMount() {
@@ -67,7 +70,14 @@ class Recipes extends Component {
             </button>
           </div>
           {currentVideo ? <Player currentVideo={currentVideo} /> : "Loading"}
-          {videoList ? <PlayList videoList={videoList} /> : "Loading"}
+          {videoList ? (
+            <PlayList
+              videoList={videoList}
+              changeCurrentVideo={this.changeCurrentVideo}
+            />
+          ) : (
+            "Loading"
+          )}
         </div>
       </div>
     );
