@@ -17,15 +17,8 @@ export default class Demo extends React.Component {
     super(props);
     this.state = {
       items: [],
-      // currentPart: "전체",
     };
   }
-
-  // changePart = (e) => {
-  //   let part = e.target.innerHTML;
-  //   this.setState({ currentPart: part });
-  //   console.log(this.state.currentPart);
-  // };
 
   changeItems = (obj) => {
     let newItem = obj;
@@ -38,7 +31,8 @@ export default class Demo extends React.Component {
   showImages = () => {
     for (let item of this.state.items) {
       let itemType = document.querySelector(`#${item.type}`);
-      itemType.style.display = "block";
+      // itemType.style.display = "block";
+      itemType.style.opacity = 1;
     }
   };
 
@@ -54,37 +48,51 @@ export default class Demo extends React.Component {
       <div id="demo">
         {/* 왼쪽 화면 */}
         <img className="logo"></img>
-        <div className="name__section"> guest님의 냉장고입니다. </div>
         <div className="whiteBackground">
-          <div className="left">
-            {/* 왼쪽 냉장고 */}
-            <div className="fridge">
-              <div className="fridge_leftside">
-                {/* <img className="fridge_leftside" src={left_fridge}></img> */}
-                <img id="mandu" src={mandu}></img>
-                {/* <div id="mandu"></div> */}
-                <img id="eggs" src={eggs}></img>
-                <img id="dairy" src={dairy}></img>
-              </div>
+          <div className="name__section"> guest님의 냉장고입니다. </div>
+          <div className="content">
+            <div className="left">
+              {/* 왼쪽 냉장고 */}
+              <div className="fridge">
+                <div className="fridge_leftside">
+                  <img className="fridge_left" src={left_fridge}></img>
+                  <div className="left_items">
+                    <img id="mandu" src={mandu}></img>
+                    <img id="eggs" src={eggs}></img>
+                    <img id="dairy" src={dairy}></img>
+                  </div>
+                </div>
 
-              {/* <img className="fridge_rightside" src={right_fridge}></img> */}
+                {/* <img className="fridge_rightside" src={right_fridge}></img>
               <div className="fridge_rightside">
                 <img id="seafood" src={fish}></img>
                 <img id="meat" src={meat}></img>
                 <img id="fruits" src={fruit}></img>
                 <img id="veges" src={veges}></img>
+              </div> */}
+                <div className="fridge_rightside">
+                  <img className="fridge_right" src={right_fridge}></img>
+                  <div className="right_items">
+                    <img id="seafood" src={fish}></img>
+                    <img id="meat" src={meat}></img>
+                    <div className="freshSection">
+                      <img id="fruits" src={fruit}></img>
+                      <img id="veges" src={veges}></img>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* 오른쪽 화면*/}
-          <div className="right">
-            <AddItems
-              changeItems={this.changeItems}
-              changePart={this.changePart}
-              items={this.state.items}
-              currentPart={this.state.currentPart}
-            />
+            {/* 오른쪽 화면*/}
+            <div className="right">
+              <AddItems
+                changeItems={this.changeItems}
+                changePart={this.changePart}
+                items={this.state.items}
+                currentPart={this.state.currentPart}
+              />
+            </div>
           </div>
         </div>
       </div>

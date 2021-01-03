@@ -3,8 +3,6 @@ import "./Demo.css";
 import Itemlist from "./ItemList";
 
 export default class Demo extends React.Component {
-  // props.value === [{},{},{} ...]
-
   clickBtn = () => {
     let selectVal = document.querySelector(`#fridge__select`).value;
     let nameVal = document.querySelector(`.itemName`).value;
@@ -43,7 +41,6 @@ export default class Demo extends React.Component {
           </div>
           <div className="demo__inputContainer">
             <select id="fridge__select">
-              {/* <option value="Type">Type</option> */}
               <option value="shouldChoose">선택필수</option>
               <option value="meat">Meat</option>
               <option value="seafood">Seafood</option>
@@ -77,7 +74,6 @@ export default class Demo extends React.Component {
         </div>
         <Itemlist
           items={this.props.items}
-          // changeItems={this.changeItems}
           changePart={this.props.changePart}
           currentPart={this.props.currentPart}
         />

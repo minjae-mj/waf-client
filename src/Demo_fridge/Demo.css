@@ -11,13 +11,16 @@
 
 .name__section {
   flex-basis: 10%;
+  padding: 24px;
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .whiteBackground {
-  flex-basis: 90%;
+  /* flex-basis: 90%; */
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   z-index: 1;
   position: relative;
 }
@@ -29,18 +32,25 @@
   position: absolute;
   z-index: -1;
   opacity: 0.8;
+  /* opacity: 1; */
   content: "";
+}
+.content {
+  display: flex;
+  flex-basis: 90%;
+  flex-direction: row;
 }
 
 .left {
   /* border: 5px solid blue; */
   flex-basis: 45%;
   display: flex;
+  /* width: 100%; */
 }
 
 .right {
   flex-basis: 55%;
-  border: 5px solid orange;
+  /* border: 5px solid orange; */
   display: flex;
   /* width: 100px;
   height: 100px;
@@ -50,125 +60,122 @@
 .fridge {
   /* position: relative; */
   display: flex;
-  flex-direction: row;
-  width: 100%;
+  /* flex-wrap: wrap; */
+  /* width: max-content; */
 }
 
 .fridge_leftside {
-  /* background: url("./img_fridge/left_fridge.png") center/cover no-repeat; */
-  /* height: 500px;*/
-  flex: 1 1 auto;
-  border: 1px solid red;
-  background-image: url("./img_fridge/left_fridge.png");
-  background-size: 85%;
-  background-repeat: no-repeat;
-  background-position: right center;
+  /* border: 1px solid red; */
   position: relative;
-  padding: 20px;
-
-  /* display: grid;
-  grid-column: 300px;
-  grid-row: 1fr 100px 1fr;
-  grid-row-gap: 10px; */
+  padding-left: 24px;
+}
+.fridge_left {
+  width: 269px;
+  position: relative;
+}
+.fridge_rightside {
+  /* border: 1px solid red; */
+  position: relative;
+}
+.fridge_right {
+  width: 300px;
+  position: relative;
 }
 
-.fridge_rightside {
-  flex: 1 1 auto;
-  background-image: url("./img_fridge/right_fridge.png");
-  border: 1px solid red;
-  background-size: 95%;
-  background-repeat: no-repeat;
-  background-position: left center;
-  position: relative;
-  padding: 20px;
-  /* background: url("./img_fridge/right_fridge.png") center/cover no-repeat;*/
+.left_items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  width: 100%;
+  top: 64px;
+}
+.right_items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding-left: 28px;
+  position: absolute;
+  width: 100%;
+  top: 88px;
+}
+.freshSection {
+  display: flex;
+}
+.freshSection img {
+  padding: 0px 8px;
 }
 
 #mandu {
-  /* background-image: url("./img_fridge/mandu.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: right top; */
-  width: 120px;
-  height: auto;
-  left: 130px;
-  top: 5%;
-  /* flex: 2 1 auto; */
-  /* width: 132px;
+  flex-basis: 3fr;
+  /* display: none; */
+  opacity: 0;
+  width: 80px;
   height: 120px;
-  top: 48px;
-  left: 56px; */
-  display: none;
-  position: absolute;
+  margin-bottom: 88px;
 }
 
 #dairy {
-  position: absolute;
+  flex-basis: 4fr;
   width: 140px;
   height: auto;
-  left: 130px;
-  top: 70%;
-  display: none;
+  /* display: none; */
+  opacity: 0;
 }
 #eggs {
-  position: absolute;
+  flex-basis: 1fr;
   width: 190px;
   height: 40px;
-  left: 100px;
-  top: 50%;
-  display: none;
-  flex: 1 1 auto;
+  margin-bottom: 48px;
+  /* display: none; */
+  opacity: 0;
 }
 
 #seafood {
-  position: absolute;
   width: 170px;
   height: 95px;
-  top: 150px;
-  left: 30%;
-  display: none;
+  /* display: none; */
+  opacity: 0;
+  margin-bottom: 32px;
 }
 #meat {
-  position: absolute;
   width: 170px;
   height: 120px;
-  top: 320px;
-  left: 30%;
-  display: none;
+  margin-bottom: 74px;
+  /* display: none; */
+  opacity: 0;
 }
 #veges {
-  position: absolute;
-
   width: 100px;
   height: 100px;
-  top: 580px;
-  left: 23%;
-  display: none;
+  /* display: none; */
+  opacity: 0;
 }
 #fruits {
-  position: absolute;
+  opacity: 0;
   width: 100px;
   height: 100px;
-  top: 520px;
-  left: 60%;
-  display: none;
+  /* display: none; */
 }
 /* --------------------------------- */
 .container__DemoAdd {
   display: flex;
   flex-direction: column;
-  border: 5px solid black;
+  /* border: 5px solid black; */
   width: 100%;
   height: 100%;
-  padding: 50px;
+  padding: 0px 40px 40px 40px;
 }
 
 .fridge__inputBox {
   flex: 2 2 auto;
   border-top: 5px solid #7eaaa6;
   width: 100%;
-  padding: 20px;
-
+  padding: 12px;
   text-align: left;
 }
 .fridge__inputBox__title {
@@ -225,7 +232,7 @@
 /* -------------------------------------------- */
 .demo__itemListBox {
   flex: 3 3 auto;
-  border: 5px solid pink;
+  /* border: 5px solid pink; */
 }
 .demo__itemList__title {
   font-size: 20px;
@@ -244,9 +251,9 @@
   display: flex;
   flex-direction: column;
 
-  height: 100%;
-  border: 5px solid blue;
-  justify-content: center;
+  height: 90%;
+  /* border: 5px solid blue; */
+  /* justify-content: center; */
 }
 
 /* .demopart_section {
@@ -260,7 +267,15 @@
   width: 100%;
   text-align: center;
   padding: 4px;
-  border: 1px solid green;
+  border: 1px solid #7eaaa6;
+  background: #7eaaa6;
+  color: #fafafa;
+  cursor: pointer;
+}
+.part.active {
+  border: 1px solid #dddedf;
+  background: #dddedf;
+  color: #7eaaa6;
 }
 
 .demoul_section {
@@ -277,15 +292,51 @@
   flex: 1 1 auto;
 } */
 .fridge_Section {
-  border: 5px solid yellow;
-  height: 100%;
+  border: 5px solid #dddedf;
+  height: 320px;
+  background: #dddedf;
   /* display: block; */
   /* flex: 1 1 auto; */
   overflow-y: auto;
-  /* background: crimson; */
+  padding: 24px 32px;
 }
 
-.demoli {
+.item__info div {
+  margin: 4px;
 }
-.demoperiod {
+.deleteBtn {
+  display: inline-block;
+  color: #fafafa;
+  background: red;
+  border: 1px solid red;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  line-height: 18px;
+  text-align: center;
+  margin-right: 8px;
+}
+
+.item__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item__name {
+  font-size: 20px;
+}
+
+.expired {
+  border: 1px solid #705f52;
+  background: #705f52;
+  border-radius: 4px;
+  color: #fafafa;
+  padding: 2px;
+}
+.stillLeft {
+  border: 1px solid #b3aa9f;
+  background: #b3aa9f;
+  border-radius: 4px;
+  color: #fafafa;
+  padding: 2px;
 }

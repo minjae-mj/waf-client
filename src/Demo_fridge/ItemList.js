@@ -10,9 +10,19 @@ export default class Itemlist extends Component {
   }
 
   changePart = (e) => {
+    let findActiveClass = document.querySelector(".active");
+    findActiveClass.classList.remove("active");
+
+    let targetCategory = e.target;
+    targetCategory.classList.add("active");
+
     let part = e.target.innerHTML;
     this.setState({ currentPart: part });
     console.log(this.state.currentPart);
+  };
+  deleteItem = (e) => {
+    let target = e.target.parentNode;
+    console.log(target);
   };
 
   addDaysTo = (days) => {
@@ -52,7 +62,7 @@ export default class Itemlist extends Component {
         (expire - this.currentTime) / (1000 * 60 * 60 * 24)
       );
 
-      return `${howManyDaysLeft}일 남음`;
+      return <div className="stillLeft">{howManyDaysLeft}일 남음</div>;
     } else {
       // 사용자가 날짜를 선택하지 않으면, 구매 날짜는 현재이고, ( 소비 기한 - 오늘 날짜 )일이 남음
       let dateYouBought = new Date(obj.date).toISOString();
@@ -72,62 +82,23 @@ export default class Itemlist extends Component {
       );
 
       if (howManyDaysLeft < 0) {
-        return `${Math.abs(howManyDaysLeft)}일 지남`;
+        return (
+          <div className="expired">{Math.abs(howManyDaysLeft)}일 지남</div>
+        );
       } else {
-        return `${howManyDaysLeft}일 남음`;
+        return <div className="stillLeft">{howManyDaysLeft}일 남음</div>;
       }
     }
   };
 
-  // showListDemo = () => {
-  //   const { items, currentPart } = this.props;
-
-  //   for (let item of items) {
-  //     if (item.part === currentPart) {
-  //       return (
-  //         <>
-  //           <div>item.part</div>
-  //           <div></div>
-  //           <div></div>
-  //         </>
-  //       );
-  //     }
-  //   }
-  // };
-
-  // componentDidUpdate() {
-  //   this.showListDemo();
-  // }
-
-  // showListDemo = (e) => {
-  //   console.log(e.target.innerHTML);
-  //   for (let item of this.props.items) {
-  //     if (e.target.innerHTML !== "전체" && item.part === e.target.innerHTML) {
-  //       let itemStyle = document.querySelectorAll(`#${item.part}`);
-  //       for (let el of itemStyle) {
-  //         el.style.display = "block";
-  //       }
-  //     } else {
-  //       if (e.target.innerHTML === "전체") {
-  //         let itemStyle = document.querySelectorAll(`#전체`);
-  //         for (let el of itemStyle) {
-  //           el.style.display = "block";
-  //         }
-  //       }
-  //     }
-  //   }
-  // };
-
   render() {
     const { items, changePart } = this.props;
-    {
-      console.log({ items });
-    }
+
     return (
       <div className="demo__itemListBox">
         <div className="demo__itemList__category">
           <div className="demopart_section" onClick={this.changePart}>
-            <div className="part" onClick={changePart}>
+            <div className="part active" onClick={changePart}>
               전체
             </div>
             <div className="part" onClick={changePart}>
@@ -142,10 +113,28 @@ export default class Itemlist extends Component {
           </div>
           <div className="fridge_Section">
             {this.state.currentPart === "전체"
-              ? items.map((item) => <div>{item.name}</div>)
+              ? items.map((item) => (
+                  <div className="item__info">
+                    <div className="item__name">
+                      <span className="deleteBtn" onClick={this.deleteItem}>
+                        -
+                      </span>
+                      {item.name}
+                    </div>
+                    <>{this.getDDay(item)}</>
+                  </div>
+                ))
               : items.map((item) =>
                   item.part === this.state.currentPart ? (
-                    <div>{item.name}</div>
+                    <div className="item__info">
+                      <div className="item__name">
+                        <span className="deleteBtn" onClick={this.deleteItem}>
+                          -
+                        </span>
+                        {item.name}
+                      </div>
+                      <>{this.getDDay(item)}</>
+                    </div>
                   ) : null
                 )}
           </div>
