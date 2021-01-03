@@ -78,11 +78,6 @@ class Recipes extends Component {
           ) : (
             "Loading"
           )}
-
-//           {videoList ? <PlayList videoList={videoList} /> : "Loading"}
-//           {/* <Player />
-//           <PlayList /> */}
-
         </div>
       </div>
     );
