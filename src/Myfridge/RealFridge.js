@@ -1,4 +1,9 @@
-/* eslint-disable no-extend-native */
+/**
+ * /* eslint-disable no-extend-native
+ *
+ * @format
+ */
+
 /* eslint-disable jsx-a11y/alt-text */
 import { Component } from "react";
 import "./Myfridge.css";
@@ -47,33 +52,25 @@ class RealFridge extends Component {
     for (let el of forRemove) {
       el.classList.remove("partList_click");
     }
-  //  forRemove.classList.remove("partList");
+    //  forRemove.classList.remove("partList");
     console.log(forRemove);
 
-    
-    if (e.target.id === 'total') {
-      this.setState({ status: this.props.userData })
+    if (e.target.id === "total") {
+      this.setState({ status: this.props.userData });
       e.target.classList.add("partList_click");
     } else {
       if (e.target.id === "normal") {
-        this.setState({ status: this.props.partNormal })
+        this.setState({ status: this.props.partNormal });
         e.target.classList.add("partList_click");
-
-      }
-      else if (e.target.id === "fridge") {
-        this.setState({ status: this.props.partFridge })
+      } else if (e.target.id === "fridge") {
+        this.setState({ status: this.props.partFridge });
         e.target.classList.add("partList_click");
-
-      }
-      else if (e.target.id === "frozen") {
-        this.setState({ status: this.props.partFrozen })
+      } else if (e.target.id === "frozen") {
+        this.setState({ status: this.props.partFrozen });
         e.target.classList.add("partList_click");
-
       }
     }
-  }
-
-  
+  };
 
   showImages = () => {
     for (let item of this.props.userData) {
@@ -116,9 +113,7 @@ class RealFridge extends Component {
     const distance = Math.floor(current - expire);
     if (distance < 0) {
       const result = Math.abs(Math.floor(distance / (1000 * 60 * 60 * 24)));
-      return (
-        <span className="part__Yet__expired"> {result}일 남음</span>
-      );
+      return <span className="part__Yet__expired"> {result}일 남음</span>;
     } else {
       return (
         <span className="part__expired">
@@ -126,7 +121,7 @@ class RealFridge extends Component {
         </span>
       );
     }
-  }
+  };
 
   componentDidMount() {
     this.showImages();
@@ -138,7 +133,7 @@ class RealFridge extends Component {
 
   render() {
     const { userData } = this.props;
-    const{status} = this.state;
+    const { status } = this.state;
     return (
       <div id="myfridge">
         {/* 왼쪽 화면 */}
@@ -165,79 +160,67 @@ class RealFridge extends Component {
         {/* -------------------------------------------------------------------------------- */}
         <div className="right__my">
           <div className="part__division">
-            <div
-              id="total"
-              className="partList"
-              onClick={this.showLists}>
+            <div id="total" className="partList" onClick={this.showLists}>
               전체
             </div>
-            <div
-              id="normal"
-              className="partList"
-              onClick={this.showLists}>
+            <div id="normal" className="partList" onClick={this.showLists}>
               상온
             </div>
-            <div
-              id="fridge"
-              className="partList"
-              onClick={this.showLists}>
+            <div id="fridge" className="partList" onClick={this.showLists}>
               냉장
             </div>
-            <div
-              id="frozen"
-              className="partList"
-              onClick={this.showLists}>
+            <div id="frozen" className="partList" onClick={this.showLists}>
               냉동
             </div>
           </div>
 
           <div className="sidebar_container">
             <ul className="sidebar">
-              {status.length !== 0 ? (
-                status.map((item) => (
-                  <div className="bundleOfList">
-                    <div
-                      className="part__TotalList__minus"
-                      onClick={this.removeItem}>
-                      -
+              {status.length !== 0
+                ? status.map((item) => (
+                    <div className="bundleOfList">
+                      <div
+                        className="part__TotalList__minus"
+                        onClick={this.removeItem}>
+                        -
+                      </div>
+                      <li
+                        className="part__TotalList__item"
+                        key={item.id}
+                        onClick={this.clickIngredient}>
+                        {item.name}
+                      </li>
+                      <>
+                        {this.getDDay(
+                          item.expiredAfter,
+                          item.modifiedAt,
+                          item.createdAt
+                        )}
+                      </>
                     </div>
-                    <li
-                      className="part__TotalList__item"
-                      key={item.id}
-                      onClick={this.clickIngredient}>
-                      {item.name}
-                    </li>
-                    <>
-                      {this.getDDay(
-                        item.expiredAfter,
-                        item.modifiedAt,
-                        item.createdAt
-                      )}
-                    </>
-                  </div>
-                ))
-              ) : (userData.map((item) => (
-                <div className="bundleOfList">
-                  <div
-                    className="part__TotalList__minus"
-                    onClick={this.removeItem}>
-                    -
+                  ))
+                : userData.map((item) => (
+                    <div className="bundleOfList">
+                      <div
+                        className="part__TotalList__minus"
+                        onClick={this.removeItem}>
+                        -
+                      </div>
+                      <li
+                        className="part__TotalList__item"
+                        key={item.id}
+                        onClick={this.clickIngredient}>
+                        {item.name}
+                      </li>
+                      <>
+                        {this.getDDay(
+                          item.expiredAfter,
+                          item.modifiedAt,
+                          item.createdAt
+                        )}
+                      </>
                     </div>
-                  <li
-                    className="part__TotalList__item"
-                    key={item.id}
-                    onClick={this.clickIngredient}>
-                    {item.name}
-                  </li>
-                  <>
-                    {this.getDDay(
-                      item.expiredAfter,
-                      item.modifiedAt,
-                      item.createdAt
-                    )}
-                  </>
-                </div>
-              )))}
+                  ))}
             </ul>
           </div>
           <div className="myfridge__button" onClick={this.goToCart}>
@@ -248,6 +231,5 @@ class RealFridge extends Component {
     );
   }
 }
-            
 
 export default withRouter(RealFridge);
