@@ -26,7 +26,7 @@ class Myfridge extends Component {
 
     await axios
       // eslint-disable-next-line no-undef
-      .get(`http://localhost:4000/myfridge/${userid}`)
+      .get(`http://13.209.19.135:4000/myfridge/${userid}`)
       .then((res) => {
         console.log(res);
         if (res.data) {
@@ -66,7 +66,6 @@ class Myfridge extends Component {
     const { userName } = this.props.location;
     const { userData, partFridge, partFrozen, partNormal } = this.state;
     const name = window.localStorage.getItem("userName");
-    // const logoutHandlerLocal = window.localStorage.getItem("logoutHandler");
 
     return (
       <div className="Myfridge__container">
@@ -74,7 +73,6 @@ class Myfridge extends Component {
         <div className="whiteBackground_myfridge">
           <div className="Myfridge__userbox">
             <div className="username__myfridge"> {name} 님의 냉장고입니다</div>
-            {/* {(세션로그인)? ():()} */}
             <div className="spaceMaker"></div>
             <div className="logoutContainer">
               <button className="logout" onClick={this.logoutHandler}>

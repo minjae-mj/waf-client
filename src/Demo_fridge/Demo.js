@@ -1,4 +1,9 @@
-/* eslint-disable jsx-a11y/alt-text */
+/**
+ * /* eslint-disable jsx-a11y/alt-text
+ *
+ * @format
+ */
+
 import React from "react";
 import "./Demo.css";
 import logo from "./Waf.png";
@@ -27,7 +32,6 @@ class Demo extends React.Component {
     this.setState((state) => ({
       items: state.items.concat(newItem),
     }));
-    console.log(this.state.items);
   };
 
   showImages = () => {
@@ -56,7 +60,6 @@ class Demo extends React.Component {
 
         <div id="demo">
           {/* 왼쪽 화면 */}
-          {/* <img className="logo" src={logo} /> */}
           <div className="whiteBackground">
             <div className="demoUserInfo">
               <div className="name__section">
@@ -79,13 +82,6 @@ class Demo extends React.Component {
                     </div>
                   </div>
 
-                  {/* <img className="fridge_rightside" src={right_fridge}></img>
-              <div className="fridge_rightside">
-                <img id="seafood" src={fish}></img>
-                <img id="meat" src={meat}></img>
-                <img id="fruits" src={fruit}></img>
-                <img id="veges" src={veges}></img>
-              </div> */}
                   <div className="fridge_rightside">
                     <img className="fridge_right" src={right_fridge}></img>
                     <div className="right_items">

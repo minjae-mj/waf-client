@@ -49,7 +49,6 @@ class Recipes extends Component {
 
   componentDidMount() {
     const ingredient = window.localStorage.getItem("ingredient");
-    console.log(ingredient);
     this.searchYoutube(ingredient);
   }
 

@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react";
 import "./Login.css";
 import btn_google from "./btn_google.png";
@@ -34,7 +36,6 @@ class Login extends React.Component {
   }
 
   EmailValidator = (e) => {
-    console.log(e.target.value);
     const emailInput = e.target.value;
     if (
       emailInput.length > 4 &&
@@ -49,7 +50,6 @@ class Login extends React.Component {
   };
 
   PasswordValidator = (e) => {
-    console.log(e.target.value);
     const passwordInput = e.target.value;
     if (passwordInput.length >= 8) {
       this.setState({ isPasswordChecked: true });
@@ -63,7 +63,7 @@ class Login extends React.Component {
     if (this.state.isEmailChecked && this.state.isPasswordChecked) {
       axios({
         method: "POST",
-        url: "http://localhost:4000/users/signin",
+        url: "http://13.209.19.135:4000/users/signin",
         data: {
           email: this.state.email,
           password: this.state.password,
@@ -71,11 +71,7 @@ class Login extends React.Component {
         headers: { "Content-Type": "application/json", withCredentials: true },
       })
         .then((res) => {
-          console.log(res);
           this.props.LoginHandler(res.data.username, res.data.userid, true);
-        })
-        .then(() => {
-          console.log("done");
         })
         .catch((err) => console.log(err));
     }
@@ -117,14 +113,12 @@ class Login extends React.Component {
 
         <button
           className="btn__register"
-          onClick={this.LoginHandler.bind(this)}
-        >
+          onClick={this.LoginHandler.bind(this)}>
           로그인
         </button>
         <button
           className="btn__signup"
-          onClick={this.convertToSignup.bind(this)}
-        >
+          onClick={this.convertToSignup.bind(this)}>
           회원가입
         </button>
       </div>

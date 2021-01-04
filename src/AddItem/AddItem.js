@@ -59,7 +59,7 @@ class AddItem extends Component {
     } else {
       const userid = window.localStorage.getItem("userid");
       await axios
-        .post("http://localhost:4000/myfridge/cart", {
+        .post("http://13.209.19.135:4000/myfridge/cart", {
           collection: collection,
           userid: userid,
         })
