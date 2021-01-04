@@ -10,7 +10,8 @@
 
 .logo_ {
   flex-basis: 10%;
-  margin-left: 170px;
+  margin-top: 12px;
+  margin-left: 130px;
   padding-bottom: 10px;
   width: 113px;
   /* height: 87px; */
@@ -32,12 +33,14 @@
   background-color: #fafafa;
   position: absolute;
   z-index: -1;
-  opacity: 0.8;
+  opacity: 0.85;
   content: "";
+  border-radius: 10px;
 }
 
 .Myfridge__userbox {
   display: flex;
+  align-items: center;
   flex-direction: row;
   flex-basis: 10%; /* justify-content: flex-start; */
   /* text-align: center; */
@@ -54,8 +57,8 @@
   flex: 3 1 auto;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 30px;
-  margin-left: 60px;
+  /* padding-left: 30px; */
+  margin-left: 56px;
   font-weight: bold;
 }
 .spaceMaker {
@@ -64,11 +67,12 @@
 .logoutContainer {
   width: 140px;
   height: 40px;
+  margin-top: 8px;
   /* border: 1px solid #346464; */
   flex: 1 1 auto;
   margin-right: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  /* margin-top: 20px;
+  margin-bottom: 20px; */
 }
 
 .logout {
@@ -79,8 +83,10 @@
   background-color: #7eaaa6;
   padding: 8px;
   position: absolute;
-  right: 125px;
-  top: 50px;
+  right: 64px;
+  /* top: 50px; */
+  cursor: pointer;
+  outline-style: none;
 }
 
 .myfridge__maincontent {
@@ -214,7 +220,7 @@
   flex-basis: 35%;
   /* border: 5px solid orange; */
   display: flex;
-  margin: 30px 70px 30px 30px;
+  margin: 8px 30px 56px 30px;
   flex-direction: column;
   /* width: 100px;
   height: 100px;
@@ -225,22 +231,26 @@
   flex: 1 0 auto;
   /* border: 5px dashed 346464; */
   display: flex;
+  margin-top: 8px;
   flex-direction: row;
   font-size: 20px;
   align-items: center;
   height: 40px;
 }
 .partList {
+  cursor: pointer;
   flex: 1 1 auto;
-  border: 1px solid #dddedf;
+  /* border: 1px solid #dddedf; */
   padding: 16px;
   text-align: center;
   background-color: #7eaaa6;
   color: #dddedf;
+  height: 70px;
 }
 
 .partList_click {
   flex: 1 1 auto;
+  height: 70px;
   padding: 16px;
   text-align: center;
   background-color: #dddedf;
@@ -251,8 +261,9 @@
   flex: 10 1 auto;
   /* border: 5px dashed gold; */
   background-color: #dddedf;
+  width: 464px;
+  height: 400px;
   overflow-y: auto;
-  height: 300px;
 }
 
 .button_area {
@@ -260,21 +271,17 @@
   /* border: 4px solid pink; */
 }
 
-.sidebar {
-}
-
 .bundleOfList {
   /* border: 1px solid grey; */
   display: flex;
   flex-direction: row;
   height: 60px;
-  margin: 15px;
 }
 
 .part__TotalList__minus {
   display: inline-block;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   /* border: 1px solid #b3aa9f; */
   border-radius: 50%;
   font-size: 32px;
@@ -284,36 +291,39 @@
   color: #fafafa;
   /* border: 1px solid black; */
   cursor: pointer;
-  line-height: 24px;
-  margin-top: 12px;
-  margin-bottom: 7px;
+  line-height: 16px;
+  margin-top: 8px;
+  /* margin-bottom: 7px; */
+  cursor: pointer;
 }
 
 .part__TotalList__item {
   display: inline-block;
   color: #000000;
-  margin-left: 30px;
-  font-size: 24px;
-  width: 120px;
-  /* border: 1px solid black; */
+  /* margin-left: 30px; */
+  font-size: 18px;
+  width: 200px;
+  font-weight: 600;
   vertical-align: middle;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  padding: 5px;
+  /* margin-top: 7px; */
+  /* margin-bottom: 7px; */
+  padding: 7px 5px;
+  text-align: left;
+  cursor: pointer;
 }
 
 .part__Yet__expired {
   display: inline-block;
-  margin-left: 170px;
+  margin-left: 80px;
   color: #fafafa;
-  font-size: 18px;
+  font-size: 16px;
   width: 100px;
   height: 34px;
   /* border: 1px solid black; */
   text-align: center;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  padding-top: 3px;
+  margin-top: 2px;
+  /* margin-bottom: 7px; */
+  padding-top: 5px;
   background-color: #b3aa9f;
   margin-right: 10px;
   border-radius: 10px;
@@ -321,61 +331,17 @@
 
 .part__expired {
   display: inline-block;
-  margin-left: 170px;
+  margin-left: 80px;
   color: #fafafa;
-  font-size: 18px;
+  font-size: 16px;
   width: 100px;
   height: 34px;
   border-radius: 10px;
   /* border: 1px solid black; */
   text-align: center;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  padding-top: 3px;
-  background-color: #705f52;
-  margin-right: 10px;
-}
-
-.part__List__minus {
-  display: none;
-  width: 48px;
-  height: 48px;
-  /* border: 1px solid #b3aa9f; */
-  border-radius: 50%;
-  font-size: 48px;
-  margin-left: 30px;
-  text-align: center;
-  background-color: red;
-  color: #fafafa;
-  /* border: 1px solid black; */
-  cursor: pointer;
-  line-height: 32px;
-  margin-top: 5px;
-  margin-bottom: 7px;
-}
-.part__List__item {
-  display: none;
-  color: #000000;
-  margin-left: 30px;
-  font-size: 20px;
-  width: 120px;
-  /* border: 1px solid black; */
-  vertical-align: middle;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  padding: 5px;
-}
-.part__List__expired {
-  display: none;
-  margin-left: 10px;
-  color: #000000;
-  font-size: 20px;
-  width: 100px;
-  /* border: 1px solid black; */
-  text-align: center;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  padding: 5px;
+  /* margin-top: 7px;
+  margin-bottom: 7px; */
+  padding-top: 4px;
   background-color: #705f52;
   margin-right: 10px;
 }
@@ -385,7 +351,8 @@
   text-align: center;
   background-color: #7eaaa6;
   color: #fafafa;
-  padding-top: 15px;
+  padding: 8px 0px;
   font-size: 20px;
   font-weight: 400;
+  cursor: pointer;
 }

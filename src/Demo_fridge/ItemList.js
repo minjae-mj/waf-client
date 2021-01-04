@@ -119,24 +119,14 @@ export default class Itemlist extends Component {
             {this.state.currentPart === "전체"
               ? items.map((item) => (
                   <div className="item__info">
-                    <div className="item__name">
-                      <span className="deleteBtn" onClick={this.deleteItem}>
-                        -
-                      </span>
-                      {item.name}
-                    </div>
+                    <div className="item__name">{item.name}</div>
                     <>{this.getDDay(item)}</>
                   </div>
                 ))
               : items.map((item) =>
                   item.part === this.state.currentPart ? (
                     <div className="item__info">
-                      <div className="item__name">
-                        <span className="deleteBtn" onClick={this.deleteItem}>
-                          -
-                        </span>
-                        {item.name}
-                      </div>
+                      <div className="item__name">{item.name}</div>
                       <>{this.getDDay(item)}</>
                     </div>
                   ) : null

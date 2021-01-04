@@ -1,5 +1,6 @@
 {
   "name": "waf-client",
+  "homepage": "http://waf-client.s3-website.ap-northeast-2.amazonaws.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

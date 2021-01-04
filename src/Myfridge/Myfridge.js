@@ -28,7 +28,6 @@ class Myfridge extends Component {
       // eslint-disable-next-line no-undef
       .get(`http://13.209.19.135:4000/myfridge/${userid}`)
       .then((res) => {
-        console.log(res);
         if (res.data) {
           this.setState({ userData: res.data });
           for (let el of res.data) {

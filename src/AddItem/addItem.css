@@ -4,7 +4,7 @@ ul {
   padding: 0px;
 }
 .addItemLogo {
-  margin: 10px 0px 0px 172px;
+  margin: 5px 0px 0px 130px;
   padding-bottom: 16px;
 }
 .greenBox {
@@ -55,6 +55,7 @@ ul {
 .input {
   padding: 4px;
   margin: 0px 8px;
+  color: #346464;
 }
 .Item__btn {
   display: inline-block;
