@@ -50,7 +50,7 @@ class Signup extends Component {
   render() {
     return (
       <div className="register__wrapper">
-        <p className="register__text">회원 정보를 입력해주세요.</p>
+        <p className="register__text">회원 정보를 입력해주세요</p>
         <input
           placeholder="이메일"
           type="email"

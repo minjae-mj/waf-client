@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import "./Demo.css";
+import logo from "./Waf.png";
 import AddItems from "./AddItems";
 import left_fridge from "./img_fridge/left_fridge.png";
 import mandu from "./img_fridge/mandu.png";
@@ -39,7 +40,7 @@ class Demo extends React.Component {
 
   goToSignup = () => {
     this.props.history.push("/signup");
-  }
+  };
 
   componentDidMount() {
     this.showImages();
@@ -50,58 +51,64 @@ class Demo extends React.Component {
 
   render() {
     return (
-      <div id="demo">
-        {/* 왼쪽 화면 */}
-        <img className="logo"></img>
-        <div className="whiteBackground">
-          <div className="userInfo">
-            <div className="name__section">guest님의 냉장고입니다.</div>
-            <span className="loggedOut" onClick={this.goToSignup}>
-              회원가입
-            </span>
-          </div>
-          <div className="content">
-            <div className="left">
-              {/* 왼쪽 냉장고 */}
-              <div className="fridge">
-                <div className="fridge_leftside">
-                  <img className="fridge_left" src={left_fridge}></img>
-                  <div className="left_items">
-                    <img id="mandu" src={mandu}></img>
-                    <img id="eggs" src={eggs}></img>
-                    <img id="dairy" src={dairy}></img>
-                  </div>
-                </div>
+      <div>
+        <img className="logo" src={logo} />
 
-                {/* <img className="fridge_rightside" src={right_fridge}></img>
+        <div id="demo">
+          {/* 왼쪽 화면 */}
+          {/* <img className="logo" src={logo} /> */}
+          <div className="whiteBackground">
+            <div className="demoUserInfo">
+              <div className="name__section">
+                guest님의 냉장고입니다
+                <span className="loggedOut" onClick={this.goToSignup}>
+                  회원가입
+                </span>
+              </div>
+            </div>
+            <div className="content">
+              <div className="left">
+                {/* 왼쪽 냉장고 */}
+                <div className="fridge">
+                  <div className="fridge_leftside">
+                    <img className="fridge_left" src={left_fridge}></img>
+                    <div className="left_items">
+                      <img id="mandu" src={mandu}></img>
+                      <img id="eggs" src={eggs}></img>
+                      <img id="dairy" src={dairy}></img>
+                    </div>
+                  </div>
+
+                  {/* <img className="fridge_rightside" src={right_fridge}></img>
               <div className="fridge_rightside">
                 <img id="seafood" src={fish}></img>
                 <img id="meat" src={meat}></img>
                 <img id="fruits" src={fruit}></img>
                 <img id="veges" src={veges}></img>
               </div> */}
-                <div className="fridge_rightside">
-                  <img className="fridge_right" src={right_fridge}></img>
-                  <div className="right_items">
-                    <img id="seafood" src={fish}></img>
-                    <img id="meat" src={meat}></img>
-                    <div className="freshSection">
-                      <img id="fruits" src={fruit}></img>
-                      <img id="veges" src={veges}></img>
+                  <div className="fridge_rightside">
+                    <img className="fridge_right" src={right_fridge}></img>
+                    <div className="right_items">
+                      <img id="seafood" src={fish}></img>
+                      <img id="meat" src={meat}></img>
+                      <div className="freshSection">
+                        <img id="fruits" src={fruit}></img>
+                        <img id="veges" src={veges}></img>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* 오른쪽 화면*/}
-            <div className="right">
-              <AddItems
-                changeItems={this.changeItems}
-                changePart={this.changePart}
-                items={this.state.items}
-                currentPart={this.state.currentPart}
-              />
+              {/* 오른쪽 화면*/}
+              <div className="right">
+                <AddItems
+                  changeItems={this.changeItems}
+                  changePart={this.changePart}
+                  items={this.state.items}
+                  currentPart={this.state.currentPart}
+                />
+              </div>
             </div>
           </div>
         </div>

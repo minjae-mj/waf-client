@@ -66,6 +66,7 @@
   line-height: 0;
   font-size: 1.2rem;
   transition: all 0.1s;
+  cursor: pointer;
 }
 
 .btn__register {
