@@ -10,15 +10,15 @@ li {
   text-align: center;
 }
 
-.logo {
+.logo__recipes {
   margin: 8px 0px 0px 175px;
   padding-bottom: 16px;
 }
 
 .recipeAndButton {
   position: relative;
-  height: 90px;
-  top: 15px;
+  height: 64px;
+  top: 5px;
   left: 35px;
   display: flex;
   justify-content: space-between;
@@ -28,7 +28,7 @@ li {
   position: relative;
   font-weight: bold;
   font-size: 32px;
-  margin-left: 160px;
+  margin-left: 40px;
   margin-top: 10px;
 }
 .recipes__navbar__btn {
@@ -38,14 +38,15 @@ li {
   font-size: 0.8rem;
   font-weight: bold;
   padding: 0.1em;
-  margin-top: 10px;
+  margin-top: 16px;
   margin-right: 110px;
   margin-bottom: 5px;
   cursor: pointer;
   display: block;
-  height: 50px;
+  height: 40px;
   width: 120px;
   border: 0;
+  outline-style: none;
 }
 
 .recipes__navbar__btn:hover {
@@ -67,6 +68,7 @@ li {
   opacity: 0.9;
   display: flex;
   flex-direction: column;
+  margin-top: 64px;
 }
 
 .recipes__navbar span {
@@ -100,21 +102,25 @@ li {
 }
 .recipes__playerList {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   margin: 75px 0px;
   padding: 0px;
+  justify-content: center;
+
+  margin: auto;
+  margin-top: 70px;
 }
 
 .recipes__playerList__video {
   padding: 0px;
-  max-width: 175px;
+  max-width: 120px;
   height: 100px;
   cursor: pointer;
   margin: 0px 10px;
 }
 
 .recipes__playerList_title {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   text-overflow: ellipsis;
   font-weight: bolder;
   overflow: hidden;
@@ -134,7 +140,7 @@ li {
   word-wrap: break-word;
   line-height: 1.2em;
   height: 3.6em;
-  font-size: 13px;
+  font-size: 0.7rem;
   margin-top: 2px;
   padding: 3px;
   /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 2 = 3.6em */

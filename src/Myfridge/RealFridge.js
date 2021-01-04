@@ -71,8 +71,9 @@ class RealFridge extends Component {
 
   showImages = () => {
     for (let item of this.props.userData) {
-      let itemType = document.querySelector(`#${item.category}-m`);
-      itemType.style.display = "block";
+      let itemType = document.querySelector(`#${item.category}`);
+      // itemType.style.display = "block";
+      itemType.style.opacity = 1;
     }
   };
 
@@ -132,26 +133,39 @@ class RealFridge extends Component {
     const { status } = this.state;
     return (
       <div id="myfridge">
-        {/* 왼쪽 화면 */}
-        <div className="left__my">
+        <div className="left">
           {/* 왼쪽 냉장고 */}
           <div className="fridge">
-            <div className="fridge_leftside__my"></div>
-            <img id="mandu-m" src={mandu}></img>
-            <img id="eggs-m" src={eggs}></img>
-            <img id="dairy-m" src={dairy}></img>
+            <div className="fridge_leftside">
+              <img className="fridge_left" src={left_fridge}></img>
+              <div className="left_items">
+                <img id="mandu" src={mandu}></img>
+                <img id="eggs" src={eggs}></img>
+                <img id="dairy" src={dairy}></img>
+              </div>
+            </div>
 
-            <div className="fridge_rightside__my"></div>
-            <img id="seafood-m" src={fish}></img>
-            <img id="meat-m" src={meat}></img>
-            <img id="fruits-m" src={fruit}></img>
-            <img id="veges-m" src={veges}></img>
+            <div className="fridge_rightside">
+              <img className="fridge_right" src={right_fridge}></img>
+              <div className="right_items">
+                <img id="seafood" src={fish}></img>
+                <img id="meat" src={meat}></img>
+                <div className="freshSection">
+                  <img id="fruits" src={fruit}></img>
+                  <img id="veges" src={veges}></img>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         {/* -------------------------------------------------------------------------------- */}
         <div className="right__my">
           <div className="part__division">
-            <div id="total" className="partList" onClick={this.showLists}>
+            <div
+              id="total"
+              className="partList partList_click"
+              onClick={this.showLists}
+            >
               전체
             </div>
             <div id="normal" className="partList" onClick={this.showLists}>
@@ -172,13 +186,15 @@ class RealFridge extends Component {
                     <div className="bundleOfList">
                       <div
                         className="part__TotalList__minus"
-                        onClick={this.removeItem}>
+                        onClick={this.removeItem}
+                      >
                         -
                       </div>
                       <li
                         className="part__TotalList__item"
                         key={item.id}
-                        onClick={this.clickIngredient}>
+                        onClick={this.clickIngredient}
+                      >
                         {item.name}
                       </li>
                       <>
@@ -194,13 +210,15 @@ class RealFridge extends Component {
                     <div className="bundleOfList">
                       <div
                         className="part__TotalList__minus"
-                        onClick={this.removeItem}>
+                        onClick={this.removeItem}
+                      >
                         -
                       </div>
                       <li
                         className="part__TotalList__item"
                         key={item.id}
-                        onClick={this.clickIngredient}>
+                        onClick={this.clickIngredient}
+                      >
                         {item.name}
                       </li>
                       <>

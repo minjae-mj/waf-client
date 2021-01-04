@@ -9,7 +9,7 @@
 }
 
 .logo {
-  margin: 8px 0px 0px 112px;
+  margin: 12px 0px 0px 120px;
   padding-bottom: 16px;
 }
 .demoUserInfo {
@@ -39,6 +39,7 @@
   top: 32px;
   right: 40px;
   padding: 4px;
+  cursor: pointer;
 }
 
 .whiteBackground {
@@ -332,7 +333,7 @@
 .item__info div {
   margin: 4px;
 }
-.deleteBtn {
+/* .deleteBtn {
   display: inline-block;
   color: #fafafa;
   background: red;
@@ -343,7 +344,7 @@
   line-height: 18px;
   text-align: center;
   margin-right: 8px;
-}
+} */
 
 .item__info {
   display: flex;

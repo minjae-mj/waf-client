@@ -1,5 +1,3 @@
-/** @format */
-
 import React from "react";
 import "./Login.css";
 import btn_google from "./btn_google.png";
@@ -9,7 +7,7 @@ import axios from "axios";
 
 class Login extends React.Component {
   constructor(props) {
-    super();
+    super(props);
 
     this.state = {
       email: "",
@@ -22,9 +20,9 @@ class Login extends React.Component {
     this.googleLoginHandler = this.googleLoginHandler.bind(this);
 
     this.NAVER_LOGIN_URL =
-      "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=Yn5blabiliLbi8Ed8Je4&state=waftest&redirect_uri=http://localhost:3000/users";
+      "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=Yn5blabiliLbi8Ed8Je4&state=waftest&redirect_uri=http://waf-client.s3-website.ap-northeast-2.amazonaws.com/users";
 
-    this.GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=218828135580-63brp05lohg6jb7f58rgjhueorgtv9d6.apps.googleusercontent.com&redirect_uri=http://localhost:3000/users&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile`;
+    this.GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=218828135580-63brp05lohg6jb7f58rgjhueorgtv9d6.apps.googleusercontent.com&redirect_uri=http://waf-client.s3-website.ap-northeast-2.amazonaws.com/users&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile`;
   }
 
   naverLoginHandler() {
@@ -113,12 +111,14 @@ class Login extends React.Component {
 
         <button
           className="btn__register"
-          onClick={this.LoginHandler.bind(this)}>
+          onClick={this.LoginHandler.bind(this)}
+        >
           로그인
         </button>
         <button
           className="btn__signup"
-          onClick={this.convertToSignup.bind(this)}>
+          onClick={this.convertToSignup.bind(this)}
+        >
           회원가입
         </button>
       </div>

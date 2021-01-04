@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component } from "react";
 import Login from ".././Login/Login";
 import Myfridge from "../Myfridge/Myfridge";
@@ -75,8 +73,6 @@ class CheckPoint extends Component {
   render() {
     const isLogged = window.localStorage.getItem("isLogin");
     const { isLogin, userName } = this.state;
-    console.log({ userName });
-    console.log({ isLogin });
     return (
       <div className="CheckPoint">
         {!isLogged ? <Login LoginHandler={this.LoginHandler} /> : <Myfridge />}

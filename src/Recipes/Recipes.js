@@ -57,7 +57,7 @@ class Recipes extends Component {
     const ingredient = window.localStorage.getItem("ingredient");
     return (
       <div>
-        <img className="logo" src={logo} />
+        <img className="logo__recipes" src={logo} />
         <div className="recipes__navbar"></div>
         <div id="playerAndList">
           <div className="recipeAndButton">
@@ -66,7 +66,8 @@ class Recipes extends Component {
             </div>
             <button
               className="recipes__navbar__btn"
-              onClick={() => this.goBack()}>
+              onClick={() => this.goBack()}
+            >
               냉장고로 돌아가기
             </button>
           </div>
