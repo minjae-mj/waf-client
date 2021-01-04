@@ -7,7 +7,7 @@
 .main__description {
   position: absolute;
   top: 170px;
-  left: 50px;
+  left: 80px;
   color: #314145;
   line-height: 110%;
   font-size: 3.6rem;
@@ -23,7 +23,7 @@
 .main__buttonBox {
   position: absolute;
   top: 370px;
-  left: 35px;
+  left: 65px;
   display: flex;
   justify-content: center;
 }
@@ -39,6 +39,8 @@
   position: relative;
   margin: 20px;
   cursor: pointer;
+  outline-style: none;
+  border-style: none;
 }
 .main__btn:hover {
   background-color: #346464;

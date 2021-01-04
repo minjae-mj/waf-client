@@ -1,29 +1,44 @@
 #demo {
-  border: 5px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 80px 120px;
+  padding: 0px 120px;
   max-width: 100%;
-  height: 100%;
+  height: 90%;
   flex-direction: column;
 }
-.userInfo {
-  flex-basis: 10%;
+
+.logo {
+  margin: 8px 0px 0px 112px;
+  padding-bottom: 16px;
+}
+.demoUserInfo {
+  height: 60px;
   display: flex;
   flex-direction: row;
+  /* align-items: center; */
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 .name__section {
-  padding: 24px;
+  padding: 20px;
   font-size: 32px;
   font-weight: bold;
 }
+
 .loggedOut {
-  font-weight: bold;
+  font-weight: 400;
+  background-color: #346464;
   width: 130px;
+  font-size: 16px;
+  color: #fafafa;
   border: 1px solid #346464;
   text-align: center;
+  position: absolute;
+  top: 32px;
+  right: 40px;
+  padding: 4px;
 }
 
 .whiteBackground {
@@ -33,6 +48,7 @@
   flex-direction: column;
   z-index: 1;
   position: relative;
+  /* border-radius: 10px; */
 }
 
 .whiteBackground::after {
@@ -44,6 +60,7 @@
   opacity: 0.8;
   /* opacity: 1; */
   content: "";
+  border-radius: 10px;
 }
 .content {
   display: flex;
@@ -75,20 +92,19 @@
 }
 
 .fridge_leftside {
-  /* border: 1px solid red; */
   position: relative;
   padding-left: 24px;
+  /* height: inherit; */
 }
 .fridge_left {
-  width: 269px;
+  width: 250px;
   position: relative;
 }
 .fridge_rightside {
-  /* border: 1px solid red; */
   position: relative;
 }
 .fridge_right {
-  width: 300px;
+  width: 279px;
   position: relative;
 }
 
@@ -100,7 +116,8 @@
 
   position: absolute;
   width: 100%;
-  top: 64px;
+  top: 54px;
+  left: 11px;
 }
 .right_items {
   display: flex;
@@ -126,7 +143,7 @@
   opacity: 0;
   width: 80px;
   height: 120px;
-  margin-bottom: 88px;
+  margin-bottom: 70px;
 }
 
 #dairy {
@@ -138,37 +155,37 @@
 }
 #eggs {
   flex-basis: 1fr;
-  width: 190px;
+  width: 165px;
   height: 40px;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
   /* display: none; */
   opacity: 0;
 }
 
 #seafood {
-  width: 170px;
-  height: 95px;
+  width: 150px;
+  height: 85px;
   /* display: none; */
   opacity: 0;
-  margin-bottom: 32px;
+  margin-bottom: 38px;
 }
 #meat {
-  width: 170px;
-  height: 120px;
-  margin-bottom: 74px;
+  width: 150px;
+  height: 100px;
+  margin-bottom: 76px;
   /* display: none; */
   opacity: 0;
 }
 #veges {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   /* display: none; */
   opacity: 0;
 }
 #fruits {
   opacity: 0;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   /* display: none; */
 }
 /* --------------------------------- */
@@ -205,7 +222,7 @@
   font-size: 12px;
   margin-right: 5px;
   border: 1px solid #7eaaa6;
-  width: 100px;
+  width: 150px;
   height: 25px;
 }
 
@@ -214,7 +231,7 @@
   font-size: 12px;
   margin-right: 5px;
   border: 1px solid #7eaaa6;
-  width: 100px;
+  width: 150px;
   height: 25px;
 }
 .dateYouBuy {

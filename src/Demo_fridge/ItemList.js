@@ -18,7 +18,7 @@ export default class Itemlist extends Component {
 
     let part = e.target.innerHTML;
     this.setState({ currentPart: part });
-    console.log(this.state.currentPart);
+    // console.log(this.state.currentPart);
   };
   deleteItem = (e) => {
     let target = e.target.parentNode;
