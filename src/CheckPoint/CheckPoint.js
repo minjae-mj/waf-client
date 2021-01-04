@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from "react";
 import Login from ".././Login/Login";
 import Myfridge from "../Myfridge/Myfridge";
@@ -15,20 +17,17 @@ class CheckPoint extends Component {
 
     this.LoginHandler = this.LoginHandler.bind(this);
     this.getAccessToken = this.getAccessToken.bind(this);
-    // this.logoutHandler = this.logoutHandler.bind(this);
   }
 
   async getAccessToken(authorizationCode) {
     await axios
-      .post("http://localhost:4000/callback", {
+      .post("http://13.209.19.135:4000/callback", {
         authorizationCode: authorizationCode,
       })
       .then((res) => {
         if (res.data === "Signup Succeeded") {
           this.props.history.push("/users");
         } else {
-          console.log("&&&&", res);
-          console.log(res.data.userid);
           this.setState({
             isLogin: true,
             userName: res.data.username,

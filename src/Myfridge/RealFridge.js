@@ -52,9 +52,6 @@ class RealFridge extends Component {
     for (let el of forRemove) {
       el.classList.remove("partList_click");
     }
-    //  forRemove.classList.remove("partList");
-    console.log(forRemove);
-
     if (e.target.id === "total") {
       this.setState({ status: this.props.userData });
       e.target.classList.add("partList_click");
@@ -84,12 +81,11 @@ class RealFridge extends Component {
     const userid = window.localStorage.getItem("userid");
 
     await axios
-      .put("http://localhost:4000/myfridge/removeItem", {
+      .put("http://13.209.19.135:4000/myfridge/removeItem", {
         userid: userid,
         item: item,
       })
       .then((res) => {
-        console.log(res);
         window.location.reload();
       })
       .catch((err) => console.error);
@@ -141,15 +137,10 @@ class RealFridge extends Component {
           {/* 왼쪽 냉장고 */}
           <div className="fridge">
             <div className="fridge_leftside__my"></div>
-            {/* <div className="ingredient"> */}
             <img id="mandu-m" src={mandu}></img>
             <img id="eggs-m" src={eggs}></img>
             <img id="dairy-m" src={dairy}></img>
-            {/* </div> */}
-            {/* </div> */}
 
-            {/* 오른쪽 냉장고 */}
-            {/* <div className="fridge"> */}
             <div className="fridge_rightside__my"></div>
             <img id="seafood-m" src={fish}></img>
             <img id="meat-m" src={meat}></img>

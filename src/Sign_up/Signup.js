@@ -1,3 +1,5 @@
+/** @format */
+
 import axios from "axios";
 import React, { Component } from "react";
 import "./Signup.css";
@@ -20,10 +22,7 @@ class Signup extends Component {
 
   clickBtn = () => {
     const { email, password, mobile } = this.state;
-    // console.log(this.state.email);
-    // console.log(this.state.password);
-    // console.log(this.state.username);
-    // console.log(this.state.mobile);
+
     if (
       password.length >= 8 &&
       mobile[0] + mobile[1] + mobile[2] === "010" &&
@@ -32,9 +31,8 @@ class Signup extends Component {
       email.includes(".")
     ) {
       axios
-        .post("http://localhost:4000/users/signup", this.state)
+        .post("http://13.209.19.135:4000/users/signup", this.state)
         .then((res) => {
-          console.log(res);
           this.props.history.push("/users");
         })
         .catch((err) => {

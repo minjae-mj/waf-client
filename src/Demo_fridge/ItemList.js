@@ -1,4 +1,9 @@
-/* eslint-disable no-extend-native */
+/**
+ * /* eslint-disable no-extend-native
+ *
+ * @format
+ */
+
 import React, { Component } from "react";
 
 export default class Itemlist extends Component {
@@ -18,7 +23,6 @@ export default class Itemlist extends Component {
 
     let part = e.target.innerHTML;
     this.setState({ currentPart: part });
-    // console.log(this.state.currentPart);
   };
   deleteItem = (e) => {
     let target = e.target.parentNode;
@@ -141,98 +145,5 @@ export default class Itemlist extends Component {
         </div>
       </div>
     );
-    // return (
-    //   <div className="demo__itemListBox">
-    //     {/* <div className="demo__itemList__title">나의 냉장고에 있는 재료들</div> */}
-    //     <div className="demo__itemList__category">
-    //       <div className="fridge_Section">
-    //         <div className="demopart_section" onClick={this.changePart}>
-    //           전체
-    //         </div>
-    //         <ul className="demoul_section">
-    //           {items.map((item) =>
-    //             item.part === "냉장" ||
-    //             item.part === "상온" ||
-    //             item.part === "냉동" ? (
-    //               <>
-    //                 <li id="전체" className="demoli">
-    //                   {item.name}
-    //                 </li>
-    //                 <span className="demoperiod">{this.getDDay(item)}</span>
-    //               </>
-    //             ) : (
-    //               <></>
-    //             )
-    //           )}
-    //         </ul>
-    //       </div>
-
-    //       <div className="fridge_Section">
-    //         <div className="demopart_section" onClick={this.changePart}>
-    //           상온
-    //         </div>
-    //         <ul className="demoul_section">
-    //           {items.map((item) =>
-    //             item.part === "상온" ? (
-    //               <>
-    //                 <li id="상온" className="demoli">
-    //                   {item.name}
-    //                 </li>
-    //                 <span className="demoperiod">{this.getDDay(item)}</span>
-    //               </>
-    //             ) : (
-    //               <></>
-    //             )
-    //           )}
-    //         </ul>
-    //       </div>
-
-    //       <div className="fridge_Section">
-    //         <div className="demopart_section" onClick={this.showListDemo}>
-    //           냉장
-    //         </div>
-    //         <ul className="demoul_section">
-    //           {items.map((item) =>
-    //             item.part === "냉장" ? (
-    //               <>
-    //                 <li id="냉장" className="demoli">
-    //                   {item.name}
-    //                 </li>
-    //                 <span className="demoperiod">{this.getDDay(item)}</span>
-    //               </>
-    //             ) : (
-    //               <></>
-    //             )
-    //           )}
-    //         </ul>
-    //       </div>
-
-    //       <div className="fridge_Section">
-    //         <div className="demopart_section" onClick={this.showListDemo}>
-    //           냉동
-    //         </div>
-    //         <ul className="demoul_section">
-    //           {items.map((item) =>
-    //             item.part === "냉장" ? (
-    //               <>
-    //                 <li id="냉동" className="demoli">
-    //                   {item.name}
-    //                 </li>
-    //                 <span className="demoperiod">{this.getDDay(item)}</span>
-    //               </>
-    //             ) : (
-    //               <></>
-    //             )
-    //           )}
-    //         </ul>
-    //       </div>
-    //     </div>
-    //   </div>
-    // );
   }
 }
-// props.items = {
-//   type: selectVal,
-//   name: nameVal,
-//   date: dateVal,
-// };
