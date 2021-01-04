@@ -1,3 +1,5 @@
+/** @format */
+
 import axios from "axios";
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
@@ -122,7 +124,7 @@ class AddItem extends Component {
     const { categories, collection } = this.state;
     return (
       <div>
-        <img className="logo" src={logo} />
+        <img className="addItemLogo" src={logo} />
         <div className="greenBox">
           <div className="userInfo">
             <div className="username">{name}님의 카트입니다.</div>
@@ -138,8 +140,7 @@ class AddItem extends Component {
               name="categories"
               type="category"
               className="input"
-              onChange={this.inputValueHandler("category")}
-            >
+              onChange={this.inputValueHandler("category")}>
               {categories.map((c, index) => {
                 return (
                   <option value={c} key={index}>
@@ -152,13 +153,11 @@ class AddItem extends Component {
               placeholder="구매하신 것을 적어주세요"
               type="item"
               className="input"
-              onChange={this.inputValueHandler("item")}
-            ></input>
+              onChange={this.inputValueHandler("item")}></input>
             <select
               type="part"
               className="input"
-              onChange={this.inputValueHandler("part")}
-            >
+              onChange={this.inputValueHandler("part")}>
               <option value="options">선택필수</option>
               <option value="normal">상온</option>
               <option value="fridge">냉장</option>
@@ -169,8 +168,7 @@ class AddItem extends Component {
               type="checkbox"
               className="input"
               name="오늘구매"
-              onClick={this.boughtToday.bind(this)}
-            ></input>
+              onClick={this.boughtToday.bind(this)}></input>
             {this.state.boughtToday ? (
               <></>
             ) : (
@@ -178,8 +176,7 @@ class AddItem extends Component {
                 type="date"
                 className="calendar"
                 className="input"
-                onChange={this.inputValueHandler("modifiedAt")}
-              ></input>
+                onChange={this.inputValueHandler("modifiedAt")}></input>
             )}
             <div className="Item__btn input" onClick={this.putCollection}>
               +

@@ -1,8 +1,10 @@
+/** @format */
+
 ul {
   padding: 0px;
 }
-.logo {
-  margin: 8px 0px 0px 112px;
+.addItemLogo {
+  margin: 10px 0px 0px 172px;
   padding-bottom: 16px;
 }
 .greenBox {
@@ -65,7 +67,7 @@ ul {
   font-size: 32px;
   line-height: 24px;
   color: #fafafa;
-  margin: 0px;
+  margin-right: 10px;
   padding: 0px;
 }
 
@@ -82,8 +84,12 @@ ul {
 }
 .listBox li {
   display: flex;
+  justify-content: space-between;
 }
 .listBox li div {
+  display: flex;
+  width: 120px;
+  text-align: start;
   margin: 4px 8px;
 }
 
@@ -94,6 +100,7 @@ ul {
   background: #c4c4c4;
   cursor: pointer;
   border: none;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 17px;
+  font-weight: 600;
+  height: 45px;
 }

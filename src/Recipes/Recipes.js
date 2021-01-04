@@ -1,3 +1,5 @@
+/** @format */
+
 import { Component } from "react";
 import axios from "axios";
 import { YOUTUBE_API_KEY } from "../config/youtube";
@@ -60,15 +62,16 @@ class Recipes extends Component {
         <div className="recipes__navbar"></div>
         <div id="playerAndList">
           <div className="recipeAndButton">
-            <div className="recommandRecipe"> {ingredient} 추천 레시피 </div>
+            <div className="recommandRecipe">
+              {ingredient}를 이용한 레시피 추천!
+            </div>
             <button
               className="recipes__navbar__btn"
-              onClick={() => this.goBack()}
-            >
+              onClick={() => this.goBack()}>
               냉장고로 돌아가기
             </button>
           </div>
-          {currentVideo ? <Player currentVideo={currentVideo} /> : "Loading"}
+          {currentVideo ? <Player currentVideo={currentVideo} /> : <></>}
 
           {videoList ? (
             <PlayList
@@ -76,7 +79,7 @@ class Recipes extends Component {
               changeCurrentVideo={this.changeCurrentVideo}
             />
           ) : (
-            "Loading"
+            <></>
           )}
         </div>
       </div>
