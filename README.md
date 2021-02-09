@@ -1,27 +1,60 @@
-# waf
+## <a href='http://waf-client.s3-website.ap-northeast-2.amazonaws.com/' target='blank'>냉장고 관리 및 레시피가 필요할땐, waf</span></a>
 
-냉장고를 열면 언제 사 넣었는지 모르는 식재료들, <br>
-먹어도 될 지 말 지 고민되는 먹거리 때문에  <br>
-고개를 갸우뚱 해보신 적 있으신가요?  <br>
+<img src='https://user-images.githubusercontent.com/56268052/107353053-eecc9b00-6b0f-11eb-9f0f-52b40e4caa6c.gif' alt='waf'>
 
-지금 냉장고에 뭐가 들어있지?  <br>
-waf 로 한 눈에 관리하세요. 
+<p>
+  너무 바쁜 일상에서 냉장고에 어떤 재료가 있는지, 또 언제까지 소비해야하는지 까먹을때가 많으시죠? <br />
+  '와프'만 있다면 브라우저에서 한눈에 냉장고 관리를 할 수 있습니다!  <br />
+  이 뿐만 아니라 내가 가지고 있는 재료로 무엇을 만들 수 있는지 모를때는, <br />
+  유x브에서 재료 검색을 하면 됩니다.  <br />
 
-냉장고 관리가 필요할 때,  <br>
-WhAt's in my Fridge. **waf**
+지금 **waf** 로 한눈에 냉장고를 관리하세요 <br>
 
-# waf 를 만든 사람들
+</p>
 
-프로젝트명: WAF <br>
-팀명: Default A <br>
+### 🤷🏻‍♂️ <span style='color: #43658b'>와프에서 무엇을 할 수 있나요?<span>
 
-Front-End | 김여래(팀장), 이동환 <br>
-Back-End  | 강용구, 권민재 <br>
+<ul>
+  <li>구매한 물건 냉장고에 넣고 저장하기</li>
+  <li>가지고 있는 물건의 소비기한 체크하기</li>
+  <li>재료로 레시피 검색하기</li>
+</ul>
 
-# 기술스택 구성
+## ⚒<span style='color: #43658b'>기술스택<span>
 
-Front-End | HTML, CSS, JavaScript, React.js, Oauth 2.0 <br>
-Back-End  | Node.js, Express.js, Mysql, Sequelize, AWS { S3, EC2, RDS } <br>
+<img src='https://user-images.githubusercontent.com/56268052/107355299-9c40ae00-6b12-11eb-8f9f-065309d56cea.png' alt='front_end_Stack'>
+
+<img src='https://user-images.githubusercontent.com/56268052/107356544-4a008c80-6b14-11eb-8027-3037996907e7.png' alt='back_end_Stack'>
+
+<img src='https://user-images.githubusercontent.com/56268052/107356905-c1362080-6b14-11eb-864f-7a5c33748837.png' alt='deploy'>
+
+## 👨‍👩‍👧‍👦 <span style='color: #43658b'>waf 를 만든 사람들<span>
+
+<ul>
+  <li>
+    <div>👸🏻  김여래 (Front-end & team leader)<div><br/>
+    <div>📧  email : <a href=''>업데이트 예정</a></div><br/>
+    <div>🐱  git : <a href=''>업데이트 예정</a></div>
+  </li>
+  <br/>
+  <li>
+    <div>👨🏻‍🎨  이동환 (Front-end)</div><br/>
+    <div>📧  email :  <a href='mailto:dawa9293@gmail.com '>dawa9293@gmail.com</a></div><br/>
+    <div>🐱  git : <a href='https://github.com/dawa93'>https://github.com/dawa93</a></div>
+  </li>
+  <br/>
+  <li>
+    <div>💁🏻‍♀️  권민재 (Back-end)</div><br/>
+    <div>📧  email :  <a href='mailto:dearmin27@gmail.com '>dearmin27@gmail.com</a></div><br />
+    <div>🐱  git : <a href='https://github.com/minjae-mj'>https://github.com/minjae-mj</a></div><br/>
+  </li>
+  <br/>
+  <li>
+    <div>👨🏻‍💻  강용구 (Back-end)</div><br/>
+    <div>📧  email :  <a href=''>업데이트 예정</a></div><br />
+    <div>🐱  git : <a href=''>업데이트 예정</a></div><br/>
+  </li>
+</ul>
 
 # waf API docs
 
