@@ -51,8 +51,8 @@
   <br/>
   <li>
     <div>👨🏻‍💻  강용구 (Back-end)</div><br/>
-    <div>📧  email :  <a href=''>업데이트 예정</a></div><br />
-    <div>🐱  git : <a href=''>업데이트 예정</a></div><br/>
+    <div>📧  email :  <a href='mailto:psykyg@gmail.com'>psykyg@gmail.com</a></div><br />
+    <div>🐱  git : <a href='https://github.com/psy-g'>https://github.com/psy-g </a></div><br/>
   </li>
 </ul>
 
