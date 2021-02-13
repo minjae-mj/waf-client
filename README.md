@@ -33,8 +33,8 @@
 <ul>
   <li>
     <div>👸🏻  김여래 (Front-end & team leader)<div><br/>
-    <div>📧  email : <a href=''>업데이트 예정</a></div><br/>
-    <div>🐱  git : <a href=''>업데이트 예정</a></div>
+    <div>📧  email : <a href='mailto:kellyyeoraekim@gmail.com '>kellyyeoraekim@gmail.com</a></div><br/>
+    <div>🐱  git : <a href='https://github.com/yrkimyy'>https://github.com/yrkimyy</a></div>
   </li>
   <br/>
   <li>
