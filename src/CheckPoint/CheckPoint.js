@@ -19,7 +19,7 @@ class CheckPoint extends Component {
 
   async getAccessToken(authorizationCode) {
     await axios
-      .post("http://13.209.19.135:4000/callback", {
+      .post("http://54.180.29.197:4000/callback", {
         authorizationCode: authorizationCode,
       })
       .then((res) => {

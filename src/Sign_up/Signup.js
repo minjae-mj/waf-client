@@ -31,7 +31,7 @@ class Signup extends Component {
       email.includes(".")
     ) {
       axios
-        .post("http://13.209.19.135:4000/users/signup", this.state)
+        .post("http://54.180.29.197:4000/users/signup", this.state)
         .then((res) => {
           this.props.history.push("/users");
         })
