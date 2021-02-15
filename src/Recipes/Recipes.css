@@ -1,0 +1,147 @@
+/** @format */
+
+* {
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+li {
+  text-align: center;
+}
+
+.logo__recipes {
+  margin: 8px 0px 0px 175px;
+  padding-bottom: 16px;
+}
+
+.recipeAndButton {
+  position: relative;
+  height: 64px;
+  top: 5px;
+  left: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.recommandRecipe {
+  position: relative;
+  font-weight: bold;
+  font-size: 32px;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+.recipes__navbar__btn {
+  background: #7eaaa6;
+  border-radius: 5px;
+  color: #fafafa;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.1em;
+  margin-top: 16px;
+  margin-right: 110px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  display: block;
+  height: 40px;
+  width: 120px;
+  border: 0;
+  outline-style: none;
+}
+
+.recipes__navbar__btn:hover {
+  background-color: #346464;
+}
+
+#playerAndList {
+  background-color: #fafafa;
+  position: fixed;
+  border-radius: 20px;
+  max-width: 78%;
+  height: 83%;
+  margin: auto;
+  top: 30px;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  z-index: 1;
+  opacity: 0.9;
+  display: flex;
+  flex-direction: column;
+  margin-top: 64px;
+}
+
+.recipes__navbar span {
+  color: #346464;
+  font-size: 3.6rem;
+  font-weight: bold;
+  transform: rotate(345deg);
+  display: flex;
+  justify-content: space-around;
+}
+
+.recipes__player {
+  margin: 12px;
+}
+.recipes__current__VideoBox {
+  width: 65%;
+  height: 40vh;
+  margin: auto;
+}
+.recipes__current__Video {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  border: 0;
+}
+.recipes__current__title {
+  font-size: 1.2rem;
+  margin-top: 3px;
+  font-weight: 600;
+  color: #000000;
+}
+.recipes__playerList {
+  display: flex;
+  /* justify-content: center; */
+  margin: 75px 0px;
+  padding: 0px;
+  justify-content: center;
+
+  margin: auto;
+  margin-top: 70px;
+}
+
+.recipes__playerList__video {
+  padding: 0px;
+  max-width: 120px;
+  height: 100px;
+  cursor: pointer;
+  margin: 0px 10px;
+}
+
+.recipes__playerList_title {
+  font-size: 0.8rem;
+  text-overflow: ellipsis;
+  font-weight: bolder;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.2em;
+  height: 2.4em;
+}
+
+.recipes__playerList_description {
+  overflow: hidden;
+  text-align: justify;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* 라인수 */
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  line-height: 1.2em;
+  height: 3.6em;
+  font-size: 0.7rem;
+  margin-top: 2px;
+  padding: 3px;
+  /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 2 = 3.6em */
+}
