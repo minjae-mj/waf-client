@@ -82,7 +82,7 @@ class RealFridge extends Component {
     const userid = window.localStorage.getItem("userid");
 
     await axios
-      .put("http://13.209.19.135:4000/myfridge/removeItem", {
+      .put("http://54.180.29.197:4000/myfridge/removeItem", {
         userid: userid,
         item: item,
       })

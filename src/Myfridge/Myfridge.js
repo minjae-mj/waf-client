@@ -26,7 +26,7 @@ class Myfridge extends Component {
 
     await axios
       // eslint-disable-next-line no-undef
-      .get(`http://13.209.19.135:4000/myfridge/${userid}`)
+      .get(`http://54.180.29.197:4000/myfridge/${userid}`)
       .then((res) => {
         if (res.data) {
           this.setState({ userData: res.data });
