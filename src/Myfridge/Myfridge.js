@@ -1,11 +1,8 @@
-/** @format */
-
 import serverUrl from "../config/server";
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import RealFridge from "./RealFridge";
 import "./Myfridge.css";
-import logo from "./waf.png";
 
 class Myfridge extends Component {
   constructor(props) {
@@ -67,10 +64,15 @@ class Myfridge extends Component {
 
     return (
       <div className="Myfridge__container">
-        <img className="logo_" src={logo}></img>
         <div className="whiteBackground_myfridge">
           <div className="Myfridge__userbox">
-            <div className="username__myfridge"> {name} 님의 냉장고입니다</div>
+            <div className="username__myfridge">
+              {" "}
+              {name} 님의 냉장고입니다 <br />
+              <span className="Myfirdge__note">
+                재료를 클릭해서, 레시피를 찾아보세요.
+              </span>
+            </div>
             <div className="spaceMaker"></div>
             <div className="logoutContainer">
               <button className="logout" onClick={this.logoutHandler}>
