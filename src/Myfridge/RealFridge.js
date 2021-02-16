@@ -233,7 +233,7 @@ class RealFridge extends Component {
             </ul>
           </div>
           <div className="myfridge__button" onClick={this.goToCart}>
-            냉장고에 재료 넣기
+            냉장고에 재료 넣으러 가기
           </div>
         </div>
       </div>
