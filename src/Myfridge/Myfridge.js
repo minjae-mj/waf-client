@@ -1,6 +1,6 @@
 /** @format */
 
-import axios from "axios";
+import serverUrl from "../config/server";
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import RealFridge from "./RealFridge";
@@ -24,9 +24,8 @@ class Myfridge extends Component {
   async getUserFridge() {
     const userid = window.localStorage.getItem("userid");
 
-    await axios
-      // eslint-disable-next-line no-undef
-      .get(`http://54.180.29.197:4000/myfridge/${userid}`)
+    await serverUrl
+      .get(`/myfridge/${userid}`)
       .then((res) => {
         if (res.data) {
           this.setState({ userData: res.data });

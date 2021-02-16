@@ -1,6 +1,6 @@
 /** @format */
 
-import axios from "axios";
+import serverUrl from "../config/server";
 import React, { Component } from "react";
 import "./Signup.css";
 import { withRouter } from "react-router-dom";
@@ -30,8 +30,8 @@ class Signup extends Component {
       email.includes("@") &&
       email.includes(".")
     ) {
-      axios
-        .post("http://54.180.29.197:4000/users/signup", this.state)
+      serverUrl
+        .post("/users/signup", this.state)
         .then((res) => {
           this.props.history.push("/users");
         })

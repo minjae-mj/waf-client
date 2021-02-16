@@ -17,7 +17,7 @@ import meat from "../Demo_fridge/img_fridge/meat.png";
 import veges from "../Demo_fridge/img_fridge/veges.png";
 import fruit from "../Demo_fridge/img_fridge/fruit.png";
 import { withRouter } from "react-router-dom";
-import axios from "axios";
+import serverUrl from "../config/server";
 
 class RealFridge extends Component {
   constructor(props) {
@@ -81,8 +81,8 @@ class RealFridge extends Component {
     const item = e.target.parentElement.children[1].innerText;
     const userid = window.localStorage.getItem("userid");
 
-    await axios
-      .put("http://54.180.29.197:4000/myfridge/removeItem", {
+    await serverUrl
+      .put("/myfridge/removeItem", {
         userid: userid,
         item: item,
       })

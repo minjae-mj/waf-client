@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Login from ".././Login/Login";
 import Myfridge from "../Myfridge/Myfridge";
-import axios from "axios";
+import serverUrl from "../config/server";
 import { withRouter } from "react-router-dom";
 
 class CheckPoint extends Component {
@@ -18,8 +18,8 @@ class CheckPoint extends Component {
   }
 
   async getAccessToken(authorizationCode) {
-    await axios
-      .post("http://54.180.29.197:4000/callback", {
+    await serverUrl
+      .post("/callback", {
         authorizationCode: authorizationCode,
       })
       .then((res) => {

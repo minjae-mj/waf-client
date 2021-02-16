@@ -1,10 +1,9 @@
 /** @format */
-
-import axios from "axios";
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "./addItem.css";
 import logo from "./Waf.png";
+import serverUrl from "../config/server";
 
 class AddItem extends Component {
   constructor(props) {
@@ -58,8 +57,8 @@ class AddItem extends Component {
       alert("필수사항을 입력해주세요");
     } else {
       const userid = window.localStorage.getItem("userid");
-      await axios
-        .post("http://54.180.29.197:4000/myfridge/cart", {
+      await serverUrl
+        .post("/cart", {
           collection: collection,
           userid: userid,
         })
