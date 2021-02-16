@@ -300,7 +300,16 @@
   align-items: center;
 }
 .item__name {
+  text-decoration: underline #7eaaa6 1px;
   font-size: 20px;
+  cursor: pointer;
+}
+.item__name:hover {
+  color: #7eaaa6;
+}
+.demo_note {
+  color: #7eaaa6;
+  font-size: 1rem;
 }
 
 .expired {

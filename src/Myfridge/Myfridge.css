@@ -12,6 +12,7 @@
   position: relative;
   flex-direction: column;
   height: 100%;
+  /* height: 55em; */
   margin: auto;
 }
 
@@ -22,12 +23,13 @@
   position: absolute;
   z-index: -1;
   opacity: 0.85;
-  content: "";
+  content: '';
   border-radius: 10px;
 }
 
 .Myfridge__userbox {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   flex-basis: 10%;
@@ -42,7 +44,7 @@
 .username__myfridge {
   font-size: 32px;
   color: #000000;
-  text-align: start;
+  /* text-align: start; */
   height: 80px;
   flex: 3 1 auto;
   padding-top: 20px;
@@ -57,7 +59,7 @@
   width: 140px;
   height: 40px;
   margin-top: 8px;
-  flex: 1 1 auto;
+  /* flex: 1 1 auto; */
   margin-right: 50px;
 }
 
@@ -68,7 +70,7 @@
   border: 1px solid #7eaaa6;
   background-color: #7eaaa6;
   padding: 8px;
-  position: absolute;
+  /* position: absolute; */
   right: 64px;
   /* top: 50px; */
   cursor: pointer;
@@ -79,15 +81,14 @@
   flex-basis: 80%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   height: 100%;
   margin: 30px;
 }
 
 #myfridge {
-  width: 100%;
-  height: 100%;
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
 }
 
 .left__my {
@@ -103,7 +104,7 @@
 
 .fridge_leftside__my {
   flex: 1 1 auto;
-  background-image: url("./img_fridge/left_fridge.png");
+  background-image: url('./img_fridge/left_fridge.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right center;
@@ -113,7 +114,8 @@
 
 .fridge_rightside__my {
   flex: 1 1 auto;
-  background-image: url("./img_fridge/right_fridge.png");
+
+  background-image: url('./img_fridge/right_fridge.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left center;
@@ -202,7 +204,7 @@
 .partList {
   cursor: pointer;
   flex: 1 1 auto;
-  padding: 1.1em;
+  padding: 0.3em 1em;
   text-align: center;
   background-color: #7eaaa6;
   color: #dddedf;
@@ -214,9 +216,9 @@
 }
 
 .partList_click {
-  flex: 1 1 auto;
+  /* flex: 1 1 auto; */
   height: 100%;
-  padding: 1.1em;
+  padding: 0.5rem 1rem;
   text-align: center;
   background-color: #dddedf;
   color: #7eaaa6;
@@ -310,7 +312,7 @@
   text-align: center;
   background-color: #7eaaa6;
   color: #fafafa;
-  padding: 1.6rem 0px;
+  padding: 0.6em 0px;
   font-size: 20px;
   font-weight: 400;
   cursor: pointer;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default class Itemlist extends Component {
+class Itemlist extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -89,6 +90,14 @@ export default class Itemlist extends Component {
     }
   };
 
+  clickIngredient = (e) => {
+    let target = e.target.innerText;
+    window.localStorage.setItem('ingredient', target);
+    this.props.history.push({
+      pathname: '/recipes',
+    });
+  };
+
   render() {
     const { items, changePart } = this.props;
 
@@ -113,14 +122,21 @@ export default class Itemlist extends Component {
             {this.state.currentPart === '전체'
               ? items.map((item) => (
                   <div className='item__info'>
-                    <div className='item__name'>{item.name}</div>
+                    <div className='item__name' onClick={this.clickIngredient}>
+                      {item.name}
+                    </div>
                     <>{this.getDDay(item)}</>
                   </div>
                 ))
               : items.map((item) =>
                   item.part === this.state.currentPart ? (
                     <div className='item__info'>
-                      <div className='item__name'>{item.name}</div>
+                      <div
+                        className='item__name'
+                        onClick={this.clickIngredient}
+                      >
+                        {item.name}
+                      </div>
                       <>{this.getDDay(item)}</>
                     </div>
                   ) : null
@@ -131,3 +147,4 @@ export default class Itemlist extends Component {
     );
   }
 }
+export default withRouter(Itemlist);

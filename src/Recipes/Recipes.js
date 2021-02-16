@@ -20,6 +20,10 @@ class Recipes extends Component {
     this.props.history.push('/myfridge');
   };
 
+  goBackToDemo = () => {
+    this.props.history.push('/demofridge');
+  };
+
   searchYoutube = async (item) => {
     let params = {
       q: `${item} 레시피`,
@@ -52,6 +56,7 @@ class Recipes extends Component {
   }
 
   render() {
+    let isLogin = window.localStorage.getItem('isLogin');
     const { videoList, currentVideo } = this.state;
     const ingredient = window.localStorage.getItem('ingredient');
     return (
@@ -62,12 +67,27 @@ class Recipes extends Component {
             <div className='recommandRecipe'>
               {ingredient}를 이용한 레시피 추천!
             </div>
-            <button
+            {isLogin ? (
+              <button
+                className='recipes__navbar__btn'
+                onClick={() => this.goBack()}
+              >
+                냉장고로 돌아가기
+              </button>
+            ) : (
+              <button
+                className='recipes__navbar__btn'
+                onClick={() => this.goBackToDemo()}
+              >
+                뒤로가기
+              </button>
+            )}
+            {/* <button
               className='recipes__navbar__btn'
               onClick={() => this.goBack()}
             >
               냉장고로 돌아가기
-            </button>
+            </button> */}
           </div>
           {currentVideo ? <Player currentVideo={currentVideo} /> : <></>}
 

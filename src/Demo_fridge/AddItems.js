@@ -1,3 +1,5 @@
+/** @format */
+
 import React from 'react';
 import './Demo.css';
 import Itemlist from './ItemList';
@@ -15,7 +17,10 @@ export default class Demo extends React.Component {
       date: dateVal,
       part: partVal,
     };
-    if (nameVal.length === 0) {
+
+    if (selectVal === 'shouldChoose' || partVal === '선택필수') {
+      alert('필수 항목을 선택해주세요');
+    } else if (nameVal.length === 0) {
       alert('재료 이름을 적어주세요');
     } else {
       this.props.changeItems(info);
@@ -27,7 +32,10 @@ export default class Demo extends React.Component {
       <div className='container__DemoAdd'>
         <div className='fridge__inputBox'>
           <div className='fridge__inputBox__title'>
-            냉장고에 물건을 추가해주세요
+            냉장고에 물건을 추가해주세요 <br />
+            <span className='demo_note'>
+              재료를 클릭하면 레시피를 추천해드립니다
+            </span>
           </div>
           <div className='demo__inputContainer'>
             <select id='fridge__select'>
