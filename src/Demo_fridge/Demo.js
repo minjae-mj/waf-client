@@ -1,23 +1,17 @@
-/**
- * /* eslint-disable jsx-a11y/alt-text
- *
- * @format
- */
-
-import React from "react";
-import "./Demo.css";
-import logo from "./Waf.png";
-import AddItems from "./AddItems";
-import left_fridge from "./img_fridge/left_fridge.png";
-import mandu from "./img_fridge/mandu.png";
-import eggs from "./img_fridge/eggs.png";
-import dairy from "./img_fridge/dairy.png";
-import right_fridge from "./img_fridge/right_fridge.png";
-import fish from "./img_fridge/fish.png";
-import meat from "./img_fridge/meat.png";
-import veges from "./img_fridge/veges.png";
-import fruit from "./img_fridge/fruit.png";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import './Demo.css';
+import logo from './Waf.png';
+import AddItems from './AddItems';
+import left_fridge from './img_fridge/left_fridge.png';
+import mandu from './img_fridge/mandu.png';
+import eggs from './img_fridge/eggs.png';
+import dairy from './img_fridge/dairy.png';
+import right_fridge from './img_fridge/right_fridge.png';
+import fish from './img_fridge/fish.png';
+import meat from './img_fridge/meat.png';
+import veges from './img_fridge/veges.png';
+import fruit from './img_fridge/fruit.png';
+import { withRouter } from 'react-router-dom';
 
 class Demo extends React.Component {
   constructor(props) {
@@ -43,7 +37,7 @@ class Demo extends React.Component {
   };
 
   goToSignup = () => {
-    this.props.history.push("/signup");
+    this.props.history.push('/signup');
   };
 
   componentDidMount() {
@@ -56,40 +50,38 @@ class Demo extends React.Component {
   render() {
     return (
       <div>
-        <img className="logo" src={logo} />
-
-        <div id="demo">
+        <div id='demo'>
           {/* 왼쪽 화면 */}
-          <div className="whiteBackground">
-            <div className="demoUserInfo">
-              <div className="name__section">
+          <div className='whiteBackground'>
+            <div className='demoUserInfo'>
+              <div className='name__section'>
                 guest님의 냉장고입니다
-                <span className="loggedOut" onClick={this.goToSignup}>
+                <span className='loggedOut' onClick={this.goToSignup}>
                   회원가입
                 </span>
               </div>
             </div>
-            <div className="content">
-              <div className="left">
+            <div className='content'>
+              <div className='left'>
                 {/* 왼쪽 냉장고 */}
-                <div className="fridge">
-                  <div className="fridge_leftside">
-                    <img className="fridge_left" src={left_fridge}></img>
-                    <div className="left_items">
-                      <img id="mandu" src={mandu}></img>
-                      <img id="eggs" src={eggs}></img>
-                      <img id="dairy" src={dairy}></img>
+                <div className='fridge'>
+                  <div className='fridge_leftside'>
+                    <img className='fridge_left' src={left_fridge}></img>
+                    <div className='left_items'>
+                      <img id='mandu' src={mandu}></img>
+                      <img id='eggs' src={eggs}></img>
+                      <img id='dairy' src={dairy}></img>
                     </div>
                   </div>
 
-                  <div className="fridge_rightside">
-                    <img className="fridge_right" src={right_fridge}></img>
-                    <div className="right_items">
-                      <img id="seafood" src={fish}></img>
-                      <img id="meat" src={meat}></img>
-                      <div className="freshSection">
-                        <img id="fruits" src={fruit}></img>
-                        <img id="veges" src={veges}></img>
+                  <div className='fridge_rightside'>
+                    <img className='fridge_right' src={right_fridge}></img>
+                    <div className='right_items'>
+                      <img id='seafood' src={fish}></img>
+                      <img id='meat' src={meat}></img>
+                      <div className='freshSection'>
+                        <img id='fruits' src={fruit}></img>
+                        <img id='veges' src={veges}></img>
                       </div>
                     </div>
                   </div>
@@ -97,7 +89,7 @@ class Demo extends React.Component {
               </div>
 
               {/* 오른쪽 화면*/}
-              <div className="right">
+              <div className='right'>
                 <AddItems
                   changeItems={this.changeItems}
                   changePart={this.changePart}

@@ -10,11 +10,6 @@ li {
   text-align: center;
 }
 
-.logo__recipes {
-  margin: 8px 0px 0px 175px;
-  padding-bottom: 16px;
-}
-
 .recipeAndButton {
   position: relative;
   height: 64px;

@@ -3,10 +3,7 @@
 ul {
   padding: 0px;
 }
-.addItemLogo {
-  margin: 5px 0px 0px 130px;
-  padding-bottom: 16px;
-}
+
 .greenBox {
   background-color: #4a7575;
   position: fixed;
