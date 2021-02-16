@@ -137,7 +137,7 @@ class RealFridge extends Component {
           {/* 왼쪽 냉장고 */}
           <div className="fridge">
             <div className="fridge_leftside">
-              <img className="fridge_left" src={left_fridge}></img>
+              {/* <img className="fridge_left" src={left_fridge}></img> */}
               <div className="left_items">
                 <img id="mandu" src={mandu}></img>
                 <img id="eggs" src={eggs}></img>
@@ -146,7 +146,7 @@ class RealFridge extends Component {
             </div>
 
             <div className="fridge_rightside">
-              <img className="fridge_right" src={right_fridge}></img>
+              {/* <img className="fridge_right" src={right_fridge}></img> */}
               <div className="right_items">
                 <img id="seafood" src={fish}></img>
                 <img id="meat" src={meat}></img>
