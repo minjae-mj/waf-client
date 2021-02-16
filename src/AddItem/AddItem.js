@@ -59,8 +59,10 @@ class AddItem extends Component {
       const userid = window.localStorage.getItem('userid');
       await serverUrl
         .post('/cart', {
-          collection: collection,
-          userid: userid,
+          data: {
+            collection: collection,
+            userid: userid,
+          },
         })
         .then((response) => {
           this.props.history.push({
