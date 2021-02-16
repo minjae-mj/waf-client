@@ -7,16 +7,6 @@ body {
   margin: 0px 0px;
 }
 
-/* #main {
-  height: 100vh;
-  background: url("./img/fridge.jpeg");
-  opacity: 85%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center center;
-} */
-
 #main {
   position: relative;
   width: 100%;
@@ -45,6 +35,6 @@ body {
 }
 
 .logo {
-  margin: 12px 0px 0px 120px;
+  margin: 2rem 0px 0px 4rem;
   padding-bottom: 16px;
 }

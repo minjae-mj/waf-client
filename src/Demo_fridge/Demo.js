@@ -31,7 +31,6 @@ class Demo extends React.Component {
   showImages = () => {
     for (let item of this.state.items) {
       let itemType = document.querySelector(`#${item.type}`);
-      // itemType.style.display = "block";
       itemType.style.opacity = 1;
     }
   };
@@ -105,6 +104,4 @@ class Demo extends React.Component {
   }
 }
 
-// 카테고리
-// 이름
 export default withRouter(Demo);
