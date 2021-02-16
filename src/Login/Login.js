@@ -23,7 +23,7 @@ class Login extends React.Component {
       'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=Yn5blabiliLbi8Ed8Je4&state=waftest&redirect_uri=http://waf-client.s3-website.ap-northeast-2.amazonaws.com/users';
 
     this.GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=218828135580-63brp05lohg6jb7f58rgjhueorgtv9d6.apps.googleusercontent.com&redirect_uri=http://waf-client.s3-website.ap-northeast-2.amazonaws.com/users&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile`;
-  } 
+  }
 
   naverLoginHandler() {
     window.location.assign(this.NAVER_LOGIN_URL);
@@ -57,18 +57,24 @@ class Login extends React.Component {
     }
   };
 
-  LoginHandler = () => {
+  LoginHandler = async () => {
     if (this.state.isEmailChecked && this.state.isPasswordChecked) {
       await serverUrl
-      .post("/users/signin", {
-        data: {
-          email: this.state.email,
-          password: this.state.password,
-        }
-      }, {
-          headers: { 'Content-Type': 'application/json', withCredentials: true },
-        } 
-      )
+        .post(
+          '/users/signin',
+          {
+            data: {
+              email: this.state.email,
+              password: this.state.password,
+            },
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              withCredentials: true,
+            },
+          }
+        )
         .then((res) => {
           this.props.LoginHandler(res.data.username, res.data.userid, true);
         })

@@ -1,12 +1,10 @@
-/** @format */
-
 ul {
   padding: 0px;
 }
 
 .greenBox {
   background-color: #4a7575;
-  position: fixed;
+  /* position: fixed; */
   max-width: 80%;
   height: 80%;
   margin: auto;
@@ -34,12 +32,10 @@ ul {
 }
 .backBtn {
   cursor: pointer;
-  /* color: #346464; */
   color: #fafafa;
 }
 
 .inputArea {
-  /* margin: 16px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,7 +66,6 @@ ul {
 }
 
 .listBox {
-  /* max-width: ; */
   display: flex;
   justify-content: center;
   color: #fafafa;
@@ -78,7 +73,6 @@ ul {
   height: 320px;
   width: 640px;
   overflow-y: auto;
-  /* background-color: black; */
 }
 .listBox li {
   display: flex;
