@@ -57,11 +57,12 @@ class Login extends React.Component {
     }
   };
 
-  LoginHandler = () => {
+  LoginHandler = async () => {
     if (this.state.isEmailChecked && this.state.isPasswordChecked) {
-      serverUrl
+
+      await serverUrl
         .post(
-          "/users/signin",
+          '/users/signin',
           {
             data: {
               email: this.state.email,
@@ -70,7 +71,7 @@ class Login extends React.Component {
           },
           {
             headers: {
-              "Content-Type": "application/json",
+              'Content-Type': 'application/json',
               withCredentials: true,
             },
           }

@@ -1,30 +1,30 @@
 /** @format */
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import "./addItem.css";
-import logo from "./Waf.png";
-import serverUrl from "../config/server";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import './addItem.css';
+import logo from './Waf.png';
+import serverUrl from '../config/server';
 
 class AddItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
       categories: [
-        "선택 필수",
-        "dairy",
-        "fruits",
-        "veges",
-        "meat",
-        "seafood",
-        "mandu",
-        "eggs",
+        '선택 필수',
+        'dairy',
+        'fruits',
+        'veges',
+        'meat',
+        'seafood',
+        'mandu',
+        'eggs',
       ],
       collection: [],
-      item: "",
-      category: "",
-      part: "",
-      created_at: `${new Date().toISOString().split("T")[0]}`,
-      modifiedAt: "",
+      item: '',
+      category: '',
+      part: '',
+      created_at: `${new Date().toISOString().split('T')[0]}`,
+      modifiedAt: '',
       boughtToday: false,
     };
   }
@@ -35,7 +35,7 @@ class AddItem extends Component {
     }));
   };
   boughtToday = (e) => {
-    const modified_date = document.querySelector(".calendar");
+    const modified_date = document.querySelector('.calendar');
 
     if (e.target.checked) {
       this.setState({
@@ -53,18 +53,18 @@ class AddItem extends Component {
     const { collection } = this.state;
     const { item, category, part } = this.state;
 
-    if (!item || !category || !part || category === "선택 필수") {
-      alert("필수사항을 입력해주세요");
+    if (!item || !category || !part || category === '선택 필수') {
+      alert('필수사항을 입력해주세요');
     } else {
-      const userid = window.localStorage.getItem("userid");
+      const userid = window.localStorage.getItem('userid');
       await serverUrl
-        .post("/cart", {
+        .post('/cart', {
           collection: collection,
           userid: userid,
         })
         .then((response) => {
           this.props.history.push({
-            pathname: "/myfridge",
+            pathname: '/myfridge',
           });
         })
         .catch((err) => {
@@ -84,8 +84,8 @@ class AddItem extends Component {
       boughtToday,
     } = this.state;
 
-    if (!item || !category || !part || category === "선택 필수") {
-      alert("필수사항을 입력해주세요");
+    if (!item || !category || !part || category === '선택 필수') {
+      alert('필수사항을 입력해주세요');
     } else {
       if (boughtToday) {
         const container = [
@@ -111,7 +111,7 @@ class AddItem extends Component {
     }
   };
   goBackToFridge = () => {
-    this.props.history.push("/myfridge");
+    this.props.history.push('/myfridge');
   };
   deleteCollection = () => {
     const { collection } = this.state;
@@ -119,29 +119,28 @@ class AddItem extends Component {
   };
 
   render() {
-    const name = window.localStorage.getItem("userName");
+    const name = window.localStorage.getItem('userName');
     const { categories, collection } = this.state;
     return (
       <div>
-        <img className="addItemLogo" src={logo} />
-        <div className="greenBox">
-          <div className="userInfo">
-            <div className="username">
+        <div className='greenBox'>
+          <div className='userInfo'>
+            <div className='username'>
               {name}님이 구매하신 목록을 추가해주세요
             </div>
-            <div className="backBtn" onClick={this.goBackToFridge}>
+            <div className='backBtn' onClick={this.goBackToFridge}>
               냉장고로 돌아가기
             </div>
           </div>
-          <div className="inputArea">
-            <div className="Item__btn  input" onClick={this.deleteCollection}>
+          <div className='inputArea'>
+            <div className='Item__btn  input' onClick={this.deleteCollection}>
               -
             </div>
             <select
-              name="categories"
-              type="category"
-              className="input"
-              onChange={this.inputValueHandler("category")}
+              name='categories'
+              type='category'
+              className='input'
+              onChange={this.inputValueHandler('category')}
             >
               {categories.map((c, index) => {
                 return (
@@ -152,44 +151,44 @@ class AddItem extends Component {
               })}
             </select>
             <input
-              placeholder="구매하신 것을 적어주세요"
-              type="item"
-              className="input"
-              onChange={this.inputValueHandler("item")}
+              placeholder='구매하신 것을 적어주세요'
+              type='item'
+              className='input'
+              onChange={this.inputValueHandler('item')}
             ></input>
             <select
-              type="part"
-              className="input"
-              onChange={this.inputValueHandler("part")}
+              type='part'
+              className='input'
+              onChange={this.inputValueHandler('part')}
             >
-              <option value="options">선택필수</option>
-              <option value="normal">상온</option>
-              <option value="fridge">냉장</option>
-              <option value="frozen">냉동</option>
+              <option value='options'>선택필수</option>
+              <option value='normal'>상온</option>
+              <option value='fridge'>냉장</option>
+              <option value='frozen'>냉동</option>
             </select>
             <span>오늘 구매</span>
             <input
-              type="checkbox"
-              className="input"
-              name="오늘구매"
+              type='checkbox'
+              className='input'
+              name='오늘구매'
               onClick={this.boughtToday.bind(this)}
             ></input>
             {this.state.boughtToday ? (
               <></>
             ) : (
               <input
-                type="date"
-                className="calendar"
-                className="input"
-                onChange={this.inputValueHandler("modifiedAt")}
+                type='date'
+                className='calendar'
+                className='input'
+                onChange={this.inputValueHandler('modifiedAt')}
               ></input>
             )}
-            <div className="Item__btn input" onClick={this.putCollection}>
+            <div className='Item__btn input' onClick={this.putCollection}>
               +
             </div>
           </div>
 
-          <div className="listBox">
+          <div className='listBox'>
             <ul>
               {collection.map((item) => {
                 return (
@@ -207,7 +206,7 @@ class AddItem extends Component {
               })}
             </ul>
           </div>
-          <button className="addItemBtn" onClick={this.putDatabase}>
+          <button className='addItemBtn' onClick={this.putDatabase}>
             냉장고에 넣기
           </button>
         </div>
