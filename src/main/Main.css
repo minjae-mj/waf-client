@@ -1,0 +1,47 @@
+.main__img {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.main__description {
+  position: absolute;
+  top: 170px;
+  left: 80px;
+  color: #314145;
+  line-height: 110%;
+  font-size: 3.6rem;
+  font-weight: bold;
+  text-align: left;
+  opacity: 1;
+}
+
+.main__description span {
+  color: #346464;
+}
+
+.main__buttonBox {
+  position: absolute;
+  top: 370px;
+  left: 65px;
+  display: flex;
+  justify-content: center;
+}
+
+.main__btn {
+  background: #7eaaa6;
+  border-radius: 5px;
+  color: #fafafa;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 5em auto;
+  padding: 1em;
+  position: relative;
+  margin: 20px;
+  cursor: pointer;
+  outline-style: none;
+  border-style: none;
+}
+.main__btn:hover {
+  background-color: #346464;
+}
