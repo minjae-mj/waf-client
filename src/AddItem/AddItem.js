@@ -53,16 +53,14 @@ class AddItem extends Component {
     const { collection } = this.state;
     const { item, category, part } = this.state;
 
-    if (!item || !category || !part || category === '선택 필수') {
+    if (!item || !category || !part || !category === '선택 필수') {
       alert('필수사항을 입력해주세요');
     } else {
       const userid = window.localStorage.getItem('userid');
       await serverUrl
-        .post('/cart', {
-          data: {
-            collection: collection,
-            userid: userid,
-          },
+        .post('/myfridge/cart', {
+          collection: collection,
+          userid: userid,
         })
         .then((response) => {
           this.props.history.push({
