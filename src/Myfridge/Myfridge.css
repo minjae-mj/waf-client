@@ -1,7 +1,7 @@
 .Myfridge__container {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 88%;
   flex-direction: column;
 }
 
@@ -11,19 +11,18 @@
   z-index: 1;
   position: relative;
   flex-direction: column;
-  height: 100%;
-  /* height: 55em; */
+  height: 80vh;
   margin: auto;
 }
 
 .whiteBackground_myfridge::after {
   width: 100%;
-  height: 100%;
+  height: 80vh;
   background-color: #fafafa;
   position: absolute;
   z-index: -1;
   opacity: 0.85;
-  content: '';
+  content: "";
   border-radius: 10px;
 }
 
@@ -31,7 +30,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row;
   flex-basis: 10%;
   width: 100%;
 }
@@ -78,11 +76,11 @@
 }
 
 .myfridge__maincontent {
-  flex-basis: 80%;
+  flex-basis: 60%;
   display: flex;
+  /* border: 1px solid orangered; */
   flex-direction: column;
   justify-content: center;
-  height: 100%;
   margin: 30px;
 }
 
@@ -91,20 +89,15 @@
   justify-content: space-around;
 }
 
-.left__my {
-  flex-basis: 55%;
+.left {
+  /* width: 100%; */
   display: flex;
+  flex-basis: 65%;
 }
 
-.fridge {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
-
-.fridge_leftside__my {
+.fridge_leftside {
   flex: 1 1 auto;
-  background-image: url('./img_fridge/left_fridge.png');
+  background-image: url("./img_fridge/left_fridge.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right center;
@@ -112,15 +105,15 @@
   padding: 20px;
 }
 
-.fridge_rightside__my {
+.fridge_rightside {
   flex: 1 1 auto;
 
-  background-image: url('./img_fridge/right_fridge.png');
+  background-image: url("./img_fridge/right_fridge.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left center;
   position: relative;
-  padding: 20px;
+  padding: 2.2rem;
 }
 
 #mandu-m {
@@ -216,7 +209,6 @@
 }
 
 .partList_click {
-  /* flex: 1 1 auto; */
   height: 100%;
   padding: 0.5rem 1rem;
   text-align: center;
@@ -320,4 +312,133 @@
 
 .myfridge__button:hover {
   background-color: #4a7575;
+}
+
+/* ipad landscape 1024 x 768 */
+@media screen and (max-width: 1024px) {
+  .username__myfridge {
+    margin-left: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .Myfirdge__note {
+    font-size: 1.2rem;
+    margin-top: -2rem;
+  }
+
+  .fridge_rightside {
+    padding: 2rem;
+  }
+
+  .right__my {
+    flex-basis: 42%;
+  }
+
+  .partList {
+    font-size: 1.1rem;
+  }
+
+  .partList_click {
+    font-size: 1.1rem;
+  }
+
+  .logoutContainer {
+    width: 4rem;
+    height: 3rem;
+    margin-top: 2rem;
+    margin-right: 4.2rem;
+  }
+
+  .logout {
+    font-size: 0.9rem;
+    width: 5rem;
+  }
+
+  #myfridge {
+    height: 30em;
+    justify-content: center;
+  }
+}
+
+/* 13inch 1680 x 1050 */
+@media screen and (min-width: 1680px) {
+  .Myfridge__userbox {
+    padding-top: 2rem;
+  }
+
+  .fridge_rightside {
+    padding: 2.4rem;
+  }
+
+  #myfridge {
+    padding-top: 5rem;
+  }
+}
+
+/* 16inch 3072 x 1920 */
+@media screen and (min-width: 3072px) {
+  .logo {
+    margin: 3rem 0px 0px 4rem;
+    width: 12em;
+  }
+
+  .Myfridge__userbox {
+    padding-top: 5rem;
+  }
+
+  .username__myfridge {
+    margin-left: 10rem;
+    font-size: 5rem;
+  }
+
+  .Myfirdge__note {
+    font-size: 3rem;
+    margin-top: -2rem;
+  }
+
+  .fridge_rightside {
+    padding: 3.2rem;
+  }
+
+  .logoutContainer {
+    width: 5rem;
+    height: 3rem;
+    margin-top: 3rem;
+    margin-right: 18.5rem;
+  }
+
+  .logout {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    width: 12rem;
+  }
+
+  .partList {
+    font-size: 2.4rem;
+  }
+
+  .partList_click {
+    padding-bottom: -0.4rem;
+    font-size: 2.4rem;
+  }
+
+  .myfridge__button {
+    font-size: 2rem;
+    height: 5rem;
+  }
+
+  #myfridge {
+    margin-top: 5rem;
+    padding-top: 5rem;
+    height: 72em;
+  }
+}
+
+/* 27inch 3840 x 2160 */
+@media screen and (min-width: 3840px) {
+  #myfridge {
+    margin-top: 7rem;
+    padding-top: 7rem;
+    height: 80em;
+  }
 }

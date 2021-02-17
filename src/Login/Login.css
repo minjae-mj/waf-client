@@ -89,3 +89,67 @@
 .btn__signup:active {
   transform: translateY(3px);
 }
+
+/* ipad landscape 1024 x 768 */
+@media screen and (max-width: 1024px) {
+  #oauth__box {
+    flex-direction: column;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+
+  .btn__google,
+  .btn__naver {
+    width: 99%;
+    height: 4.2rem;
+    margin: auto;
+    margin-bottom: 1.2rem;
+  }
+
+  .btn__signup {
+    margin-bottom: 0;
+  }
+}
+
+/* 13inch 1680 x 1050 */
+@media screen and (min-width: 1680px) {
+  .input__email,
+  .input__password,
+  .btn__register,
+  .btn__signup {
+    height: 2.8rem;
+    margin-bottom: 1.6rem;
+    padding: 1.8rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+/* 16inch 3072 x 1920 */
+@media screen and (min-width: 3072px) {
+  .input__email,
+  .input__password {
+    font-size: 2.2rem;
+    height: 4rem;
+    margin-bottom: 1.6rem;
+    padding: 4rem 2.8rem;
+  }
+
+  .btn__register,
+  .btn__signup {
+    font-size: 2.2rem;
+    height: 3.5rem;
+    margin-bottom: 1.6rem;
+    padding: 3.2rem 2.8rem;
+  }
+}
+
+/* 27inch 3840 x 2160 */
+@media screen and (min-width: 3840px) {
+  .input__email,
+  .input__password,
+  .btn__register,
+  .btn__signup {
+    margin-bottom: 2.4rem;
+  }
+}

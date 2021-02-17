@@ -135,29 +135,29 @@ class RealFridge extends Component {
       <div id="myfridge">
         <div className="left">
           {/* 왼쪽 냉장고 */}
-          <div className="fridge">
-            <div className="fridge_leftside">
-              <img className="fridge_left" src={left_fridge}></img>
-              <div className="left_items">
-                <img id="mandu" src={mandu}></img>
-                <img id="eggs" src={eggs}></img>
-                <img id="dairy" src={dairy}></img>
-              </div>
+          {/* <div className="fridge"> */}
+          <div className="fridge_leftside">
+            {/* <img className="fridge_left" src={left_fridge}></img> */}
+            <div className="left_items">
+              <img id="mandu" src={mandu}></img>
+              <img id="eggs" src={eggs}></img>
+              <img id="dairy" src={dairy}></img>
             </div>
+          </div>
 
-            <div className="fridge_rightside">
-              <img className="fridge_right" src={right_fridge}></img>
-              <div className="right_items">
-                <img id="seafood" src={fish}></img>
-                <img id="meat" src={meat}></img>
-                <div className="freshSection">
-                  <img id="fruits" src={fruit}></img>
-                  <img id="veges" src={veges}></img>
-                </div>
+          <div className="fridge_rightside">
+            {/* <img className="fridge_right" src={right_fridge}></img> */}
+            <div className="right_items">
+              <img id="seafood" src={fish}></img>
+              <img id="meat" src={meat}></img>
+              <div className="freshSection">
+                <img id="fruits" src={fruit}></img>
+                <img id="veges" src={veges}></img>
               </div>
             </div>
           </div>
         </div>
+        {/* </div> */}
         {/* -------------------------------------------------------------------------------- */}
         <div className="right__my">
           <div className="part__division">
