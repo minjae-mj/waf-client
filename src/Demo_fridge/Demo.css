@@ -112,7 +112,7 @@
   padding: 0px 8px;
 }
 
-#mandu {
+.mandu {
   opacity: 0;
   width: 5rem;
   height: 7.5rem;
@@ -120,7 +120,7 @@
   margin-top: 4rem;
   margin-right: 1.2rem;
 }
-#eggs {
+.eggs {
   width: 10rem;
   height: 2.5rem;
   margin-bottom: 1.6rem;
@@ -128,14 +128,14 @@
   opacity: 0;
 }
 
-#dairy {
+.dairy {
   width: 8.7rem;
   height: auto;
   margin-right: 1.2rem;
   opacity: 0;
 }
 
-#seafood {
+.seafood {
   width: 9rem;
   height: 5.4rem;
   margin-right: 4rem;
@@ -143,20 +143,20 @@
   margin-bottom: 2rem;
   margin-top: 4rem;
 }
-#meat {
+.meat {
   width: 9rem;
   height: 6rem;
   margin-bottom: 3.8rem;
   margin-right: 4rem;
   opacity: 0;
 }
-#veges {
+.veges {
   width: 5.5rem;
   height: 5.5rem;
   margin-right: 4rem;
   opacity: 0;
 }
-#fruits {
+.fruits {
   opacity: 0;
   width: 5.5rem;
   height: 5.5rem;
@@ -380,37 +380,37 @@
     height: 90%;
   }
 
-  #mandu {
+  .mandu {
     width: 4.5rem;
     height: 6rem;
     margin-bottom: 3rem;
     margin-top: 10.5rem;
   }
-  #eggs {
+  .eggs {
     width: 7.2rem;
     height: 2rem;
   }
 
-  #dairy {
+  .dairy {
     width: 6rem;
   }
 
-  #seafood {
+  .seafood {
     width: 7rem;
     height: 4rem;
     margin-bottom: 1.9rem;
     margin-top: 10.5rem;
   }
-  #meat {
+  .meat {
     width: 7rem;
     height: 4rem;
     margin-bottom: 2.8rem;
   }
-  #veges {
+  .veges {
     width: 4rem;
     height: 4rem;
   }
-  #fruits {
+  .fruits {
     width: 4rem;
     height: 4rem;
   }
@@ -450,38 +450,38 @@
     font-size: 1.1rem;
   }
 
-  #mandu {
+  .mandu {
     width: 7rem;
     height: 9rem;
     margin-bottom: 5rem;
     margin-top: 7.5rem;
   }
-  #eggs {
+  .eggs {
     width: 12rem;
     height: 3rem;
     margin-bottom: 2.5rem;
   }
 
-  #dairy {
+  .dairy {
     width: 9.2rem;
   }
 
-  #seafood {
+  .seafood {
     width: 10.5rem;
     height: 6.5rem;
     margin-bottom: 2rem;
     margin-top: 8rem;
   }
-  #meat {
+  .meat {
     width: 10.5rem;
     height: 6.9rem;
     margin-bottom: 5rem;
   }
-  #veges {
+  .veges {
     width: 6.5rem;
     height: 6.5rem;
   }
-  #fruits {
+  .fruits {
     width: 6.5rem;
     height: 6.5rem;
   }
@@ -559,38 +559,38 @@
     padding-top: 0.7rem;
   }
 
-  #mandu {
+  .mandu {
     width: 14rem;
     height: 18rem;
     margin-bottom: 8.6rem;
     margin-top: 13rem;
   }
-  #eggs {
+  .eggs {
     width: 24rem;
     height: 6rem;
     margin-bottom: 4rem;
   }
 
-  #dairy {
+  .dairy {
     width: 18rem;
   }
 
-  #seafood {
+  .seafood {
     width: 20.5rem;
     height: 12.5rem;
     margin-bottom: 4rem;
     margin-top: 16rem;
   }
-  #meat {
+  .meat {
     width: 20.5rem;
     height: 13.5rem;
     margin-bottom: 9rem;
   }
-  #veges {
+  .veges {
     width: 12rem;
     height: 12rem;
   }
-  #fruits {
+  .fruits {
     width: 12rem;
     height: 12rem;
   }
@@ -641,38 +641,38 @@
     padding: 4px;
   }
 
-  #mandu {
+  .mandu {
     width: 14rem;
     height: 18rem;
     margin-bottom: 13rem;
     margin-top: 15rem;
   }
-  #eggs {
+  .eggs {
     width: 24rem;
     height: 6rem;
     margin-bottom: 11rem;
   }
 
-  #dairy {
+  .dairy {
     width: 18rem;
   }
 
-  #seafood {
+  .seafood {
     width: 20.5rem;
     height: 12.5rem;
     margin-bottom: 8.5rem;
     margin-top: 19rem;
   }
-  #meat {
+  .meat {
     width: 20.5rem;
     height: 13.5rem;
     margin-bottom: 14rem;
   }
-  #veges {
+  .veges {
     width: 12rem;
     height: 12rem;
   }
-  #fruits {
+  .fruits {
     width: 12rem;
     height: 12rem;
   }

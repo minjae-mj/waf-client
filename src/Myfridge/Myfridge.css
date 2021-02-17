@@ -22,7 +22,7 @@
   position: absolute;
   z-index: -1;
   opacity: 0.85;
-  content: "";
+  content: '';
   border-radius: 10px;
 }
 
@@ -97,7 +97,7 @@
 
 .fridge_leftside {
   flex: 1 1 auto;
-  background-image: url("./img_fridge/left_fridge.png");
+  background-image: url('./img_fridge/left_fridge.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right center;
@@ -108,7 +108,7 @@
 .fridge_rightside {
   flex: 1 1 auto;
 
-  background-image: url("./img_fridge/right_fridge.png");
+  background-image: url('./img_fridge/right_fridge.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left center;
@@ -117,65 +117,17 @@
 }
 
 #mandu-m {
-  width: 120px;
-  height: auto;
-  left: 200px;
-  top: 21%;
-
-  display: none;
-  position: absolute;
+  margin-top: 4.5rem;
 }
 
 #dairy-m {
-  position: absolute;
-  width: 150px;
+  width: 8rem;
   height: auto;
-  left: 180px;
-  top: 70%;
-  display: none;
-}
-#eggs-m {
-  position: absolute;
-  width: 210px;
-  height: 48px;
-  left: 150px;
-  top: 54%;
-  display: none;
-  flex: 1 1 auto;
 }
 
 #seafood-m {
-  position: absolute;
-  width: 170px;
-  height: 115px;
-  top: 234px;
-  left: 37%;
-  display: none;
-}
-#meat-m {
-  position: absolute;
-  width: 170px;
-  height: 120px;
-  top: 418px;
-  left: 37%;
-  display: none;
-}
-#veges-m {
-  position: absolute;
-
-  width: 110px;
-  height: 110px;
-  top: 652px;
-  left: 35%;
-  display: none;
-}
-#fruits-m {
-  position: absolute;
-  width: 110px;
-  height: 110px;
-  top: 652px;
-  left: 43%;
-  display: none;
+  margin-top: 4.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .right__my {
@@ -358,6 +310,45 @@
     height: 30em;
     justify-content: center;
   }
+
+  #mandu-m {
+    width: 3.2rem;
+    height: 3.5rem;
+    margin-top: 10.2rem;
+    margin-bottom: 1.5rem;
+  }
+  #eggs-m {
+    width: 4.5rem;
+    height: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  #dairy-m {
+    width: 4rem;
+  }
+
+  #seafood-m {
+    width: 4.5rem;
+    height: 3rem;
+    margin-top: 8.5rem;
+    margin-bottom: 0.7rem;
+    margin-right: 4.7rem;
+  }
+  #meat-m {
+    margin-bottom: 1.5rem;
+    width: 4.5rem;
+    height: 3rem;
+    margin-right: 4.7rem;
+  }
+  #veges-m {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 4.7rem;
+  }
+  #fruits-m {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 /* 13inch 1680 x 1050 */
@@ -372,6 +363,42 @@
 
   #myfridge {
     padding-top: 5rem;
+  }
+
+  #mandu-m {
+    width: 7rem;
+    height: 9rem;
+    margin-bottom: 5rem;
+    margin-top: 2.1rem;
+  }
+  #eggs-m {
+    width: 12rem;
+    height: 3rem;
+    margin-bottom: 2.5rem;
+  }
+
+  #dairy-m {
+    width: 9.2rem;
+  }
+
+  #seafood-m {
+    width: 10.5rem;
+    height: 6.5rem;
+    margin-bottom: 2rem;
+    margin-top: 2.8rem;
+  }
+  #meat-m {
+    width: 10.5rem;
+    height: 6.9rem;
+    margin-bottom: 4rem;
+  }
+  #veges-m {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+  #fruits-m {
+    width: 6.5rem;
+    height: 6.5rem;
   }
 }
 
@@ -432,6 +459,54 @@
     padding-top: 5rem;
     height: 72em;
   }
+
+  #eggs-m {
+    margin-bottom: 6rem;
+  }
+
+  #dairy-m {
+    width: 16rem;
+  }
+
+  #seafood-m {
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+  }
+
+  .bundleOfList {
+    display: flex;
+    flex-direction: row;
+    height: 6rem;
+  }
+
+  .part__TotalList__minus {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    font-size: 2.8rem;
+    margin-left: 2rem;
+    margin-right: 1rem;
+    line-height: 2.8rem;
+    margin-top: 1.2rem;
+  }
+
+  .part__TotalList__item {
+    font-size: 2.8rem;
+    width: 80%;
+    font-weight: 600;
+    padding: 7px 5px;
+  }
+  .part__Yet__expired {
+    font-size: 2.2rem;
+    width: 14rem;
+    height: 4rem;
+  }
+
+  .part__expired {
+    font-size: 2.2rem;
+    width: 14rem;
+    height: 4rem;
+  }
 }
 
 /* 27inch 3840 x 2160 */
@@ -440,5 +515,36 @@
     margin-top: 7rem;
     padding-top: 7rem;
     height: 80em;
+  }
+  #mandu-m {
+    margin-top: 5rem;
+  }
+  #eggs-m {
+    margin-bottom: 7rem;
+  }
+
+  #dairy-m {
+    width: 20rem;
+  }
+
+  #seafood-m {
+    width: 22rem;
+    height: 14rem;
+
+    margin-top: 8rem;
+    margin-bottom: 6rem;
+  }
+  #meat-m {
+    width: 22rem;
+    height: 14.5rem;
+    margin-bottom: 11rem;
+  }
+  #veges-m {
+    width: 14rem;
+    height: 14rem;
+  }
+  #fruits-m {
+    width: 14rem;
+    height: 14rem;
   }
 }
