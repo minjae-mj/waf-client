@@ -90,14 +90,10 @@
   justify-content: space-around;
 }
 
-.left__my {
-  flex-basis: 55%;
+.left {
+  /* width: 100%; */
   display: flex;
-}
-
-.fridge {
-  display: flex;
-  width: 100%;
+  flex-basis: 65%;
 }
 
 .fridge_leftside {
@@ -118,7 +114,7 @@
   background-repeat: no-repeat;
   background-position: left center;
   position: relative;
-  padding: 20px;
+  padding: 2.2rem;
 }
 
 #mandu-m {
@@ -214,7 +210,6 @@
 }
 
 .partList_click {
-  /* flex: 1 1 auto; */
   height: 100%;
   padding: 0.5rem 1rem;
   text-align: center;
@@ -320,9 +315,60 @@
   background-color: #4a7575;
 }
 
+/* ipad landscape 1024 x 768 */
+@media screen and (max-width: 1024px) {
+  .username__myfridge {
+    margin-left: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .Myfirdge__note {
+    font-size: 1.2rem;
+    margin-top: -2rem;
+  }
+
+  .fridge_rightside {
+    padding: 2rem;
+  }
+
+  .right__my {
+    flex-basis: 42%;
+  }
+
+  .partList {
+    font-size: 1.1rem;
+  }
+
+  .partList_click {
+    font-size: 1.1rem;
+  }
+
+  .logoutContainer {
+    width: 4rem;
+    height: 3rem;
+    margin-top: 2rem;
+    margin-right: 4.2rem;
+  }
+
+  .logout {
+    font-size: 0.9rem;
+    width: 5rem;
+  }
+
+  #myfridge {
+    height: 30em;
+    justify-content: center;
+  }
+}
+
+/* 13inch 1680 x 1050 */
 @media screen and (min-width: 1680px) {
   .Myfridge__userbox {
     padding-top: 2rem;
+  }
+
+  .fridge_rightside {
+    padding: 2.4rem;
   }
 
   #myfridge {
@@ -330,7 +376,13 @@
   }
 }
 
+/* 16inch 3072 x 1920 */
 @media screen and (min-width: 3072px) {
+  .logo {
+    margin: 3rem 0px 0px 4rem;
+    width: 12em;
+  }
+
   .Myfridge__userbox {
     padding-top: 5rem;
   }
@@ -343,6 +395,10 @@
   .Myfirdge__note {
     font-size: 3rem;
     margin-top: -2rem;
+  }
+
+  .fridge_rightside {
+    padding: 3.2rem;
   }
 
   .logoutContainer {
@@ -379,11 +435,11 @@
   }
 }
 
-/* 27inch */
-/* @media screen and (min-width: 5120px) {
+/* 27inch 3840 x 2160 */
+@media screen and (min-width: 3840px) {
   #myfridge {
-    margin-top: 5rem;
-    padding-top: 5rem;
-    height: 100em;
+    margin-top: 7rem;
+    padding-top: 7rem;
+    height: 80em;
   }
-} */
+}
