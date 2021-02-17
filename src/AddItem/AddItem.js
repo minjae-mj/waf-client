@@ -189,9 +189,9 @@ class AddItem extends Component {
 
           <div className='listBox'>
             <ul>
-              {collection.map((item) => {
+              {collection.map((item, idx) => {
                 return (
-                  <li>
+                  <li key={idx}>
                     <div>{item.item}</div>
                     <div>{item.category}</div>
                     <div>{item.part}</div>

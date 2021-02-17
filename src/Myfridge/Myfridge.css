@@ -459,9 +459,16 @@
     padding-top: 5rem;
     height: 72em;
   }
-
+  #mandu-m {
+    width: 12rem;
+    height: 14rem;
+    margin-bottom: 10rem;
+    margin-top: 8rem;
+  }
   #eggs-m {
     margin-bottom: 6rem;
+    width: 16rem;
+    height: 5rem;
   }
 
   #dairy-m {
@@ -469,8 +476,24 @@
   }
 
   #seafood-m {
+    width: 16rem;
+    height: 13rem;
+
     margin-top: 8rem;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+  }
+  #meat-m {
+    margin-bottom: 9rem;
+    width: 16rem;
+    height: 13rem;
+  }
+  #fruits-m {
+    width: 11rem;
+    height: 11rem;
+  }
+  #veges-m {
+    width: 11rem;
+    height: 11rem;
   }
 
   .bundleOfList {
@@ -517,10 +540,15 @@
     height: 80em;
   }
   #mandu-m {
-    margin-top: 5rem;
+    margin-top: 5.5rem;
+    margin-bottom: 12rem;
+    width: 16rem;
+    height: 18rem;
   }
   #eggs-m {
     margin-bottom: 7rem;
+    width: 23rem;
+    height: 6rem;
   }
 
   #dairy-m {

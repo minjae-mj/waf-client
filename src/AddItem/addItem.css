@@ -53,8 +53,8 @@ ul {
 .Item__btn {
   display: inline-block;
   cursor: pointer;
-  background: #b3aa9f;
-  border: 1px solid #b3aa9f;
+  background: rgb(212, 57, 57);
+  border: 1px solid rgb(212, 57, 57);
   border-radius: 50%;
   width: 32px;
   height: 32px;
