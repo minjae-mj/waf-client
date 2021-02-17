@@ -4,11 +4,11 @@ ul {
 
 .greenBox {
   background-color: #4a7575;
-  /* position: fixed; */
+  position: absolute;
   max-width: 80%;
   height: 80%;
   margin: auto;
-  top: 40px;
+  top: 6rem;
   bottom: 24px;
   left: 24px;
   right: 24px;
@@ -95,4 +95,66 @@ ul {
   font-size: 17px;
   font-weight: 600;
   height: 45px;
+}
+
+@media screen and (min-width: 3072px) {
+  .userInfo {
+    margin: 7rem 5rem;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    padding-bottom: 8px;
+  }
+  .username {
+    font-size: 3.2rem;
+  }
+  .inputArea {
+    margin: 2rem 5rem;
+    padding-bottom: 16px;
+    font-size: 2.2rem;
+  }
+  .input {
+    padding: 4px;
+    margin: 0px 1rem;
+    color: #346464;
+    width: 20rem;
+    height: 4rem;
+    font-size: 2.2rem;
+  }
+  .checkbox {
+    width: 4rem;
+  }
+  .Item__btn {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 2.8rem;
+    line-height: 2.8rem;
+    font-weight: bold;
+    background: rgb(212, 57, 57);
+    border: 1px solid rgb(212, 57, 57);
+    color: #fafafa;
+    margin-right: 10px;
+    padding: 0px;
+  }
+  .listBox {
+    font-size: 2.8rem;
+    width: 80rem;
+    margin-top: 7rem;
+  }
+  .listBox li div {
+    width: 15rem;
+  }
+
+  .addItemBtn {
+    margin: 0px 88px 40px 88px;
+    padding: 4px;
+    outline: none;
+    background: #c4c4c4;
+    cursor: pointer;
+    border: none;
+    font-size: 2.5rem;
+    font-weight: 700;
+    height: 6rem;
+  }
+}
+@media screen and (min-width: 3840px) {
 }
