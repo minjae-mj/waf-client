@@ -47,7 +47,7 @@
   position: absolute;
   z-index: -1;
   opacity: 0.85;
-  content: "";
+  content: '';
   border-radius: 10px;
 }
 .content {
@@ -87,9 +87,8 @@
 .left_items {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-
   position: absolute;
   width: 100%;
   top: 54px;
@@ -114,53 +113,53 @@
 }
 
 #mandu {
-  flex-basis: 3fr;
   opacity: 0;
-  width: 80px;
-  height: 120px;
-  margin-bottom: 70px;
+  width: 5rem;
+  height: 7.5rem;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+  margin-right: 1.2rem;
+}
+#eggs {
+  width: 10rem;
+  height: 2.5rem;
+  margin-bottom: 1.6rem;
+  margin-right: 1.2rem;
+  opacity: 0;
 }
 
 #dairy {
-  flex-basis: 4fr;
-  width: 140px;
+  width: 8.7rem;
   height: auto;
-
-  opacity: 0;
-}
-#eggs {
-  flex-basis: 1fr;
-  width: 165px;
-  height: 40px;
-  margin-bottom: 40px;
-
+  margin-right: 1.2rem;
   opacity: 0;
 }
 
 #seafood {
-  width: 150px;
-  height: 85px;
-
+  width: 9rem;
+  height: 5.4rem;
+  margin-right: 4rem;
   opacity: 0;
-  margin-bottom: 38px;
+  margin-bottom: 2rem;
+  margin-top: 4rem;
 }
 #meat {
-  width: 150px;
-  height: 100px;
-  margin-bottom: 76px;
-
+  width: 9rem;
+  height: 6rem;
+  margin-bottom: 3.8rem;
+  margin-right: 4rem;
   opacity: 0;
 }
 #veges {
-  width: 90px;
-  height: 90px;
-
+  width: 5.5rem;
+  height: 5.5rem;
+  margin-right: 4rem;
   opacity: 0;
 }
 #fruits {
   opacity: 0;
-  width: 90px;
-  height: 90px;
+  width: 5.5rem;
+  height: 5.5rem;
 }
 
 .container__DemoAdd {
@@ -364,7 +363,7 @@
     position: absolute;
     z-index: -1;
     opacity: 0.85;
-    content: "";
+    content: '';
     border-radius: 10px;
   }
   .content {
@@ -379,6 +378,41 @@
 
   .container__DemoAdd {
     height: 90%;
+  }
+
+  #mandu {
+    width: 4.5rem;
+    height: 6rem;
+    margin-bottom: 3rem;
+    margin-top: 10.5rem;
+  }
+  #eggs {
+    width: 7.2rem;
+    height: 2rem;
+  }
+
+  #dairy {
+    width: 6rem;
+  }
+
+  #seafood {
+    width: 7rem;
+    height: 4rem;
+    margin-bottom: 1.9rem;
+    margin-top: 10.5rem;
+  }
+  #meat {
+    width: 7rem;
+    height: 4rem;
+    margin-bottom: 2.8rem;
+  }
+  #veges {
+    width: 4rem;
+    height: 4rem;
+  }
+  #fruits {
+    width: 4rem;
+    height: 4rem;
   }
 }
 
@@ -414,6 +448,42 @@
   }
   .demo_note {
     font-size: 1.1rem;
+  }
+
+  #mandu {
+    width: 7rem;
+    height: 9rem;
+    margin-bottom: 5rem;
+    margin-top: 7.5rem;
+  }
+  #eggs {
+    width: 12rem;
+    height: 3rem;
+    margin-bottom: 2.5rem;
+  }
+
+  #dairy {
+    width: 9.2rem;
+  }
+
+  #seafood {
+    width: 10.5rem;
+    height: 6.5rem;
+    margin-bottom: 2rem;
+    margin-top: 8rem;
+  }
+  #meat {
+    width: 10.5rem;
+    height: 6.9rem;
+    margin-bottom: 5rem;
+  }
+  #veges {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+  #fruits {
+    width: 6.5rem;
+    height: 6.5rem;
   }
 }
 
@@ -488,6 +558,70 @@
   .part {
     padding-top: 0.7rem;
   }
+
+  #mandu {
+    width: 14rem;
+    height: 18rem;
+    margin-bottom: 8.6rem;
+    margin-top: 13rem;
+  }
+  #eggs {
+    width: 24rem;
+    height: 6rem;
+    margin-bottom: 4rem;
+  }
+
+  #dairy {
+    width: 18rem;
+  }
+
+  #seafood {
+    width: 20.5rem;
+    height: 12.5rem;
+    margin-bottom: 4rem;
+    margin-top: 16rem;
+  }
+  #meat {
+    width: 20.5rem;
+    height: 13.5rem;
+    margin-bottom: 9rem;
+  }
+  #veges {
+    width: 12rem;
+    height: 12rem;
+  }
+  #fruits {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .item__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .item__name {
+    text-decoration: underline #7eaaa6 1px;
+    font-size: 2.8rem;
+    cursor: pointer;
+  }
+
+  .expired {
+    font-size: 2.5rem;
+    border: 1px solid #705f52;
+    background: #705f52;
+    border-radius: 4px;
+    color: #fafafa;
+    padding: 0.5rem;
+  }
+  .stillLeft {
+    font-size: 2.5rem;
+    border: 1px solid #b3aa9f;
+    background: #b3aa9f;
+    border-radius: 4px;
+    color: #fafafa;
+    padding: 0.5rem;
+  }
 }
 
 /* 27inch 3840 x 2160 */
@@ -505,5 +639,41 @@
     top: 6rem;
     right: 4rem;
     padding: 4px;
+  }
+
+  #mandu {
+    width: 14rem;
+    height: 18rem;
+    margin-bottom: 13rem;
+    margin-top: 15rem;
+  }
+  #eggs {
+    width: 24rem;
+    height: 6rem;
+    margin-bottom: 11rem;
+  }
+
+  #dairy {
+    width: 18rem;
+  }
+
+  #seafood {
+    width: 20.5rem;
+    height: 12.5rem;
+    margin-bottom: 8.5rem;
+    margin-top: 19rem;
+  }
+  #meat {
+    width: 20.5rem;
+    height: 13.5rem;
+    margin-bottom: 14rem;
+  }
+  #veges {
+    width: 12rem;
+    height: 12rem;
+  }
+  #fruits {
+    width: 12rem;
+    height: 12rem;
   }
 }
