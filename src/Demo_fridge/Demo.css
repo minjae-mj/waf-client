@@ -1,13 +1,3 @@
-#demo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0px 120px;
-  max-width: 100%;
-  height: 90%;
-  flex-direction: column;
-}
-
 .demoUserInfo {
   height: 60px;
   display: flex;
@@ -24,11 +14,11 @@
 
 .loggedOut {
   font-weight: 400;
-  background-color: #346464;
+  background-color: #7eaaa6;
   width: 130px;
   font-size: 16px;
   color: #fafafa;
-  border: 1px solid #346464;
+  border: 1px solid #7eaaa6;
   text-align: center;
   position: absolute;
   top: 32px;
@@ -37,43 +27,44 @@
   cursor: pointer;
 }
 
+.loggedOut:hover {
+  background-color: #346464;
+}
+
 .whiteBackground {
-  width: 100%;
+  width: 80%;
   display: flex;
-  flex-direction: column;
   z-index: 1;
   position: relative;
+  flex-direction: column;
+  margin: auto;
 }
 
 .whiteBackground::after {
   width: 100%;
-  height: 100%;
+  height: 80vh;
   background-color: #fafafa;
   position: absolute;
   z-index: -1;
-  opacity: 0.8;
-
-  content: '';
+  opacity: 0.85;
+  content: "";
   border-radius: 10px;
 }
 .content {
   display: flex;
-  flex-basis: 90%;
+  height: 70vh;
   flex-direction: row;
 }
 
 .left {
   flex-basis: 45%;
   display: flex;
+  margin-top: -4rem;
+  padding-left: 2rem;
 }
 
 .right {
   flex-basis: 55%;
-
-  display: flex;
-}
-
-.fridge {
   display: flex;
 }
 
@@ -325,4 +316,194 @@
   border-radius: 4px;
   color: #fafafa;
   padding: 2px;
+}
+
+/* ipad landscape 1024 x 768 */
+@media screen and (max-width: 1024px) {
+  .demo__inputContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #fridge__select,
+  #fridge__select__part {
+    width: 9.1rem;
+    margin-bottom: 3px;
+  }
+
+  .demo__inputContainer input {
+    width: 9.1rem;
+    margin-bottom: 3px;
+    padding-left: 0.4rem;
+  }
+  ::placeholder {
+    font-size: 0.8rem;
+  }
+
+  .inputbutton__demo {
+    width: 9.1rem;
+  }
+
+  .left {
+    margin-top: -8rem;
+    padding-left: 2rem;
+  }
+  .whiteBackground {
+    width: 85%;
+    display: flex;
+    z-index: 1;
+    position: relative;
+    flex-direction: column;
+    margin: auto;
+  }
+
+  .whiteBackground::after {
+    width: 100%;
+    height: 80vh;
+    background-color: #fafafa;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.85;
+    content: "";
+    border-radius: 10px;
+  }
+  .content {
+    display: flex;
+    height: 80vh;
+    flex-direction: row;
+  }
+  .demo__itemListBox {
+    margin-top: -3rem;
+    height: 45%;
+  }
+
+  .container__DemoAdd {
+    height: 90%;
+  }
+}
+
+/* 13inch 1680 x 1050 */
+@media screen and (min-width: 1680px) {
+  #fridge__select,
+  #fridge__select__part {
+    width: 10rem;
+    height: 2.1rem;
+    margin-bottom: 3px;
+    font-size: 1rem;
+    padding-left: 0.3rem;
+  }
+
+  .demo__inputContainer input {
+    width: 10rem;
+    margin-bottom: 3px;
+    padding-left: 0.6rem;
+    height: 2.1rem;
+    font-size: 1rem;
+  }
+  ::placeholder {
+    font-size: 1rem;
+  }
+  .inputbutton__demo {
+    width: 10rem;
+    font-size: 1rem;
+    height: 2.1rem;
+  }
+
+  .fridge__inputBox__title {
+    font-size: 1.8rem;
+  }
+  .demo_note {
+    font-size: 1.1rem;
+  }
+}
+
+/* 16inch 3072 x 1920 */
+@media screen and (min-width: 3072px) {
+  .demoUserInfo {
+    height: 10rem;
+  }
+
+  .name__section {
+    padding-top: 2.5rem;
+    padding-left: 3.5rem;
+    font-size: 4rem;
+    font-weight: bold;
+  }
+
+  .loggedOut {
+    width: 14rem;
+    font-size: 2.5rem;
+    top: 3.3rem;
+    right: 3.5rem;
+    padding: 4px;
+  }
+
+  .fridge__inputBox__title {
+    font-size: 3.4rem;
+  }
+  .demo_note {
+    font-size: 2.2rem;
+  }
+
+  #fridge__select,
+  #fridge__select__part {
+    width: 20rem;
+    height: 4rem;
+    margin-bottom: 3px;
+    font-size: 2rem;
+    padding-left: 1rem;
+  }
+
+  .demo__inputContainer {
+    margin-top: 3rem;
+  }
+  .demo__inputContainer input {
+    width: 20rem;
+    margin-bottom: 3px;
+    padding-left: 1.4rem;
+    height: 4rem;
+    font-size: 2rem;
+  }
+  ::placeholder {
+    font-size: 2rem;
+  }
+  .inputbutton__demo {
+    width: 20rem;
+    font-size: 2rem;
+    height: 4rem;
+  }
+
+  .demo__itemListBox {
+    /* margin-top: -3rem; */
+    height: 60%;
+  }
+
+  .fridge_Section {
+    height: 80%;
+  }
+  .demopart_section {
+    height: 5.5rem;
+    font-size: 2.4rem;
+  }
+  .part {
+    padding-top: 0.7rem;
+  }
+}
+
+/* 27inch 3840 x 2160 */
+@media screen and (min-width: 3840px) {
+  .demoUserInfo {
+    padding-top: 2rem;
+  }
+  .container__DemoAdd {
+    margin-top: 4.5rem;
+  }
+
+  .loggedOut {
+    width: 14.5rem;
+    font-size: 2.7rem;
+    top: 6rem;
+    right: 4rem;
+    padding: 4px;
+  }
 }
