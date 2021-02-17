@@ -73,7 +73,10 @@ class Signup extends Component {
           className="input__mobile"
           onChange={this.handleInputValue("mobile")}
         />
-        <button className="btn__register" onClick={() => this.clickBtn()}>
+        <button
+          className="btn__register btn__register__go"
+          onClick={() => this.clickBtn()}
+        >
           회원 가입하기
         </button>
       </div>
