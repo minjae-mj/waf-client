@@ -6,8 +6,8 @@
 
 .main__description {
   position: absolute;
-  top: 170px;
-  left: 80px;
+  top: 15rem;
+  left: 5rem;
   color: #314145;
   line-height: 110%;
   font-size: 3.6rem;
@@ -22,8 +22,8 @@
 
 .main__buttonBox {
   position: absolute;
-  top: 370px;
-  left: 65px;
+  top: 27rem;
+  left: 4rem;
   display: flex;
   justify-content: center;
 }
@@ -44,4 +44,58 @@
 }
 .main__btn:hover {
   background-color: #346464;
+}
+
+/* ipad landscape 1024 x 768 */
+@media screen and (max-width: 1024px) {
+  .main__description {
+    top: 13.5rem;
+    left: 5rem;
+    font-size: 3rem;
+  }
+
+  .main__buttonBox {
+    top: 23.5rem;
+    left: 4rem;
+  }
+}
+
+/* 13inch 1680 x 1050 */
+@media screen and (min-width: 1680px) {
+  .main__description {
+    top: 15.5rem;
+    left: 5rem;
+    font-size: 3.8rem;
+  }
+
+  .main__buttonBox {
+    top: 28rem;
+    left: 4rem;
+  }
+}
+
+/* 16inch 3072 x 1920 */
+@media screen and (min-width: 3072px) {
+  .main__description {
+    top: 32rem;
+    left: 12rem;
+    font-size: 8rem;
+  }
+
+  .main__buttonBox {
+    top: 60rem;
+    left: 12rem;
+  }
+
+  .main__btn {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 5em auto;
+    padding: 1em;
+    position: relative;
+    margin: 20px;
+    cursor: pointer;
+    outline-style: none;
+    border-style: none;
+  }
 }

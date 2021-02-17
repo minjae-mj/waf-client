@@ -1,4 +1,3 @@
-/** @format */
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import './addItem.css';
@@ -169,7 +168,7 @@ class AddItem extends Component {
             <span>오늘 구매</span>
             <input
               type='checkbox'
-              className='input'
+              className='input checkbox'
               name='오늘구매'
               onClick={this.boughtToday.bind(this)}
             ></input>
@@ -190,9 +189,9 @@ class AddItem extends Component {
 
           <div className='listBox'>
             <ul>
-              {collection.map((item) => {
+              {collection.map((item, idx) => {
                 return (
-                  <li key={item.item}>
+                  <li key={idx}>
                     <div>{item.item}</div>
                     <div>{item.category}</div>
                     <div>{item.part}</div>

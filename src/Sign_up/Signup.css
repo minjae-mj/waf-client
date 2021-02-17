@@ -22,3 +22,41 @@
   top: 7%;
   left: 12%;
 }
+
+/* ipad landscape 1024 x 768 */
+@media screen and (max-width: 1024px) {
+  .register__text {
+    font-size: 1rem;
+    margin-left: 0.9rem;
+    margin-top: 1rem;
+  }
+}
+
+/* 13inch 1680 x 1050 */
+@media screen and (min-width: 1680px) {
+  .register__text {
+    margin-left: 0;
+    margin-top: 3rem;
+  }
+}
+
+/* 16inch 3072 x 1920 */
+@media screen and (min-width: 3072px) {
+  .register__text {
+    font-size: 3rem;
+    left: 8%;
+    margin-top: 3rem;
+  }
+
+  .input__username,
+  .input__mobile {
+    font-size: 2.2rem;
+    height: 4rem;
+    margin-bottom: 1.6rem;
+    padding: 4rem 2.8rem;
+  }
+
+  .btn__register__go {
+    margin-top: 2rem;
+  }
+}
