@@ -17,7 +17,7 @@ class Main extends React.Component {
         {/* 로그인과 시작하기 버튼  */}
         <div className='main__buttonBox'>
           <Link to='/demofridge'>
-            <button className='main__btn'>waf 시작해보기</button>
+            <button className='main__btn'>waf 체험해보기</button>
           </Link>
 
           <Link to='/users'>
