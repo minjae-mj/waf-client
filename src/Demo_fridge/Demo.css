@@ -327,6 +327,38 @@
   padding: 0px;
 }
 
+/* @media screen and (max-height: 660px) {
+  .demoUserInfo {
+    flex-basis: 25%;
+    padding: 0.2em 2em;
+  }
+  .demo__itemListBox {
+    flex-basis: 75%;
+  }
+
+  .loggedOut {
+    font-size: 0.2em;
+  }
+}
+
+@media screen and (max-height: 720px) {
+  .demoUserInfo {
+    flex-basis: 25%;
+    padding: 0.5em 2em;
+  }
+  .demo__itemListBox {
+    flex-basis: 75%;
+  }
+
+  .name__section {
+    font-size: 1.5em;
+  }
+
+  .loggedOut {
+    font-size: 0.8em;
+  }
+} */
+
 /* ipad landscape 1024 x 768 */
 @media screen and (max-width: 1024px) {
   .demoUserInfo {
