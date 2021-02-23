@@ -53,17 +53,16 @@ class Demo extends React.Component {
         {/* 왼쪽 화면 */}
         <div className='whiteBackground'>
           <div className='demoUserInfo'>
-            <div className='name__section'>
-              guest님의 냉장고입니다
-              <span className='loggedOut' onClick={this.goToSignup}>
-                회원가입
-              </span>
-            </div>
+            <div className='name__section'>guest님의 냉장고입니다</div>
+            <span className='loggedOut' onClick={this.goToSignup}>
+              회원가입
+            </span>
           </div>
+
           <div className='content'>
             <div className='left'>
               {/* 왼쪽 냉장고 */}
-              <div className='fridge_leftside'>
+              <div className='demofridge_leftside'>
                 <div className='left_items'>
                   <img className='mandu' src={mandu}></img>
                   <img className='eggs' src={eggs}></img>
@@ -71,7 +70,7 @@ class Demo extends React.Component {
                 </div>
               </div>
 
-              <div className='fridge_rightside'>
+              <div className='demofridge_rightside'>
                 <div className='right_items'>
                   <img className='seafood' src={fish}></img>
                   <img className='meat' src={meat}></img>
