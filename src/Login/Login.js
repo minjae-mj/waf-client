@@ -1,7 +1,7 @@
 import React from "react";
 import "./Login.css";
 import btn_google from "./btn_google.png";
-import btn_naver from "./btn_naver.png";
+// import btn_naver from "./btn_naver.png";
 import { withRouter } from "react-router-dom";
 import serverUrl from "../config/server";
 
@@ -16,18 +16,18 @@ class Login extends React.Component {
       password: "",
     };
 
-    this.naverLoginHandler = this.naverLoginHandler.bind(this);
+    // this.naverLoginHandler = this.naverLoginHandler.bind(this);
     this.googleLoginHandler = this.googleLoginHandler.bind(this);
 
-    this.NAVER_LOGIN_URL =
-      "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=Yn5blabiliLbi8Ed8Je4&state=waftest&redirect_uri=http://waf-client.s3-website.ap-northeast-2.amazonaws.com/users";
+    // this.NAVER_LOGIN_URL =
+    //   "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=Yn5blabiliLbi8Ed8Je4&state=waftest&redirect_uri=http://waf-client.s3-website.ap-northeast-2.amazonaws.com/users";
 
     this.GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=218828135580-63brp05lohg6jb7f58rgjhueorgtv9d6.apps.googleusercontent.com&redirect_uri=http://waf-client.s3-website.ap-northeast-2.amazonaws.com/users&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile`;
   }
 
-  naverLoginHandler() {
-    window.location.assign(this.NAVER_LOGIN_URL);
-  }
+  // naverLoginHandler() {
+  //   window.location.assign(this.NAVER_LOGIN_URL);
+  // }
 
   googleLoginHandler(e) {
     window.location.assign(this.GOOGLE_LOGIN_URL);
@@ -106,12 +106,12 @@ class Login extends React.Component {
             className="btn__google"
             onClick={this.googleLoginHandler}
           />
-          <img
+          {/* <img
             src={btn_naver}
             alt="naver__signin"
             className="btn__naver"
             onClick={this.naverLoginHandler}
-          />
+          /> */}
         </div>
 
         <button

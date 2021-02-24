@@ -39,6 +39,7 @@
   box-shadow: 0.2rem 0.2rem 0.4rem #346464;
 }
 
+/* 
 #oauth__box {
   display: flex;
   flex-direction: row;
@@ -47,14 +48,17 @@
   padding: 1rem 0;
   justify-content: space-between;
 }
+*/
 
-.btn__google,
-.btn__naver {
-  width: 45%;
+
+.btn__google {
+  height: 3.2rem;
+  margin-bottom: 1.2rem;
   cursor: pointer;
   box-shadow: 0.2rem 0.4rem 0.4rem #314145;
   transition: all 0.1s;
 }
+
 
 .btn__google:hover,
 .btn__naver:hover {
@@ -98,8 +102,7 @@
     margin-bottom: 1rem;
   }
 
-  .btn__google,
-  .btn__naver {
+  .btn__google {
     width: 99%;
     height: 4.2rem;
     margin: auto;
